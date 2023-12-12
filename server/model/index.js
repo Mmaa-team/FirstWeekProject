@@ -75,10 +75,9 @@ db.Collection.hasMany(db.Items, {
 });
 db.Items.belongsTo(db.Collection);
 
-db.Collection.hasMany(db.Creator, {
-  foreignKey: "collectionId",
-});
-db.Creator.belongsTo(db.Collection);
+
+
+
 
 
 /////relations between  following and creator    /////
@@ -95,6 +94,6 @@ db.Users.belongsToMany(db.Brand, { through: db.FollowingBrand });
 db.Items.belongsToMany(db.Users, { through: db.Favorite });
 db.Users.belongsToMany(db.Items, { through: db.Favorite });
 
-// db.sequelize.sync({ alter: true });
+// db.sequelize.sync({ force: true });
 
 module.exports = db;
