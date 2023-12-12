@@ -13,6 +13,10 @@ const db = require("./model/index.js");
 //user Route
 const userRoute = require("./route/user_route.js");
 app.use("/users",userRoute);
+//collection
+const collectionRoute = require("./route/collection_route.js");
+app.use("/collections",collectionRoute);
+
 
 app.listen(PORT, () => {
   console.log(`Server listening at http://localhost:${PORT}`);

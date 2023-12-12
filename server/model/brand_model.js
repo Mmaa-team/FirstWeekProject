@@ -12,6 +12,7 @@ module.exports = (sequelize, DataTypes) => {
         type:DataTypes.BOOLEAN,
         allowNull:false
     }
-  });
+  },{ timestamps: false }
+  );
   return Brand;
 };
