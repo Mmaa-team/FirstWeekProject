@@ -101,13 +101,13 @@ exports.getOneBrandsCollection = async (req, res) => {
 };
 
 exports.addCollection = async (req, res) => {
-  const { creator, brand } = req.param;
+  const { creator, brand } = req.params;
   const { name } = req.body;
   try {
     const result = await Collection.create({
       name: name,
-      creatorId: creator,
-      brandId: brand,
+      creatorId: +creator,
+      brandId: +brand,
     });
     res.status(200).send("collection Added");
   } catch (err) {
