@@ -69,16 +69,11 @@ db.Brand.belongsToMany(db.Creator, { through: db.Collection });
 
 
 
-/////relations between  collection and items && collection and Creator   /////
+/////relations between  collection and items  /////
 db.Collection.hasMany(db.Items, {
   foreignKey: "collectionId",
 });
 db.Items.belongsTo(db.Collection);
-
-
-
-
-
 
 /////relations between  following and creator    /////
 db.Creator.belongsToMany(db.Users, { through: db.FollowingCreator });
