@@ -1,0 +1,25 @@
+const db = require("./index.js");
+
+module.exports = (sequelize, DataTypes) => {
+  const Collection = sequelize.define("collection", {
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    creatorId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "creators",
+        key: "id",
+      },
+    },
+    brandId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "brands",
+        key: "id",
+      },
+    },
+  });
+  return Collection;
+};
