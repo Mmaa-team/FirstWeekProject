@@ -12,7 +12,15 @@ app.use(cors());
 const db = require("./model/index.js");
 //user Route
 const userRoute = require("./route/user_route.js");
-app.use("/users",userRoute);
+app.use("/users", userRoute);
+
+// brand route:
+const brandRoute = require("./route/brand_route.js");
+app.use("/brands", brandRoute);
+
+// followingBrand route:
+const followingBrandRoute = require("./route/followingBrand_route.js")
+app.use("/followingBrand", followingBrandRoute)
 
 app.listen(PORT, () => {
   console.log(`Server listening at http://localhost:${PORT}`);

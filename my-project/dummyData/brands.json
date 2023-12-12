@@ -1,0 +1,32 @@
+[
+    {
+        "brandName": "Balenciaga ",
+        "brandImage": "https://www.1min30.com/wp-content/uploads/2018/03/Logo-Balenciaga-1.jpg",
+        "status": true
+    },
+    {
+        "brandName": "Channel",
+        "brandImage": "https://www.1min30.com/wp-content/uploads/2017/08/Chanel-logo-1.jpg",
+        "status": false
+    },
+    {
+        "brandName": "Louis Vuitton",
+        "brandImage": "https://logowik.com/content/uploads/images/863_louis_vuitton.jpg",
+        "status": true
+    },
+    {
+        "brandName": "Nike",
+        "brandImage": "https://static.vecteezy.com/ti/vecteur-libre/p3/10994412-logo-nike-noir-avec-icone-de-conception-de-vetements-nom-abstrait-illustrationle-de-football-avec-fond-blanc-gratuit-vectoriel.jpg",
+        "status": false
+    },
+    {
+        "brandName": "Gucci",
+        "brandImage": "https://betesauvage.com/wp-content/uploads/2022/02/gucci-logo-ldd-journal-du-luxe-1.png",
+        "status": true
+    },
+    {
+        "brandName": "Versace",
+        "brandImage": "https://static.vecteezy.com/system/resources/previews/024/131/462/original/versace-brand-logo-symbol-clothes-design-icon-abstract-illustration-free-vector.jpg",
+        "status": false
+    }
+]
