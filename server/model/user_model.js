@@ -22,6 +22,7 @@ module.exports=(sequelize, DataTypes) => {
       type: DataTypes.DATE,
       allowNull: false,
     },
-  });
+  },{ timestamps: false }
+  );
   return Users;
 };
