@@ -20,11 +20,28 @@ exports.getFavItem = async (req, res) => {
     }
 }
 
-exports.addFav=(req,res)=>{
-    
-    try{
+exports.addFav = async (req, res) => {
+    const { idItem, iduser } = req.params
+    try {
+        let newFav = await Favorite.create({
+            userId: iduser,
+            itemId: idItem
+        })
+        res.status(200).json("fav item added")
+    } catch (err) {
+        res.status(400).json("error happen in add fav item", err)
+    }
+}
 
-    }catch(err){
-
+exports.removeFav = async (req, res) => {
+    let { iditem, iduser } = req.params
+    // console.log(idItem,iduser);
+    try {
+        await Favorite.destroy({
+            where: { itemId: iditem, userId: iduser }
+        })
+        res.status(200).send("fav item removed successfully")
+    } catch (err) {
+        res.status(400).send(err)
     }
 }

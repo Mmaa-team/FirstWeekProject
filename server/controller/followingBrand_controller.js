@@ -23,7 +23,7 @@ exports.getUsers = async (req, res) => {
 
 exports.newFollower = async (req, res) => {
     const { idbrand, idUser } = req.params
-    console.log(idbrand, idUser);
+    // console.log(idbrand, idUser);
     try {
         let follower = await FollowingBrand.create({
             userId: idUser,
@@ -37,7 +37,7 @@ exports.newFollower = async (req, res) => {
 
 exports.removeFollow = async (req, res) => {
     let { idbrand, iduser } = req.params
-    console.log(idbrand, iduser)
+    // console.log(idbrand, iduser)
     try {
         const removeFollower = await FollowingBrand.destroy({
             where: { brandId: idbrand, userId: iduser }

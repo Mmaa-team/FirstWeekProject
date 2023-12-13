@@ -10,10 +10,6 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: true,
       },
-      like: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },
     },
     { timestamps: false }
   );
