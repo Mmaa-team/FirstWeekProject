@@ -1,5 +1,27 @@
 const db = require("../model/index.js");
 const Creator= db.Creator
+
+
+const getOneCreator = async (req,res)=> {
+try {
+  const creator= await Creator.findOne({
+     where: { id:req.params.id } 
+  })
+  res.send(creator)
+}
+catch {
+  res.send("error")
+}
+}
+const getAllCreators = async(req,res)=> {
+  try {
+    const creators = await Creator.findAll()
+    res.send(creators)
+  }
+  catch {
+    res.status(404).send("error")
+  }
+}
 const updatePfImage=async(req,res)=>{
     try {
         const {pfImage}=req.body
@@ -71,4 +93,4 @@ const updateStatus=async(req,res)=>{
         res.status(404).send("error")
     }
 }
-module.exports = {updatePfImage,updateBgImage,updateAdress,updateBio,updateStatus}
+module.exports = {updatePfImage,updateBgImage,updateAdress,updateBio,updateStatus,getAllCreators,getOneCreator}
