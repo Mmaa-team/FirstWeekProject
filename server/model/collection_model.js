@@ -12,6 +12,7 @@ module.exports = (sequelize, DataTypes) => {
         model: "creators",
         key: "id",
       },
+      allowNull:true
     },
     brandId: {
       type: DataTypes.INTEGER,
@@ -19,6 +20,7 @@ module.exports = (sequelize, DataTypes) => {
         model: "brands",
         key: "id",
       },
+      allowNull:true
     },
   },{ timestamps: false }
   );

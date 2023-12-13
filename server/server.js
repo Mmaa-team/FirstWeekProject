@@ -24,7 +24,10 @@ app.use("/followingBrand", followingBrandRoute)
 app.use("/users", userRoute);
 //collection
 const collectionRoute = require("./route/collection_route.js");
-app.use("/collections", collectionRoute);
+app.use("/collections",collectionRoute);
+//items
+const itemRoute = require("./route/item_route.js");
+app.use("/items",itemRoute);
 
 
 app.listen(PORT, () => {
