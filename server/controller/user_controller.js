@@ -1,2 +1,4 @@
 const db = require("../model/index.js");
-exports.getAll = (req, res) => {};
+exports.getAll = (req, res) => {
+    
+};
