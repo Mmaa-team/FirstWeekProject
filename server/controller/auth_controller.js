@@ -11,7 +11,10 @@ module.exports = {
     try {
       const { fullName, userName, email, password, dateBirth } = req.body
 
+     
+
       const users = await table.findAndCountAll({ where: { email } });
+
       if (users.count) {
         return res.status(409).send("userAlreadyexist")
       }
