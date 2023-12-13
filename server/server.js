@@ -12,7 +12,9 @@ app.use(cors());
 const db = require("./model/index.js");
 //user Route
 const userRoute = require("./route/user_route.js");
+const authRoute=require("./route/auth_route.js")
 app.use("/users",userRoute);
+app.use("/auth",authRoute);
 //collection
 const collectionRoute = require("./route/collection_route.js");
 app.use("/collections",collectionRoute);
