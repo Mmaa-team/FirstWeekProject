@@ -21,13 +21,22 @@ app.use("/brands", brandRoute);
 // followingBrand route:
 const followingBrandRoute = require("./route/followingBrand_route.js")
 app.use("/followingBrand", followingBrandRoute)
+//Following Creator:
+const followingCreatorRoute = require("./route/followingCreator.js");
+app.use("/followingCreator", followingCreatorRoute);
+
+
 app.use("/users", userRoute);
+const authRoute = require("./route/auth_route.js")
+app.use("/users", userRoute);
+app.use("/auth", authRoute);
 //collection
 const collectionRoute = require("./route/collection_route.js");
-app.use("/collections",collectionRoute);
+app.use("/collections", collectionRoute);
 //items
 const itemRoute = require("./route/item_route.js");
-app.use("/items",itemRoute);
+app.use("/items", itemRoute);
+
 
 
 app.listen(PORT, () => {
