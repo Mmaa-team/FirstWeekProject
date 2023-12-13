@@ -13,6 +13,7 @@ const Signup = lazy(() => import("./components/auth/signup.jsx"))
 
 // About Page:
 const About = lazy(() => import("./components/pages/About.jsx"))
+const Signin=lazy(() => import("./components/auth/signin.jsx"))
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -22,6 +23,7 @@ function App() {
         </Route>
         <Route path="/signup" element={< Signup />} />
         <Route path="/About" element={<About />} />
+        <Route path="/signin" element={< Signin />} />
       </>
     ))
 

@@ -50,6 +50,10 @@ app.use("/creators", creatorRoute)
 const postRoute = require("./route/post_route.js")
 app.use("/posts", postRoute)
 
+//Basket Route
+const basketRoute = require("./route/basket_route.js")
+app.use("/baskets",postRoute)
+
 app.listen(PORT, () => {
   console.log(`Server listening at http://localhost:${PORT}`);
 });
