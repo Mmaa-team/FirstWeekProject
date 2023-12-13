@@ -6,9 +6,9 @@ module.exports = {
   signup: async (req, res) => {
     try {
       const { fullName, userName, email, password, dateBirth } = req.body
-
+ 
       const users = await db.Users.findAndCountAll({ where: { email } });
-      console.log(users, 'users')
+     
       if (users.count) {
         return res.status(409).send("userAlreadyexist")
       }
