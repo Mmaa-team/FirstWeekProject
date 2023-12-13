@@ -1,5 +1,9 @@
 module.exports = (sequelize, DataTypes) => {
   const Items = sequelize.define("item", {
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     status: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -8,6 +12,11 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    image: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    
     price: {
       type: DataTypes.FLOAT,
       allowNull: false,
@@ -20,6 +29,11 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: true,
     },
-  });
+    stock: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
+  },{ timestamps: false }
+  );
   return Items;
 };

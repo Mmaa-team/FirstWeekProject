@@ -9,6 +9,7 @@ module.exports=(sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    
 
     email: {
       type: DataTypes.STRING,
@@ -22,6 +23,7 @@ module.exports=(sequelize, DataTypes) => {
       type: DataTypes.DATE,
       allowNull: false,
     },
-  });
+  },{ timestamps: false }
+  );
   return Users;
 };
