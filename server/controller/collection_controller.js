@@ -2,6 +2,23 @@ const db = require("../model/index.js");
 const Collection = db.Collection;
 const Creator = db.Creator;
 const Brand = db.Brand;
+
+exports.getAll = async (req, res) => {
+  try {
+    const result = await Collection.findAll({
+      include: [{ model: Brand, model: Creator }],
+    });
+
+    if (result.length) {
+      res.status(200).send(result);
+    } else {
+      res.status(230).send("this Collection not found");
+    }
+  } catch (err) {
+    res.status(400).send(err);
+  }
+};
+
 exports.getBrandCollections = async (req, res) => {
   const { brand, creator } = req.params;
 
@@ -10,19 +27,15 @@ exports.getBrandCollections = async (req, res) => {
       include: [
         {
           model: Creator,
-          where: {
-            name: creator,                
-          },
+          where: { id: creator },
         },
         {
           model: Brand,
-          where: {
-            brandName: brand,
-          },
+          where: { brandName: brand },
         },
       ],
     });
-    if (!!result.length) {
+    if (result.length) {
       res.status(200).send(result);
     } else {
       res.status(230).send("Collections not found");
@@ -36,23 +49,13 @@ exports.getAllBrandsCollections = async (req, res) => {
   const { creator } = req.params;
   try {
     const result = await Collection.findAll({
-      include: [
-        {
-          model: Creator,
-          where: {
-            creator: creator,
-          },
-        },
-        {
-          model: Brand,
-        },
-      ],
-      attributes: {
-        exclude: ["createdAt", "updatedAt"],
+      where: {
+        creatorId: creator,
       },
+      include: [{ model: Brand }],
     });
 
-    if (Object.keys(result).length) {
+    if (result.length) {
       res.status(200).send(result);
     } else {
       res.status(230).send("this Collection not found");
@@ -73,15 +76,14 @@ exports.getOneBrandsCollection = async (req, res) => {
         {
           model: Creator,
           where: {
-            creator: creator,
+            id: creator,
           },
         },
+
         {
           model: Brand,
           where: {
-            brandName: {
-              brand,
-            },
+            brandName: brand,
           },
         },
       ],

@@ -36,10 +36,8 @@ db.FollowingBrand = require("./followingBrand_model.js")(sequelize, DataTypes);
 db.FollowingCreator = require("./followingCreator_model.js")(
   sequelize,
   DataTypes
-  );
-  db.Favorite = require("./favorite_model.js")(sequelize, DataTypes);
-
-
+);
+db.Favorite = require("./favorite_model.js")(sequelize, DataTypes);
 
 /////relations between Items and Users  through Basket/////
 db.Items.belongsToMany(db.Users, { through: db.Basket });
@@ -64,10 +62,22 @@ db.Comment.belongsTo(db.Post);
 
 /////relations between Creator and Brand  through Collection/////
 
-db.Creator.belongsToMany(db.Brand, { through: db.Collection });
-db.Brand.belongsToMany(db.Creator, { through: db.Collection });
+db.Creator.hasMany(
+  db.Collection,
+
+  { foreignKey: "creatorId" }
+);
+db.Collection.belongsTo(db.Creator);
 
 
+db.Brand.hasMany(
+  db.Collection,
+
+  { foreignKey: "brandId" }
+);
+db.Collection.belongsTo(db.Brand);
+
+// db.Brand.belongsToMany(db.Creator, { through: db.Collection ,foreignKey:"creatorId"});
 
 /////relations between  collection and items  /////
 db.Collection.hasMany(db.Items, {
@@ -82,8 +92,6 @@ db.Users.belongsToMany(db.Creator, { through: db.FollowingCreator });
 /////relations between  following and Brand    /////
 db.Brand.belongsToMany(db.Users, { through: db.FollowingBrand });
 db.Users.belongsToMany(db.Brand, { through: db.FollowingBrand });
-
-
 
 ///relations between Items and Users  through Favorite/////
 db.Items.belongsToMany(db.Users, { through: db.Favorite });

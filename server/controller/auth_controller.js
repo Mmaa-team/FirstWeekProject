@@ -4,17 +4,23 @@ const jwt = require('jsonwebtoken')
 
 module.exports = {
   signup: async (req, res) => {
+    if(req.params.role === "creator"){
+      var table = db.Creator
+    }
+    else table = db.Users
     try {
       const { fullName, userName, email, password, dateBirth } = req.body
- 
-      const users = await db.Users.findAndCountAll({ where: { email } });
+
      
+
+      const users = await table.findAndCountAll({ where: { email } });
+
       if (users.count) {
         return res.status(409).send("userAlreadyexist")
       }
       const salt = bcryptjs.genSaltSync(5)
       const hach = bcryptjs.hashSync(password, salt)
-      const user = await db.Users.create({ fullName, userName, email, password: hach, dateBirth })
+      const user = await table.create({ fullName, userName, email, password: hach, dateBirth })
       return res.status(200).send('done')
     }
     catch (err) {
@@ -24,11 +30,10 @@ module.exports = {
   signin: async (req, res) => {
     try {
 
-      const user = await db.Users.findOne({ where: { email: req.body.email } });
+      const user = await table.findOne({ where: { email: req.body.email } });
       if (!Object.keys(user.dataValues) .length) {
         return res.status(409).send("userdoesntexist")
       }
- console.log(user.dataValues.password)
       const isPasswordcorrect = bcryptjs.compareSync(req.body.password, user.dataValues.password);
       console.log(isPasswordcorrect)
       if (!isPasswordcorrect) { return res.status(409).json("password incorrect") }
