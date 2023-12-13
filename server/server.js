@@ -23,6 +23,14 @@ const itemRoute = require("./route/item_route.js");
 app.use("/items",itemRoute);
 
 
+//creator Route
+const creatorRoute = require("./route/creator_route.js")
+app.use("/creators",creatorRoute)
+
+//Post Route
+const postRoute = require("./route/post_route.js")
+app.use("/posts",postRoute)
+
 app.listen(PORT, () => {
   console.log(`Server listening at http://localhost:${PORT}`);
 });
