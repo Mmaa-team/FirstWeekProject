@@ -1,0 +1,62 @@
+[
+    {
+        "fullName": "Alessandro Michele",
+        "pfImage": "https://cdn.rt.emap.com/wp-content/uploads/sites/2/2022/01/24102659/4-Alessandro-Michele.jpg",
+        "status": true,
+        "bio": "Alessandro Michele, born 1972, is the Creative Director of Gucci, transforming the brand with eclectic, maximalist designs since 2015, reshaping contemporary luxury fashion.",
+        "dateBirth": "",
+        "email": "Alessandro_Michele@gmail.com",
+        "password": "123456789",
+        "adress": "Tornabuoni 73/r, 50123 Florence, Italy"
+    },
+    {
+        "fullName": "Demna Gvasalia",
+        "pfImage": "https://hips.hearstapps.com/hmg-prod/images/demna-gvasalia-1568620896.jpg",
+        "status": true,
+        "bio": "Creative Director at Balenciaga since 2015, renowned for avant-garde designs merging streetwear with couture, reshaping high fashion.",
+        "dateBirth": "",
+        "email": "@gmail.com",
+        "password": "123456789",
+        "adress": "The Galleria, 5015 Westheimer Rd, Space A2262 Houston 77056"
+    },
+    {
+        "fullName": "",
+        "pfImage": "",
+        "status": false,
+        "bio": "",
+        "dateBirth": "",
+        "email": "@gmail.com",
+        "password": "123456789",
+        "adress": ""
+    },
+    {
+        "fullName": "",
+        "pfImage": "",
+        "status": false,
+        "bio": "",
+        "dateBirth": "",
+        "email": "@gmail.com",
+        "password": "123456789",
+        "adress": ""
+    },
+    {
+        "fullName": "",
+        "pfImage": "",
+        "status": false,
+        "bio": "",
+        "dateBirth": "",
+        "email": "@gmail.com",
+        "password": "123456789",
+        "adress": ""
+    },
+    {
+        "fullName": "",
+        "pfImage": "",
+        "status": false,
+        "bio": "",
+        "dateBirth": "",
+        "email": "@gmail.com",
+        "password": "123456789",
+        "adress": ""
+    }
+]

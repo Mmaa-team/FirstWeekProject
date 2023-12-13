@@ -36,8 +36,8 @@ db.FollowingBrand = require("./followingBrand_model.js")(sequelize, DataTypes);
 db.FollowingCreator = require("./followingCreator_model.js")(
   sequelize,
   DataTypes
-  );
-  db.Favorite = require("./favorite_model.js")(sequelize, DataTypes);
+);
+db.Favorite = require("./favorite_model.js")(sequelize, DataTypes);
 
 
 
@@ -78,7 +78,7 @@ db.Items.belongsTo(db.Collection);
 db.Collection.hasMany(db.Creator, {
   foreignKey: "collectionId",
 });
-db.Items.belongsTo(db.Collection);
+db.Creator.belongsTo(db.Collection);
 
 
 /////relations between  following and creator    /////
@@ -95,6 +95,6 @@ db.Users.belongsToMany(db.Brand, { through: db.FollowingBrand });
 db.Items.belongsToMany(db.Users, { through: db.Favorite });
 db.Users.belongsToMany(db.Items, { through: db.Favorite });
 
-// db.sequelize.sync({ force: true });
+// db.sequelize.sync({ alter: true });
 
 module.exports = db;

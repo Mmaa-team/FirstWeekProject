@@ -23,7 +23,7 @@ exports.getUsers = async (req, res) => {
 exports.newFollower = async (req, res) => {
     const { idbrand, idUser } = req.params
     try {
-        let follower = FollowingBrand.create({
+        let follower = await FollowingBrand.create({
             userId: idUser,
             brandId: idbrand
         })
