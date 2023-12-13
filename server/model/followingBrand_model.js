@@ -7,13 +7,14 @@ module.exports = (sequelize, DataTypes) => {
           key: 'id'
         }
       },
-      creatorId: {
+      brandId: {
         type: DataTypes.INTEGER,
         references: {
-          model: "creators", 
+          model: "brands", 
           key: 'id'
         }
       }
-  });
+  },{ timestamps: false }
+  );
   return FollowingBrand;
 };
