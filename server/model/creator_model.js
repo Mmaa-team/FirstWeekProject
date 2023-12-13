@@ -6,21 +6,26 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      bgImage: {
+      userName: {
         type: DataTypes.STRING,
         allowNull: false,
+      },
+      bgImage: {
+        type: DataTypes.STRING,
+        allowNull: true,
       },
       pfImage: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
       },
       status: {
         type: DataTypes.BOOLEAN,
-        allowNull: false,
+        allowNull: true,
+        defaultValue:false
       },
       bio: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
       },
       dateBirth: {
         type: DataTypes.DATE,
@@ -36,7 +41,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       adress: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
       },
     },
     { timestamps: false }
