@@ -24,7 +24,7 @@ const Signup = () => {
         dateBirth:dateBirth.current.value
     }
     console.log(obj)
-    axios.post(`http://127.0.0.1:8080/auth/signin/${role}`,obj).then(()=>{console.log('done')})
+    axios.post(`http://127.0.0.1:8080/auth/signup/${role}`,obj).then(()=>{console.log('done')})
     .catch((err)=>{console.log(err)})
     }
 
