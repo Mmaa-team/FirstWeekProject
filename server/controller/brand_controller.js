@@ -19,12 +19,12 @@ exports.getAll = async (req, res) => {
 
 exports.getOne = async (req, res) => {
     const { brand } = req.params
-    // console.log(brand);
+    console.log(brand);
     try {
-        const oneBrand = await Brand.findOne({ where: { brandName: brand } })
-        res.status(200).json(oneBrand)
+        const oneBrand = await Brand.findOne({ where: { id: brand } })
+        res.status(200).send(oneBrand)
     } catch (err) {
-        res.status(400).json("error happen in getOne Brand", err)
+        res.status(400).send("error happen in getOne Brand", err)
     }
 }
 

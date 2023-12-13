@@ -14,9 +14,9 @@ exports.getFavItem = async (req, res) => {
                 }
             ]
         })
-        res.status(200).json(fav)
+        res.status(200).send(fav)
     } catch (err) {
-        res.status(400).json("error happen in get fav item")
+        res.status(400).send(err)
     }
 }
 

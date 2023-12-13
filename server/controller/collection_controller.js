@@ -31,7 +31,7 @@ exports.getBrandCollections = async (req, res) => {
         },
         {
           model: Brand,
-          where: { brandName: brand },
+          where: { id: brand },
         },
       ],
     });
@@ -66,11 +66,12 @@ exports.getAllBrandsCollections = async (req, res) => {
 };
 
 exports.getOneBrandsCollection = async (req, res) => {
-  const { creator, collection_name, brand } = req.params;
+  console.log(req.params);
+  const { creator, collection_id, brand } = req.params;
   try {
     const result = await Collection.findOne({
       where: {
-        name: collection_name,
+        id: collection_id,
       },
       include: [
         {
@@ -83,13 +84,11 @@ exports.getOneBrandsCollection = async (req, res) => {
         {
           model: Brand,
           where: {
-            brandName: brand,
+            id: brand,
           },
         },
       ],
-      attributes: {
-        exclude: ["createdAt", "updatedAt"],
-      },
+    
     });
 
     if (Object.keys(result).length) {

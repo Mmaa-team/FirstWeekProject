@@ -29,8 +29,12 @@ module.exports = {
   },
   signin: async (req, res) => {
     try {
-
+      if(req.params.role === "creator"){
+        var table = db.Creator
+      }
+      else table = db.Users
       const user = await table.findOne({ where: { email: req.body.email } });
+      console.log("hoihln");
       if (!Object.keys(user.dataValues) .length) {
         return res.status(409).send("userdoesntexist")
       }
@@ -42,7 +46,7 @@ module.exports = {
       const token = jwt.sign({ id: user.dataValues.id }, 'jwtkey')
       res.cookie("access_token", token, { httpOnly: true }).status(200).send({ fullName, userName, email, dateBirth });
     }
-    catch (err) { res.status(500).send('ereur') }
+    catch (err) { res.status(500).send(err) }
 
 
   },
