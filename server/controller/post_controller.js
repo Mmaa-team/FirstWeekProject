@@ -1,20 +1,21 @@
 const db = require("../model/index.js");
 const Post = db.Post
 
-const getAllPosts=(req,res)=> {
-    console.log(req.params.creatorId);
-    Post.findAll({
-        where: {
-            creatorId:req.params.creatorId
-        }
-      })
-      .then((response)=> {
-        console.log(response);
-          res.send(response.data)
-      })
-      .catch((error)=> {
+const getAllPosts=async (req,res)=> {
+    try {
+
+        const posts= await Post.findAll({
+            where: {
+                creatorId:req.params.creatorId
+            }
+        })
+        console.log(posts)
+        res.send(posts)
+    }
+        
+      catch(error) {
         res.send(error)
-      })
+      }
 }
 
 const addPost= async(req,res)=>{

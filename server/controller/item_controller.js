@@ -62,20 +62,23 @@ exports.postItem = async (req, res) => {
     description,
     stock,
     collectionId,
-    collectionCreatorId,
+    status,
+    image
+
   } = req.body;
 
   try {
     await Items.create({
       name: name,
-      status: true,
+      status: status,
       gender: gender,
       price: price,
       category: category,
       description: description,
       stock: stock,
       collectionId: collectionId,
-      collectionCreatorId: collectionCreatorId,
+      image: image
+    
     });
 
     res.status(200).send("Item created successfully");
@@ -86,10 +89,11 @@ exports.postItem = async (req, res) => {
 
 exports.updateItemStatus = async (req, res) => {
   const { itemId } = req.params;
-
+  const {status}= req.body; 
+  console.log(itemId,status);
   try {
     await Items.update(
-      { status: false },
+      { status:status },
       {
         where: {
           id: itemId,

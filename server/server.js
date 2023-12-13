@@ -10,30 +10,50 @@ app.use(express.json());
 app.use(cors());
 /* Connect database with server  */
 const db = require("./model/index.js");
+
 //user Route
 const userRoute = require("./route/user_route.js");
-const authRoute=require("./route/auth_route.js")
-app.use("/users",userRoute);
-app.use("/auth",authRoute);
-//collection
+app.use("/users", userRoute);
+
+// brand route:
+const brandRoute = require("./route/brand_route.js");
+app.use("/brands", brandRoute);
+
+// followingBrand route:
+const followingBrandRoute = require("./route/followingBrand_route.js")
+app.use("/followingBrand", followingBrandRoute)
+
+//Following Creator route:
+const followingCreatorRoute = require("./route/followingCreator.js");
+app.use("/followingCreator", followingCreatorRoute);
+
+//favorite Items route:
+const favoriteRoute = require("./route/favorite_route.js");
+app.use("/favoriteItem", favoriteRoute);
+
+//authentication route
+const authRoute = require("./route/auth_route.js")
+app.use("/auth", authRoute);
+
+//collection route
 const collectionRoute = require("./route/collection_route.js");
-app.use("/collections",collectionRoute);
-//items
+app.use("/collections", collectionRoute);
+
+//items route
 const itemRoute = require("./route/item_route.js");
-app.use("/items",itemRoute);
+app.use("/items", itemRoute);
 
-
-//creator Route
+//Creator Route
 const creatorRoute = require("./route/creator_route.js")
-app.use("/creators",creatorRoute)
+app.use("/creators", creatorRoute)
 
 //Post Route
 const postRoute = require("./route/post_route.js")
-app.use("/posts",postRoute)
+app.use("/posts", postRoute)
 
 //Basket Route
 const basketRoute = require("./route/basket_route.js")
-app.use("/baskets",postRoute)
+app.use("/baskets",basketRoute)
 
 app.listen(PORT, () => {
   console.log(`Server listening at http://localhost:${PORT}`);

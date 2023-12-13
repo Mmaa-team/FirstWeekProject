@@ -23,17 +23,17 @@ const getAllCreators = async(req,res)=> {
   }
 }
 const updatePfImage=async(req,res)=>{
+  const {pfImage}=req.body
     try {
-        const {pfImage}=req.body
-        await Creator.update({pfImage}, {
+        await Creator.update({pfImage:pfImage}, {
             where: {
               id:req.params.id,
             },
           })
-        res.status(200).send("successful")
+        res.status(200).send("succesful")
     }
-    catch {
-        res.status(404).send("error")
+    catch(error) {
+        res.status(404).send(error)
     }
 }
 
@@ -47,8 +47,8 @@ const updateBgImage=async(req,res)=> {
           })
         res.status(200).send("successful")
     }
-    catch {
-        res.status(404).send("error")
+    catch(error) {
+        res.status(404).send(error)
     }
 }
 const updateAdress=async(req,res)=>{
