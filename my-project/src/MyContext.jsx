@@ -1,6 +1,7 @@
-const { useContext } = require("react");
+import React, { createContext } from "react";
 
-export const MyContext = useContext()
+
+export const MyContext = createContext()
 export const ContextProvider = ({ children }) => {
     return (
         <MyContext.Provider value={{}}>

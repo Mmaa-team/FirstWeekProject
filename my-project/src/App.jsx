@@ -4,7 +4,10 @@ import {
   Route,
 } from "react-router-dom";
 import { RouterProvider } from "react-router";
-import './App.css'
+import { Suspense } from "react";
+
+
+import Layout from "./components/Layout/Layout.jsx"
 import NotFound404 from "./Components/NotFound404.jsx";
 
 function App() {
@@ -12,7 +15,9 @@ function App() {
     createRoutesFromElements(
       <>
         <Route path='*' element={<NotFound404 />} />
+        <Route path="/" element={<Layout />}>
 
+        </Route>
       </>
     ))
 
