@@ -14,7 +14,7 @@ function Header() {
 
     return (
         <header
-            className="max-w-screen fixed w-full bg-[#d2b48c]  "
+            className="max-w-screen fixed z-30 w-full  bg-[#97928f4d] "
             onMouseLeave={() => {
                 setShowExploreNav(false), setShowMoreNav(false)
             }}
@@ -41,6 +41,7 @@ function Header() {
                                 className="text-md relative  w-screen min-w-full max-w-[350px] rounded-full border-2 bg-transparent p-2 pl-9 text-white outline-none placeholder:text-white "
                             />
                         </li>
+
                         <li>
                             <NavLink>Home</NavLink>
                         </li>
@@ -62,10 +63,10 @@ function Header() {
                                 } transition-all`}
                             >
                                 <li className="w-screen border-b py-2 pl-5 transition-all hover:pl-5">
-                                    <NavLink>Page 1</NavLink>
+                                    <NavLink to="explore/allProducts">All Products</NavLink>
                                 </li>
                                 <li className="w-screen border-b py-2 pl-5 transition-all hover:pl-5">
-                                    <NavLink>Page 2</NavLink>
+                                    <NavLink>All creator</NavLink>
                                 </li>
                             </ul>
                         </li>
@@ -75,7 +76,7 @@ function Header() {
                         <li>
                             <NavLink>Drops</NavLink>
                         </li>
-                        <li className="">
+                        <li>
                             <NavLink
                                 className="flex items-center"
                                 onClick={() => {

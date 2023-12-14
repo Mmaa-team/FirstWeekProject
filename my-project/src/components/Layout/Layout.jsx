@@ -6,7 +6,7 @@ function Layout() {
   return (
     <>
       <Header />
-      <div className="layout">
+      <div className="layout pt-[100px] px-14">
         <Outlet />
       </div>
       <Footer />
