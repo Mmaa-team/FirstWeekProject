@@ -33,23 +33,15 @@
         "collectionId": 3
     },
     {
-        "name": "",
+        "name": "Leather Shearling Jacket",
         "status": "Available",
         "gender": "Women",
-        "image": "",
+        "image": "https://www.acnestudios.com/dw/image/v2/AAXV_PRD/on/demandware.static/-/Sites-acne-product-catalog/default/dw23c6196e/images/A7/A70087-/2000x/A70087-CCG_F.jpg?sw=750&sh=1125",
         "price": 330.00,
-        "category": "",
-        "description": "",
-        "stock": 200
-    },
-    {
-        "name": "",
-        "status": "Available",
-        "gender": "Women",
-        "image": "",
-        "price": 330.00,
-        "category": "",
-        "description": "",
-        "stock": 200
+        "category": "Jacket",
+        "description": "Double-breasted jacket features a contrast shearling neckline with an adjustable strap, with a zipper closure. Crafted from leather and lamb shearling. Detailed with adjustable straps at the neck and hem. Cut to a relaxed fit and a hip length.",
+        "stock": 200,
+        "collectionId": 4
     }
+
 ]

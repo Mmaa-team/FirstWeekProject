@@ -7,7 +7,7 @@ function firstDesc() {
 
     return (
         <>
-            <div className="max-w-md mx-auto mt-20">
+            <div className="max-w-md mx-auto">
                 <h3 className="flex justify-center items-center font-semibold no-underline md:underline">About us </h3>
                 <h1 className="flex justify-center items-center text-6xl text-white font-sans font-bold">Who we are.</h1>
                 <p className="flex justify-center items-center text-slate-600 m-6">Hello everyone we are FancyMama,Hello everyone we are FancyMama ,Hello everyone we are FancyMama

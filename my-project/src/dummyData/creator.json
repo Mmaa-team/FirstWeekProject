@@ -2,7 +2,7 @@
     {
         "fullName": "Alessandro Michele",
         "userName": "@Alessandro",
-        "bgImage": "",
+        "bgImage": "https://www.challenges.fr/assets/img/2022/11/23/cover-r4x3w1200-637e7e602e2db-18794f485b3ad1e389fefa4403c85ae101236b53-jpg.jpg",
         "pfImage": "https://cdn.rt.emap.com/wp-content/uploads/sites/2/2022/01/24102659/4-Alessandro-Michele.jpg",
         "status": true,
         "bio": "Alessandro Michele, I'm the Creative Director of Gucci, transforming the brand with eclectic, maximalist designs since 2015, reshaping contemporary luxury fashion.",
@@ -14,7 +14,7 @@
     {
         "fullName": "Demna Gvasalia",
         "userName": "@Demna",
-        "bgImage": "",
+        "bgImage": "https://mir-s3-cdn-cf.behance.net/projects/404/11fad6138342465.Y3JvcCwzMTk2LDI0OTksNDAzLDA.png",
         "pfImage": "https://hips.hearstapps.com/hmg-prod/images/demna-gvasalia-1568620896.jpg",
         "status": true,
         "bio": "Creative Director at Balenciaga since 2015, renowned for avant-garde designs merging streetwear with couture, reshaping high fashion.",
@@ -48,28 +48,15 @@
         "adress": " Via del Ponte di Piscina Cupa, 64, 00128 Roma RM, Italie"
     },
     {
-        "fullName": "",
-        "userName": "",
-        "bgImage": "",
-        "pfImage": "",
+        "fullName": "Jonny Johansson",
+        "userName": "@Jhonny",
+        "bgImage": "https://image-cdn.hypb.st/https%3A%2F%2Fhypebeast.com%2Fimage%2F2011%2F04%2Fmr-porter-my-space-mr-jonny-johansson.jpg?w=960&cbr=1&q=90&fit=max",
+        "pfImage": "https://media.tumblr.com/tumblr_llnm3sIOhu1qbry4c.png",
         "status": false,
-        "bio": "",
-        "dateBirth": "",
+        "bio": "Jonny Johansson, co-founder of Acne Studios, crafts fashion with a minimalist ethos, blending clean aesthetics and contemporary designs for a distinctively modern approach",
+        "dateBirth": "1969/05/13",
         "email": "@gmail.com",
         "password": "123456789",
-        "adress": ""
-    }
-    ,
-    {
-        "fullName": "",
-        "userName": "",
-        "bgImage": "",
-        "pfImage": "",
-        "status": false,
-        "bio": "",
-        "dateBirth": "",
-        "email": "@gmail.com",
-        "password": "123456789",
-        "adress": ""
+        "adress": "Piazza del Carmine 6 Milan Italy 20121"
     }
 ]

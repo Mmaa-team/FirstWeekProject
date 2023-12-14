@@ -20,9 +20,10 @@ function App() {
       <>
         <Route path='*' element={<NotFound404 />} />
         <Route path="/" element={<Layout />}>
+        <Route path="/About" element={<About />} />
+
         </Route>
         <Route path="/signup" element={< Signup />} />
-        <Route path="/About" element={<About />} />
         <Route path="/signin" element={< Signin />} />
       </>
     ))

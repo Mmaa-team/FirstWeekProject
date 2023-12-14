@@ -38,5 +38,10 @@
         "brandName":"Burberry",
         "brandImage":"https://i.pinimg.com/originals/96/ea/fa/96eafaedc9df66fe69ab833230d8ab46.jpg",
         "status":true
+    },
+    {
+        "brandName":"Acne Studios",
+        "brandImage":"https://logowik.com/content/uploads/images/acne-studios9649.logowik.com.webp",
+        "status":true
     }
 ]
