@@ -3,34 +3,57 @@
         "name": "",
         "status": "",
         "gender": "Women",
-        "price": "",
+        "price": 330.00,
         "category": "",
         "description": "",
-        "stock": 200
+        "stock": 200,
+        "image": ""
     },
     {
         "name": "",
         "status": "",
         "gender": "Women",
-        "price": "",
+        "price": 250.00,
         "category": "",
         "description": "",
-        "stock": 100
+        "stock": 100,
+        "image": ""
     },
     {
         "name": "",
         "status": "",
         "gender": "Women",
-        "price": "",
+        "price": 160.00,
         "category": "",
         "description": "",
-        "stock": 130
+        "stock": 130,
+        "image": ""
     },
     {
         "name": "",
         "status": "",
         "gender": "Men",
-        "price": "",
+        "price": 170.00,
+        "category": "",
+        "description": "",
+        "stock": 300,
+        "image": ""
+    },
+    {
+        "name": "",
+        "status": "",
+        "gender": "Men",
+        "price": 130.00,
+        "category": "",
+        "description": "",
+        "stock": 320,
+        "image": ""
+    },
+    {
+        "name": "",
+        "status": "",
+        "gender": "Women",
+        "price": 100.00,
         "category": "",
         "description": "",
         "stock": 300
@@ -39,27 +62,10 @@
         "name": "",
         "status": "",
         "gender": "Men",
-        "price": "",
+        "price": 380.00,
         "category": "",
         "description": "",
-        "stock": 320
-    },
-    {
-        "name": "",
-        "status": "",
-        "gender": "Women",
-        "price": "",
-        "category": "",
-        "description": "",
-        "stock": 300
-    },
-    {
-        "name": "",
-        "status": "",
-        "gender": "Men",
-        "price": "",
-        "category": "",
-        "description": "",
-        "stock": 300
+        "stock": 300,
+        "image": ""
     }
 ]

@@ -2,28 +2,28 @@
     {
         "fullName": "Ahmed-Haddada",
         "userName": "@bohmid",
-        "email": "",
+        "email": "ahmed@gmail.com",
         "password": "123456789",
         "dateBirth": ""
     },
     {
         "fullName": "Maamoun Bouaouina",
         "userName": "@maamoun",
-        "email": "maamoun.business@gmail.com",
+        "email": "maamoun@gmail.com",
         "password": "123456789",
-        "dateBirth": ""
+        "dateBirth": "1999/06/23"
     },
     {
         "fullName": "Aziza Ben Halima",
         "userName": "@aziza",
-        "email": "",
+        "email": "aziza@gmail.com",
         "password": "123456789",
         "dateBirth": ""
     },
     {
         "fullName": "Maryem Harmessi",
         "userName": "@maryem",
-        "email": "",
+        "email": "maryem@gmail.com",
         "password": "123456789",
         "dateBirth": ""
     }

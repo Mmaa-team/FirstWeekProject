@@ -2,6 +2,7 @@
     {
         "fullName": "Alessandro Michele",
         "pfImage": "https://cdn.rt.emap.com/wp-content/uploads/sites/2/2022/01/24102659/4-Alessandro-Michele.jpg",
+        "bgImage": "",
         "status": true,
         "bio": "Alessandro Michele, I'm the Creative Director of Gucci, transforming the brand with eclectic, maximalist designs since 2015, reshaping contemporary luxury fashion.",
         "dateBirth": "1972/11/25",
@@ -12,16 +13,18 @@
     {
         "fullName": "Demna Gvasalia",
         "pfImage": "https://hips.hearstapps.com/hmg-prod/images/demna-gvasalia-1568620896.jpg",
+        "bgImage": "",
         "status": true,
         "bio": "Creative Director at Balenciaga since 2015, renowned for avant-garde designs merging streetwear with couture, reshaping high fashion.",
         "dateBirth": "",
-        "email": "@gmail.com",
+        "email": "Demna@gmail.com",
         "password": "123456789",
         "adress": "The Galleria, 5015 Westheimer Rd, Space A2262 Houston 77056"
     },
     {
         "fullName": "",
         "pfImage": "",
+        "bgImage": "",
         "status": false,
         "bio": "",
         "dateBirth": "",
@@ -32,6 +35,7 @@
     {
         "fullName": "",
         "pfImage": "",
+        "bgImage": "",
         "status": false,
         "bio": "",
         "dateBirth": "",
@@ -42,6 +46,7 @@
     {
         "fullName": "",
         "pfImage": "",
+        "bgImage": "",
         "status": false,
         "bio": "",
         "dateBirth": "",
@@ -52,6 +57,7 @@
     {
         "fullName": "",
         "pfImage": "",
+        "bgImage": "",
         "status": false,
         "bio": "",
         "dateBirth": "",

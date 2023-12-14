@@ -13,7 +13,7 @@ const Signup = lazy(() => import("./components/auth/signup.jsx"))
 
 // About Page:
 const About = lazy(() => import("./components/pages/About.jsx"))
-const Signin=lazy(() => import("./components/auth/signin.jsx"))
+const Signin = lazy(() => import("./components/auth/signin.jsx"))
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
