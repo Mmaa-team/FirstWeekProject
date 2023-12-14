@@ -13,4 +13,5 @@ route.put("/bio/:id",updateBio)
 route.put("/status/:id",updateStatus)
 
 
+
 module.exports=route
