@@ -4,9 +4,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        main_color1: "#F5E6CB",
-        main_color2: "#7C563F",
-        main_color3: "#EDB49D",
+        BabyPowder: "#FDFAF4",
+        Alabaster: "#E9E5DE",
+        PaleDogwood: "#E7CCC1",
+        Liver: "#705650",
+        VanDyke: "#382E29"
       },
     },
   },
