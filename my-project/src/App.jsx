@@ -13,16 +13,18 @@ const Signup = lazy(() => import("./components/auth/signup.jsx"))
 
 // About Page:
 const About = lazy(() => import("./components/pages/About.jsx"))
-const Signin=lazy(() => import("./components/auth/signin.jsx"))
+const Signin = lazy(() => import("./components/auth/signin.jsx"))
 function App() {
+  // console.log(process.env.APIKEY,"envvvv");
   const router = createBrowserRouter(
     createRoutesFromElements(
       <>
         <Route path='*' element={<NotFound404 />} />
         <Route path="/" element={<Layout />}>
+          <Route path="/About" element={<About />} />
+
         </Route>
         <Route path="/signup" element={< Signup />} />
-        <Route path="/About" element={<About />} />
         <Route path="/signin" element={< Signin />} />
       </>
     ))
