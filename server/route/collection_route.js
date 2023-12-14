@@ -6,9 +6,9 @@ route.get("/:creator/:brand", CollectionController.getBrandCollections);
 route.get("/:creator", CollectionController.getAllBrandsCollections);
 
 route.get(
-  "/collection/:brand/:creator/:collection_name",
+  "/:brand/:creator/:collection_id",
   CollectionController.getOneBrandsCollection
 );
-route.post("/collection/:brand/:creator", CollectionController.addCollection);
+route.post("/:brand/:creator", CollectionController.addCollection);
 
 module.exports = route;

@@ -1,9 +1,9 @@
-const UserController=require("../controller/user_controller.js")
-const route=require("express").Router()
+const UserController = require("../controller/user_controller.js")
+const route = require("express").Router()
 
-route.get("/",UserController.getAll)
-
-
+route.get("/", UserController.getAll)
 
 
-module.exports=route
+
+
+module.exports = route

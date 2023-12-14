@@ -11,6 +11,7 @@ module.exports = {
       const { fullName, userName, email, password, dateBirth } = req.body;
 
       const users = await table.findAndCountAll({ where: { email } });
+
       if (users.count) {
         return res.status(409).send("userAlreadyexist");
       }
@@ -30,7 +31,11 @@ module.exports = {
   },
   signin: async (req, res) => {
     try {
+      if (req.params.role === "creator") {
+        var table = db.Creator;
+      } else table = db.Users;
       const user = await table.findOne({ where: { email: req.body.email } });
+      console.log("hoihln");
       if (!Object.keys(user.dataValues).length) {
         return res.status(409).send("userdoesntexist");
       }

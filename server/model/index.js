@@ -96,6 +96,6 @@ db.Users.belongsToMany(db.Brand, { through: db.FollowingBrand });
 db.Items.belongsToMany(db.Users, { through: db.Favorite });
 db.Users.belongsToMany(db.Items, { through: db.Favorite });
 
-// db.sequelize.sync({ force: true });
+// db.sequelize.sync({ alter: true });
 
 module.exports = db;
