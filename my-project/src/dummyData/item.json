@@ -4,7 +4,7 @@
         "status": "On Sale",
         "gender": "Women",
         "image": "https://www.dior.com/couture/ecommerce/media/catalog/product/9/C/1698925472_M0455CBAA_M30G_E01_ZHC.jpg?imwidth=828",
-        "price": 330.00,
+        "price": 33000,
         "category": "Bag",
         "description": "Maria Grazia Chiuri brings a fresh update to the iconic Saddle bag. Crafted in warm taupe grained calfskin, the legendary design presents a Saddle flap with a D stirrup clasp on a magnetic strap with pulls, as well as an antique gold-finish metal CD signature on either side of the shoulder strap. Featuring a thin, adjustable and removable shoulder strap, the Saddle bag may be carried by hand, worn over the shoulder or crossbody.",
         "stock": 200,
@@ -15,7 +15,7 @@
         "status": "Incomming",
         "gender": "Women",
         "image": "https://www.dior.com/couture/ecommerce/media/catalog/product/5/q/1699375528_M0565OBXZ_M933_E01_ZHC.jpg?imwidth=828",
-        "price": 330.00,
+        "price": 33000,
         "category": "Bag",
         "description": "The Lady Dior bag captures the House's vision of elegance and beauty. Sleek and refined, the timeless style is crafted in calfskin printed with the white and gold-tone Butterfly Zodiac motif by Pietro Ruffo, showcasing a constellation enhanced by astrological signs and adorned with butterflies. Pale gold-finish metal D.I.O.R. charms enhance and illuminate its silhouette. Featuring a thin, removable leather strap, the medium Lady Dior bag can be carried by hand or worn crossbody.",
         "stock": 200,
@@ -26,22 +26,21 @@
         "status": "Available",
         "gender": "Women",
         "image": "https://assets.burberry.com/is/image/Burberryltd/6DB6F1C9-3E82-4C2F-883C-BFBD75EF9551?$BBY_V3_SL_1$&wid=1050&hei=1050",
-        "price": 330.00,
+        "price": 33000,
         "category": "Coat",
         "description": "The iconic Burberry trench coat, made in England from shower-resistant cotton gabardine. Inside is Burberry Check cotton, used to line our coats since the 1920s. Part of the Heritage collection, the Kensington is cut to a regular fit with set-in sleeves.",
         "stock": 200,
-        "collectionId": 3
+        "collectionId": 2
     },
     {
         "name": "Leather Shearling Jacket",
         "status": "Available",
         "gender": "Women",
         "image": "https://www.acnestudios.com/dw/image/v2/AAXV_PRD/on/demandware.static/-/Sites-acne-product-catalog/default/dw23c6196e/images/A7/A70087-/2000x/A70087-CCG_F.jpg?sw=750&sh=1125",
-        "price": 330.00,
+        "price": 33000,
         "category": "Jacket",
         "description": "Double-breasted jacket features a contrast shearling neckline with an adjustable strap, with a zipper closure. Crafted from leather and lamb shearling. Detailed with adjustable straps at the neck and hem. Cut to a relaxed fit and a hip length.",
         "stock": 200,
-        "collectionId": 4
+        "collectionId": 3
     }
-
 ]
