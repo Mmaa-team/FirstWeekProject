@@ -4,7 +4,7 @@
         "userName": "@bohmid",
         "email": "ahmed@gmail.com",
         "password": "123456789",
-        "dateBirth": ""
+        "dateBirth": "2003/08/19"
     },
     {
         "fullName": "Maamoun Bouaouina",
@@ -22,9 +22,9 @@
     },
     {
         "fullName": "Maryem Harmessi",
-        "userName": "@maryem",
+        "userName": "@mimi",
         "email": "maryem@gmail.com",
         "password": "123456789",
-        "dateBirth": ""
+        "dateBirth": "1992/05/04"
     }
 ]

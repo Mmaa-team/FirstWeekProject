@@ -28,5 +28,15 @@
         "brandName": "Versace",
         "brandImage": "https://static.vecteezy.com/system/resources/previews/024/131/462/original/versace-brand-logo-symbol-clothes-design-icon-abstract-illustration-free-vector.jpg",
         "status": false
+    },
+    {
+        "brandName": "Dior",
+        "brandImage": "https://logohistory.net/wp-content/uploads/2023/06/Dior-Logo.jpg",
+        "status": true
+    },
+    {
+        "brandName":"Burberry",
+        "brandImage":"https://i.pinimg.com/originals/96/ea/fa/96eafaedc9df66fe69ab833230d8ab46.jpg",
+        "status":true
     }
 ]
