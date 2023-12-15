@@ -14,7 +14,7 @@ module.exports = {
 
 
 
-     
+
 
       const users = await table.findAndCountAll({ where: { email } });
 
@@ -43,7 +43,7 @@ module.exports = {
       }
       else table = db.Users
       const user = await table.findOne({ where: { email: req.body.email } });
-     
+
       if (!Object.keys(user.dataValues).length) {
         return res.status(409).send("userdoesntexist")
 
@@ -74,28 +74,28 @@ module.exports = {
       secure: true,
     }).status(200).json('user has been loged out')
   },
-  signing: async (req,res) => {
+  signing: async (req, res) => {
     if (req.params.role === "creator") {
       var table = db.Creator
     }
     else table = db.Users
-    try { 
-     
+    try {
+
       const { fullName, email } = req.body
-     
+
       const user = await table.findAndCountAll({ where: { email: req.body.email } });
-  
+
       if (!user.count) {
         const users = await table.create({ fullName, email })
       }
       const User = await table.findOne({ where: { email: req.body.email } });
       const token = jwt.sign({ id: User.dataValues.id }, 'jwtkey')
-     
+
       res.cookie("access_token", token, { httpOnly: true }).status(200).send(User.dataValues);
     }
     catch (err) {
-     return res.status(500).send(err)
-    
+      return res.status(500).send(err)
+
     }
 
 

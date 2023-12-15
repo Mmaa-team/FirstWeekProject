@@ -33,9 +33,9 @@ const UploadImage = ({ change, setUploaded, uploaded }) => {
         await axios.put(`http://localhost:8080/creators/pfimage/1`, {
             pfImage: downloadurl,
         })
-        .then(() => {
-            setUploaded(!uploaded)
-        })
+            .then(() => {
+                setUploaded(!uploaded)
+            })
     }
 
     const changebio = (bio) => {
@@ -97,7 +97,7 @@ const UploadImage = ({ change, setUploaded, uploaded }) => {
                                 </label>
                             </div>
 
-                            
+
                         </div>
 
                         <div>
@@ -153,7 +153,7 @@ const UploadImage = ({ change, setUploaded, uploaded }) => {
                                 </label>
                             </div>
 
-                            
+
                         </div>
 
                         <div>

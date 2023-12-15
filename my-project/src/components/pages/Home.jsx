@@ -9,6 +9,7 @@ import Prada from "../../assets/Brands/Prada.png"
 import { GrTransaction } from "react-icons/gr";
 import { BsHandbag } from "react-icons/bs";
 import { PiDressDuotone } from "react-icons/pi";
+import Product from "../pages/LayoutExplore/AllProducts"
 import { Link } from "react-router-dom";
 
 const brands = [
@@ -31,8 +32,6 @@ const brands = [
         pic: Prada
     }
 ]
-
-
 
 const firstButtons = () => {
     return (
@@ -174,6 +173,14 @@ const buttons = () => {
         </div>
     )
 
+}
+
+const allCollection=()=>{
+    return(
+        <div>
+            <Product/>
+        </div>
+    )
 }
 
 
