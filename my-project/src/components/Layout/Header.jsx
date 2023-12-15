@@ -99,6 +99,9 @@ function Header() {
                                 >
                                     <NavLink className=" "></NavLink>
                                     <NavLink className=" ">Page 2</NavLink>
+
+                                    <NavLink className=" ">Page 2</NavLink>
+
                                 </li>
                             </ul>
                         </li>

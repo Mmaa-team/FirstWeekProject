@@ -4,7 +4,9 @@ import React, { createContext, useEffect, useState } from "react";
 
 export const MyContext = createContext()
 export const ContextProvider = ({ children }) => {
-    const [currentUser,setCurrentUser]=useState({})
+    const [currentUser, setCurrentUser] = useState({})
+    const [url, setUrl] = useState('')
+    console.log(url)
     // JSON.parse(localStorage.getItem("user")||null)
     const login =async (input,role)=>{
        console.log(role,input)

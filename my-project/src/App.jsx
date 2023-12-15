@@ -9,6 +9,7 @@ import { lazy, Suspense } from "react";
 
 import Layout from "./components/Layout/Layout.jsx"
 import NotFound404 from "./Components/NotFound404.jsx";
+import Profile from "./components/pages/Profile.jsx";
 const Signup = lazy(() => import("./components/auth/signup.jsx"))
 
 const Statistics=lazy (()=>import("./components/Statistics.jsx"))
@@ -26,7 +27,12 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route path="/About" element={<About />} />
           <Route path="/statistic" element={<Statistics />} />
+<<<<<<< HEAD
         </Route>
+=======
+          <Route path="/profile" element={<Profile/>}/>
+          </Route>
+>>>>>>> 70be317b62486450156b3f0937b7ea67753cb287
         <Route path="/signup" element={< Signup />} />
         <Route path="/signin" element={< Signin />} />
       </>
