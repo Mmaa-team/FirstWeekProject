@@ -9,18 +9,24 @@ import { lazy, Suspense } from "react";
 
 import Layout from "./components/Layout/Layout.jsx"
 import NotFound404 from "./Components/NotFound404.jsx";
-const Signup = lazy(() => import("./components/auth/signup.jsx"))
+
+// SignIn && SignUp Pages:
+const Signup = lazy(() => import("./components/auth/signup.jsx"));
+const Signin = lazy(() => import("./components/auth/signin.jsx"));
 
 // About Page:
-const About = lazy(() => import("./components/pages/About.jsx"))
-const Signin = lazy(() => import("./components/auth/signin.jsx"))
+const About = lazy(() => import("./components/pages/About.jsx"));
+
+// Home Page:
+const Home = lazy(() => import("./components/pages/Home.jsx"));
+
 function App() {
-  // console.log(process.env.APIKEY,"envvvv");
   const router = createBrowserRouter(
     createRoutesFromElements(
       <>
         <Route path='*' element={<NotFound404 />} />
-        <Route path="/" element={<Layout />}>
+        <Route path="/" element={<Layout />}> 
+        <Route index element={<Home />} />
           <Route path="/About" element={<About />} />
 
         </Route>
