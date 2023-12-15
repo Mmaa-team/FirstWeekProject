@@ -69,7 +69,6 @@ db.Creator.hasMany(
 );
 db.Collection.belongsTo(db.Creator);
 
-
 db.Brand.hasMany(
   db.Collection,
 
