@@ -7,7 +7,7 @@ module.exports=(sequelize, DataTypes) => {
 
     userName: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     
 
@@ -17,11 +17,11 @@ module.exports=(sequelize, DataTypes) => {
     },
     password: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     dateBirth: {
       type: DataTypes.DATE,
-      allowNull: false,
+      allowNull: true,
     },
   },{ timestamps: false }
   );
