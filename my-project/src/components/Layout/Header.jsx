@@ -14,7 +14,7 @@ function Header() {
 
     return (
         <header
-            className="max-w-screen fixed w-full bg-[#97928f4d]  "
+            className="max-w-screen relative w-full bg-[#97928f4d]  "
             onMouseLeave={() => {
                 setShowExploreNav(false), setShowMoreNav(false)
             }}

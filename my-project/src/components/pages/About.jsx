@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "@material-tailwind/react";
+
 import Bohmid from "../../assets/AdminsPic/Bohmid.png"
 import ElCoach from "../../assets/AdminsPic/ElCoach.png"
 import Maryem from "../../assets/AdminsPic/Maryem.png"
@@ -26,7 +27,6 @@ const teamMembers = [
         image: Bohmid,
         role: "Co Founder"
     }
-
 
 ]
 
