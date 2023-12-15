@@ -64,7 +64,7 @@ const Signup = () => {
                     <div>
                         <label
                             className="font-semibold text-sm text-gray-600 pb-1 block"
-                            for="dob"
+                       
                         >Date of Birth</label>
                         <input
                             className="border-b border-gray-300 py-1 focus:border-b-2 focus:border-blue-700 transition-colors focus:outline-none peer bg-inherit"

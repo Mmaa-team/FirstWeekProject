@@ -5,10 +5,16 @@ const jwt = require("jsonwebtoken");
 module.exports = {
   signup: async (req, res) => {
     if (req.params.role === "creator") {
-      var table = db.Creator;
-    } else table = db.Users;
+
+      var table = db.Creator
+    }
+    else table = db.Users
     try {
-      const { fullName, userName, email, password, dateBirth } = req.body;
+      const { fullName, userName, email, password, dateBirth } = req.body
+
+
+
+     
 
       const users = await table.findAndCountAll({ where: { email } });
 
@@ -32,12 +38,15 @@ module.exports = {
   signin: async (req, res) => {
     try {
       if (req.params.role === "creator") {
-        var table = db.Creator;
-      } else table = db.Users;
+
+        var table = db.Creator
+      }
+      else table = db.Users
       const user = await table.findOne({ where: { email: req.body.email } });
-      console.log("hoihln");
+     
       if (!Object.keys(user.dataValues).length) {
-        return res.status(409).send("userdoesntexist");
+        return res.status(409).send("userdoesntexist")
+
       }
       const isPasswordcorrect = bcryptjs.compareSync(
         req.body.password,
@@ -58,13 +67,42 @@ module.exports = {
       res.status(500).send("ereur");
     }
   },
-  logout: (req, res) => {
-    res
-      .clearCookie("access_token", {
-        sameSite: "none",
-        secure: true,
-      })
-      .status(200)
-      .json("user has been loged out");
+
+  logout: async (req, res) => {
+    res.clearCookie("access_token", {
+      sameSite: "none",
+      secure: true,
+    }).status(200).json('user has been loged out')
   },
-};
+  signing: async (req,res) => {
+    if (req.params.role === "creator") {
+      var table = db.Creator
+    }
+    else table = db.Users
+    try { 
+     
+      const { fullName, email } = req.body
+     
+      const user = await table.findAndCountAll({ where: { email: req.body.email } });
+  
+      if (!user.count) {
+        const users = await table.create({ fullName, email })
+      }
+      const User = await table.findOne({ where: { email: req.body.email } });
+      const token = jwt.sign({ id: User.dataValues.id }, 'jwtkey')
+     
+      res.cookie("access_token", token, { httpOnly: true }).status(200).send(User.dataValues);
+    }
+    catch (err) {
+     return res.status(500).send(err)
+    
+    }
+
+
+
+  }
+}
+
+
+;
+

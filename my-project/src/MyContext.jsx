@@ -10,21 +10,34 @@ export const ContextProvider = ({ children }) => {
     const [filterBrands, setFilterBrands] = useState('')
     const [collections, setCollections] = useState([])
     const [categorys, setCategorys] = useState([])
+    const [url, setUrl] = useState('')
 
     const login = async (input, role) => {
-        try {
-            const res = await axios.post(
-                `http://127.0.0.1:8080/auth/signin/${role}`,
-                input
-            )
-            setCurrentUser(res.data)
-        } catch (err) {
-            console.log(err)
-        }
+        console.log(role, input)
+        axios
+            .post(`http://127.0.0.1:8080/auth/signin/${role}`, input)
+            .then((res) => {
+                console.log('done')
+                setCurrentUser(res.data)
+            })
+            .catch((err) => console.log(err))
     }
+
     const logout = async (input) => {
         await axios.post('http://127.0.0.1:8080/auth/logout')
         setCurrentUser({})
+    }
+    const signing = async (input, role) => {
+        try {
+            const res = await axios.post(
+                `http://127.0.0.1:8080/auth/signupgoogle/${role}`,
+                input
+            )
+            setCurrentUser(res.data)
+            console.log(currentUser)
+        } catch (err) {
+            console.log(err)
+        }
     }
 
     // JSON.parse(localStorage.getItem("user")||null)
@@ -53,6 +66,7 @@ export const ContextProvider = ({ children }) => {
                 setFilterBrands,
                 filterBrands,
                 categorys,
+                signing
             }}
         >
             {children}
@@ -84,7 +98,7 @@ const fetchCollection = async (setCollections) => {
         result.data.forEach((category) => {
             uniqueCollection.add(category.name)
         })
-    
+
         const uniqueCollectionArray = Array.from(uniqueCollection)
         setCollections(uniqueCollectionArray)
     } catch (err) {
