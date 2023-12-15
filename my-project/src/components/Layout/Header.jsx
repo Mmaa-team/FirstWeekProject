@@ -14,7 +14,9 @@ function Header() {
 
     return (
         <header
+
             className="max-w-screen  w-full bg-[#97928f4d]  "
+
             onMouseLeave={() => {
                 setShowExploreNav(false), setShowMoreNav(false)
             }}
@@ -90,13 +92,19 @@ function Header() {
                                     } transition-all`}
                             >
                                 <li className=" w-screen border-b py-2 pl-5 transition-all hover:pl-5 ">
+
                                     <NavLink to='/statistic' className={`  `}>Statisics</NavLink>
+
+                                    <NavLink className={`  `}>Page 1</NavLink>
+
                                 </li>
                                 <li
                                     className=" w-screen border-b py-2 pl-5 transition-all hover:pl-5
                                 "
                                 >
-                                    <NavLink className=" "></NavLink>
+
+                                    <NavLink className=" ">Page 2</NavLink>
+
                                 </li>
                             </ul>
                         </li>

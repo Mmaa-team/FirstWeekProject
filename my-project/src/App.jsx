@@ -22,7 +22,9 @@ function App() {
         <Route path='*' element={<NotFound404 />} />
         <Route path="/" element={<Layout />}>
           <Route path="/About" element={<About />} />
+
           <Route path="/statistic" element={<Statistics />} />
+
 
         </Route>
         <Route path="/signup" element={< Signup />} />
