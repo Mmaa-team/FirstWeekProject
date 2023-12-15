@@ -27,12 +27,8 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route path="/About" element={<About />} />
           <Route path="/statistic" element={<Statistics />} />
-<<<<<<< HEAD
-        </Route>
-=======
           <Route path="/profile" element={<Profile/>}/>
           </Route>
->>>>>>> 70be317b62486450156b3f0937b7ea67753cb287
         <Route path="/signup" element={< Signup />} />
         <Route path="/signin" element={< Signin />} />
       </>
