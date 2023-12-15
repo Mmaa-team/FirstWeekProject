@@ -9,15 +9,15 @@ import { lazy, Suspense } from 'react'
 import Layout from './components/Layout/Layout.jsx'
 import NotFound404 from './Components/NotFound404.jsx'
 const Signup = lazy(() => import('./components/auth/signup.jsx'))
+const Signin = lazy(() => import('./components/auth/signin.jsx'))
+const Profile = lazy(() => import('./components/pages/Profile.jsx'))
+const Statistics = lazy(() => import('./components/Statistics.jsx'))
 // About Page:
 const About = lazy(() => import('./components/pages/About.jsx'))
-const Signin = lazy(() => import('./components/auth/signin.jsx'))
+
 const ExploreLayout = lazy(
     () => import('./components/pages/LayoutExplore/LayoutExplore.jsx')
 )
-const Profile = lazy(() => import('./components/pages/Profile.jsx'))
-
-const Statistics = lazy(() => import('./components/Statistics.jsx'))
 const Allproducts = lazy(
     () => import('./components/pages/LayoutExplore/AllProducts.jsx')
 )
@@ -49,7 +49,7 @@ function App() {
                 </Route>
 
                 <Route path="/signup" element={<Signup />} />
-                <Route path="/About" element={<About />} />
+       
                 <Route path="/signin" element={<Signin />} />
             </>
         )
