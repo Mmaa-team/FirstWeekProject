@@ -7,6 +7,7 @@ import LV from "../../assets/Brands/LV.png"
 import Gucci from "../../assets/Brands/Gucci.png"
 import Prada from "../../assets/Brands/Prada.png"
 import { GrTransaction } from "react-icons/gr";
+import { BsHandbag } from "react-icons/bs";
 const brands = [
     {
         pic: Valentino
@@ -91,7 +92,7 @@ const firtDiv = () => {
 
 const BrandsStatic = () => {
     return (
-        <div className="flex gap-20 flex-col lg:flex-row opacity-1 items-center justify-between ">
+        <div className="flex gap-20 flex-col lg:flex-row opacity-1 items-center justify-between mt-20">
             {brands.map((brand, index) => {
                 return (
                     <div key={index}>
@@ -105,7 +106,7 @@ const BrandsStatic = () => {
 
 const AboutUs = () => {
     return (
-        <div className=" flex justify-center items-center flex-col lg:flex-col mt-12">
+        <div className=" flex justify-center items-center flex-col lg:flex-col mt-16">
             <h1 className="text-[#734532] text-3xl font-bold font-['Poppins'] mb-3"> About Us </h1>
             <p className="text-center text-slate-600 text-xl md:text-2xl  font-sans tracking-wide mb-1 w-[800px]"> <strong>FancyMama </strong> {""}Your passport to curated elegance. Explore exclusive collections, connect with creators, and elevate your style effortlessly. Welcome to a world where fashion meets simplicity</p>
             <div className="lg:flex-row-reverse flex flex-col items-center justify-between mt-20">
@@ -138,13 +139,20 @@ const AllCollectionTitle = () => {
                 <h1 className="text-[#734532] text-3xl font-bold font-['Poppins'] mb-3"> All Collection</h1>
                 <p className="text-center text-slate-600 text-xl md:text-2xl  font-sans tracking-wide mb-1 w-[800px]"> Elevate your daily style with timeless sophistication</p>
             </div>
-            <div className="flex justify-center items-center">
-                <div className="justify-center items-center">
+            <div className="flex flex-col lg:flex-row  justify-between items-center mt-20">
+                <div className="flex flex-col justify-center items-center">
                     <GrTransaction className="text-5xl text-[#734532]" />
-                    <p className=" text-slate-600 text-xl md:text-2xl  font-sans tracking-wide mb-1 " > Easy Transactions </p>
+                    <p className=" text-slate-600 text-xl md:text-xl font-sans tracking-wide mb-1" > Fast And Easy Transactions </p>
                 </div>
-                <div>
 
+
+                <div className="flex flex-col justify-center items-center">
+                    <BsHandbag className="text-5xl text-[#734532]" />
+                    <p className=" text-slate-600 text-xl md:text-xl  font-sans tracking-wide mb-1 " > Luxury Shopping </p>
+                </div>
+
+                <div className="flex flex-col justify-center items-center">
+                    
                 </div>
             </div>
         </div>

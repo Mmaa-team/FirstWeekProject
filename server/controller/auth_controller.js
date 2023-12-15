@@ -101,8 +101,5 @@ module.exports = {
 
 
   }
-}
-
-
 };
 

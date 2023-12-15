@@ -11,9 +11,10 @@ import Layout from "./components/Layout/Layout.jsx"
 import NotFound404 from "./Components/NotFound404.jsx";
 
 // SignIn && SignUp Pages:
-const Signup = lazy(() => import("./components/auth/signup.jsx"));
-const Signin = lazy(() => import("./components/auth/signin.jsx"));
 
+const Signin = lazy(() => import("./components/auth/signin.jsx"));
+const Signup = lazy(() => import("./components/auth/signup.jsx"))
+const Statistics=lazy (()=>import("./components/Statistics.jsx"))
 // About Page:
 const About = lazy(() => import("./components/pages/About.jsx"));
 
@@ -28,6 +29,9 @@ function App() {
         <Route path="/" element={<Layout />}> 
         <Route index element={<Home />} />
           <Route path="/About" element={<About />} />
+
+          <Route path="/statistic" element={<Statistics />} />
+
 
         </Route>
         <Route path="/signup" element={< Signup />} />
