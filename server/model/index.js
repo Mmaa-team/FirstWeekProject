@@ -40,7 +40,7 @@ db.FollowingCreator = require("./followingCreator_model.js")(
 db.Favorite = require("./favorite_model.js")(sequelize, DataTypes);
 
 /////relations between Items and Users  through Basket/////
-db.Items.belongsToMany(db.Users,  { through: db.Basket });
+db.Items.belongsToMany(db.Users, { through: db.Basket });
 db.Users.belongsToMany(db.Items, { through: db.Basket });
 
 /////relations between Creator and Post /////
@@ -96,6 +96,6 @@ db.Users.belongsToMany(db.Brand, { through: db.FollowingBrand });
 db.Items.belongsToMany(db.Users, { through: db.Favorite });
 db.Users.belongsToMany(db.Items, { through: db.Favorite });
 
-// db.sequelize.sync({ alter: true });
+// db.sequelize.sync({ force: true });
 
 module.exports = db;

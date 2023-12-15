@@ -19,17 +19,21 @@ const ExploreLayout = lazy(
 const Allproducts = lazy(
     () => import('./components/pages/LayoutExplore/AllProducts.jsx')
 )
+const Productdetails = lazy(
+    () => import('./components/pages/LayoutExplore/Productdetails.jsx')
+)
 
 function App() {
     const router = createBrowserRouter(
         createRoutesFromElements(
             <>
                 <Route path="*" element={<NotFound404 />} />
-                
+
                 <Route path="/" element={<Layout />}>
                     <Route path="explore" element={<ExploreLayout />}>
                         <Route path="allProducts" index element={<Allproducts />} />
                     </Route>
+                        <Route path="/:collectionId/:name" index element={<Productdetails />} />
                 </Route>
 
                 <Route path="/signup" element={<Signup />} />

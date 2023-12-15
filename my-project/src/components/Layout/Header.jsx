@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { IoIosArrowDown } from 'react-icons/io'
+import { FaCartArrowDown } from 'react-icons/fa'
 
 import { FaRegMessage } from 'react-icons/fa6'
 import { IoIosSearch } from 'react-icons/io'
@@ -14,7 +15,7 @@ function Header() {
 
     return (
         <header
-            className="max-w-screen fixed z-30 w-full  bg-[#97928f4d] "
+            className="max-w-screen relative z-30 w-full  bg-[#97928f4d] "
             onMouseLeave={() => {
                 setShowExploreNav(false), setShowMoreNav(false)
             }}
@@ -56,14 +57,16 @@ function Header() {
                                 Explore <IoIosArrowDown />
                             </NavLink>
                             <ul
-                                className={`relative flex h-max w-1/2 flex-col  gap-3 overflow-hidden text-white lg:absolute  lg:w-[200px] lg:translate-y-[20px] lg:bg-main_color3 ${
+                                className={`lg:bg-main_color3 relative flex h-max w-1/2  flex-col gap-3 overflow-hidden text-white  lg:absolute lg:w-[200px] lg:translate-y-[20px] ${
                                     showExploreNav
                                         ? 'opacity-1 max-h-screen'
                                         : 'max-h-0 opacity-0'
                                 } transition-all`}
                             >
                                 <li className="w-screen border-b py-2 pl-5 transition-all hover:pl-5">
-                                    <NavLink to="explore/allProducts">All Products</NavLink>
+                                    <NavLink to="explore/allProducts">
+                                        All Products
+                                    </NavLink>
                                 </li>
                                 <li className="w-screen border-b py-2 pl-5 transition-all hover:pl-5">
                                     <NavLink>All creator</NavLink>
@@ -74,7 +77,9 @@ function Header() {
                             <NavLink>Personal Collection</NavLink>
                         </li>
                         <li>
-                            <NavLink>Drops</NavLink>
+                            <NavLink to="/cart" className="w-20 text-xl">
+                                <FaCartArrowDown />
+                            </NavLink>
                         </li>
                         <li>
                             <NavLink
@@ -87,14 +92,16 @@ function Header() {
                                 More <IoIosArrowDown />
                             </NavLink>
                             <ul
-                                className={`relative flex h-max w-1/2 flex-col  gap-3 overflow-hidden text-white lg:absolute  lg:w-[200px] lg:translate-y-[20px] lg:bg-main_color3 ${
+                                className={`lg:bg-main_color3 relative flex h-max w-1/2  flex-col gap-3 overflow-hidden text-white  lg:absolute lg:w-[200px] lg:translate-y-[20px] ${
                                     showMoreNav
                                         ? 'opacity-1 max-h-screen'
                                         : 'max-h-0 opacity-0'
                                 } transition-all`}
                             >
                                 <li className=" w-screen border-b py-2 pl-5 transition-all hover:pl-5 ">
-                                    <NavLink className={`  `}>Page 1</NavLink>
+                                    <NavLink to={'/Statistic'}>
+                                        Statistics
+                                    </NavLink>
                                 </li>
                                 <li
                                     className=" w-screen border-b py-2 pl-5 transition-all hover:pl-5

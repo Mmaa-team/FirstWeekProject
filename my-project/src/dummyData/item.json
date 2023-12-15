@@ -1,65 +1,46 @@
 [
     {
-        "name": "",
-        "status": "",
+        "name": "SADDLE BAG WITH STRAP",
+        "status": "On Sale",
         "gender": "Women",
-        "price": "",
-        "category": "",
-        "description": "",
-        "stock": 200
+        "image": "https://res.cloudinary.com/dc1cdbirz/image/upload/v1702579584/1698925472_M0455CBAA_M30G_E01_ZHC-removebg-preview_gthcjl.png",
+        "price": 33000,
+        "category": "Bag",
+        "description": "Maria Grazia Chiuri brings a fresh update to the iconic Saddle bag. Crafted in warm taupe grained calfskin, the legendary design presents a Saddle flap with a D stirrup clasp on a magnetic strap with pulls, as well as an antique gold-finish metal CD signature on either side of the shoulder strap. Featuring a thin, adjustable and removable shoulder strap, the Saddle bag may be carried by hand, worn over the shoulder or crossbody.",
+        "stock": 200,
+        "collectionId": 1
     },
     {
-        "name": "",
-        "status": "",
+        "name": "MEDIUM LADY DIOR BAG",
+        "status": "Incoming",
         "gender": "Women",
-        "price": "",
-        "category": "",
-        "description": "",
-        "stock": 100
+        "image": "https://res.cloudinary.com/dc1cdbirz/image/upload/v1702581442/1699375528_M0565OBXZ_M933_E01_ZHC-removebg-preview_sy9kl7.png",
+        "price": 33000,
+        "category": "Bag",
+        "description": "The Lady Dior bag captures the House's vision of elegance and beauty. Sleek and refined, the timeless style is crafted in calfskin printed with the white and gold-tone Butterfly Zodiac motif by Pietro Ruffo, showcasing a constellation enhanced by astrological signs and adorned with butterflies. Pale gold-finish metal D.I.O.R. charms enhance and illuminate its silhouette. Featuring a thin, removable leather strap, the medium Lady Dior bag can be carried by hand or worn crossbody.",
+        "stock": 200,
+        "collectionId": 1
     },
     {
-        "name": "",
-        "status": "",
+        "name": "Long Kensington Heritage Trench Coat",
+        "status": "Available",
         "gender": "Women",
-        "price": "",
-        "category": "",
-        "description": "",
-        "stock": 130
+        "image": "https://res.cloudinary.com/dc1cdbirz/image/upload/v1702581511/6DB6F1C9-3E82-4C2F-883C-BFBD75EF9551_imgddk.png",
+        "price": 33000,
+        "category": "Coat",
+        "description": "The iconic Burberry trench coat, made in England from shower-resistant cotton gabardine. Inside is Burberry Check cotton, used to line our coats since the 1920s. Part of the Heritage collection, the Kensington is cut to a regular fit with set-in sleeves.",
+        "stock": 200,
+        "collectionId": 2
     },
     {
-        "name": "",
-        "status": "",
-        "gender": "Men",
-        "price": "",
-        "category": "",
-        "description": "",
-        "stock": 300
-    },
-    {
-        "name": "",
-        "status": "",
-        "gender": "Men",
-        "price": "",
-        "category": "",
-        "description": "",
-        "stock": 320
-    },
-    {
-        "name": "",
-        "status": "",
+        "name": "Leather Shearling Jacket",
+        "status": "Available",
         "gender": "Women",
-        "price": "",
-        "category": "",
-        "description": "",
-        "stock": 300
-    },
-    {
-        "name": "",
-        "status": "",
-        "gender": "Men",
-        "price": "",
-        "category": "",
-        "description": "",
-        "stock": 300
+        "image": "https://res.cloudinary.com/dc1cdbirz/image/upload/v1702581437/A70087-CCG_F-removebg-preview_dtbuib.png",
+        "price": 33000,
+        "category": "Jacket",
+        "description": "Double-breasted jacket features a contrast shearling neckline with an adjustable strap, with a zipper closure. Crafted from leather and lamb shearling. Detailed with adjustable straps at the neck and hem. Cut to a relaxed fit and a hip length.",
+        "stock": 200,
+        "collectionId": 3
     }
 ]
