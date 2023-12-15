@@ -1,16 +1,41 @@
-import React, { useRef, useState } from 'react'
+import React, { useContext, useRef, useState } from 'react'
 import signin from "../../assets/signin.png"
 import { useNavigate } from 'react-router-dom'
 import logo from "../../assets/logo/log.png"
+import { GoogleAuthProvider ,signInWithPopup} from 'firebase/auth'
+import { auth} from '../../firebase/firebase.jsx'
+import { MyContext } from '../../MyContext.jsx'
 const Signin = () => {
     const navigate=useNavigate()
-    const email = useRef()
+    const emails = useRef()
 
     const password = useRef()
     const [desplayp, setDesplayp] = useState(true)
+    const [sign,setSign]=useState(null)
+    const [fullName,setFullName]=useState('')
+    const [email,setEmail]=useState('')
+    const [role,setRole]=useState('user')
+   const{login,signing}=useContext(MyContext)
+   console.log(signing)
     const submit = () => {
-
+      
+      login({password:password.current.value,email:emails.current.value},role)
+      .then(()=>{navigate('/')})  
     }
+    
+   const  handlegoogle =async (e)=>{
+    const provider= await new GoogleAuthProvider()
+     signInWithPopup(auth, provider).then((res)=>
+     {
+      setEmail(res.user.email)
+      setFullName(res.user.displayName)
+      console.log(email,fullName)
+  
+     }).then(()=>{signing({email,fullName},role)})
+     .then(()=>navigate('/'))
+     .catch((err)=>console.log(err))
+
+   }
     return (
         <div className=' flex justify-center flex-col lg:flex-row items-center h-screen  '>
             <div>
@@ -20,7 +45,11 @@ const Signin = () => {
 
             <div className=" flex-col w-fit  ml-10 h-fit bg-white bg-opacity-20 rounded-[10px] p-5" >
                 <div className="text-center  text-gray-600 text-3xl font-extrabold font-['SF Pro Display'] tracking-tight p-6">Sign In</div>
-
+                <div><span className=" text-gray-600 text-lg font-normal font-['SF Pro Display'] tracking-tight">Are you Creator?</span>
+                    <span className="text-[#733709] text-lg font-normal font-['SF Pro Display'] tracking-tight"> </span>
+                    <span className="text-[#733709] text-lg font-medium font-['SF Pro Display'] tracking-tight" onClick={() => { setRole('creator') }}>Yes</span>
+                    <span className="text-[#733709] text-lg font-medium font-['SF Pro Display'] tracking-tight" onClick={() => { setRole('user') }}>/No</span>
+                    </div>
 
                 <div><span className=" text-gray-600 text-lg font-normal font-['SF Pro Display'] tracking-tight">new User?</span>
                     <span className="text-[#733709] text-lg font-normal font-['SF Pro Display'] tracking-tight"> </span>
@@ -28,12 +57,12 @@ const Signin = () => {
 
 
                 <div className="flex flex-col gap-3">
-                    {<input className="border-b border-gray-300 py-1 focus:border-b-2 focus:border-blue-700 transition-colors focus:outline-none peer bg-inherit" variant="standard" ref={email} placeholder="Email" />}
+                    {<input className="border-b border-gray-300 py-1 focus:border-b-2 focus:border-blue-700 transition-colors focus:outline-none peer bg-inherit" variant="standard" ref={emails} placeholder="Email" />}
                     {!desplayp && <div className="mb-6">
                         <input type="password" className="border-b border-gray-300 py-1 focus:border-b-2 focus:border-blue-700 transition-colors focus:outline-none peer bg-inherit" ref={password} variant="standard" placeholder="Password" />
 
                     </div>}
-                    {!desplayp && <button onClick={() => setDesplayp(false)}
+                    {!desplayp && <button onClick={submit}
                     className="bg-[#733709] text-white  py-2 px-4 mb-5 mt-3 float-right rounded-full transition duration-200 ease-in-out hover:bg-[#DC9D6D] active:bg-[#B27F58] focus:outline-none"
                 >
                    Log In 
@@ -46,10 +75,10 @@ const Signin = () => {
                 </button>}
                 {desplayp&&<div className=' flex mt-12 mb-2 justify-center items-center'>Or</div>}
                 {!desplayp&&<div className=' flex  mb-2 justify-center items-center'>Or</div>}
-                <div class="flex justify-center items-center">
+                <div className="flex justify-center items-center">
         <div>
-          <button
-            class="flex items-center mt-1 justify-center py-2 px-20 bg-white hover:bg-gray-200 focus:ring-blue-500 focus:ring-offset-blue-200 text-gray-700 w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg"
+          <button onClick={handlegoogle}
+            className="flex items-center mt-1 justify-center py-2 px-20 bg-white hover:bg-gray-200 focus:ring-blue-500 focus:ring-offset-blue-200 text-gray-700 w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg"
           >
             <svg
               viewBox="0 0 24 24"
@@ -100,8 +129,8 @@ const Signin = () => {
                 x1="0"
                 id="LxT-gk5MfRc1Gl_4XsNKba_xoyhGXWmHnqX_gr1"
               >
-                <stop stop-opacity=".2" stop-color="#fff" offset="0"></stop>
-                <stop stop-opacity="0" stop-color="#fff" offset="1"></stop>
+                <stop stopOpacity=".2" stopColor="#fff" offset="0"></stop>
+                <stop stopOpacity="0" stopColor="#fff" offset="1"></stop>
               </linearGradient>
               <path
                 d="M23.7352295,9.5H12v5h6.4862061C17.4775391,17.121582,14.9771729,19,12,19 c-3.8659668,0-7-3.1340332-7-7c0-3.8660278,3.1340332-7,7-7c1.4018555,0,2.6939087,0.4306641,3.7885132,1.140686 c0.1675415,0.1088867,0.3403931,0.2111206,0.4978027,0.333374l3.637146-3.4699707L19.8414307,2.940979 C17.7369385,1.1170654,15.00354,0,12,0C5.3725586,0,0,5.3725586,0,12c0,6.6273804,5.3725586,12,12,12 c6.1176758,0,11.1554565-4.5812378,11.8960571-10.4981689C23.9585571,13.0101929,24,12.508667,24,12 C24,11.1421509,23.906311,10.3068237,23.7352295,9.5z"
@@ -117,10 +146,10 @@ const Signin = () => {
                 fill="#FFF"
               ></path>
             </svg>
-            <span class="ml-2">Sign up with Google</span>
+            <span className="ml-2">Sign up with Google</span>
           </button>
           <button
-            class="flex items-center justify-center py-2 px-20 bg-white hover:bg-gray-200 focus:ring-blue-500 focus:ring-offset-blue-200 text-gray-700 w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg mt-4"
+            className="flex items-center justify-center py-2 px-20 bg-white hover:bg-gray-200 focus:ring-blue-500 focus:ring-offset-blue-200 text-gray-700 w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg mt-4"
           >
             <svg
               viewBox="0 0 30 30"
@@ -134,11 +163,11 @@ const Signin = () => {
                 d="M25.565,9.785c-0.123,0.077-3.051,1.702-3.051,5.305c0.138,4.109,3.695,5.55,3.756,5.55 c-0.061,0.077-0.537,1.963-1.947,3.94C23.204,26.283,21.962,28,20.076,28c-1.794,0-2.438-1.135-4.508-1.135 c-2.223,0-2.852,1.135-4.554,1.135c-1.886,0-3.22-1.809-4.4-3.496c-1.533-2.208-2.836-5.673-2.882-9 c-0.031-1.763,0.307-3.496,1.165-4.968c1.211-2.055,3.373-3.45,5.734-3.496c1.809-0.061,3.419,1.242,4.523,1.242 c1.058,0,3.036-1.242,5.274-1.242C21.394,7.041,23.97,7.332,25.565,9.785z M15.001,6.688c-0.322-1.61,0.567-3.22,1.395-4.247 c1.058-1.242,2.729-2.085,4.17-2.085c0.092,1.61-0.491,3.189-1.533,4.339C18.098,5.937,16.488,6.872,15.001,6.688z"
               ></path>
             </svg>
-            <span class="ml-2">Sign up with Apple</span>
+            <span className="ml-2">Sign up with Apple</span>
           </button>
         </div>
       </div>
-      <div class="mt-5">
+      <div className="mt-5">
        
       </div>
 
