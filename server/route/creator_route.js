@@ -8,9 +8,10 @@ route.get("/:id",getOneCreator)
 
 route.put("/pfimage/:id",updatePfImage)
 route.put("/bgimage/:id",updateBgImage)
-route.put("/adress/:id",updateAdress)
+route.put("/address/:id",updateAdress)
 route.put("/bio/:id",updateBio)
 route.put("/status/:id",updateStatus)
+
 
 
 module.exports=route

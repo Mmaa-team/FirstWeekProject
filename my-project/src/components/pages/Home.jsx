@@ -8,6 +8,9 @@ import Gucci from "../../assets/Brands/Gucci.png"
 import Prada from "../../assets/Brands/Prada.png"
 import { GrTransaction } from "react-icons/gr";
 import { BsHandbag } from "react-icons/bs";
+import { PiDressDuotone } from "react-icons/pi";
+import { Link } from "react-router-dom";
+
 const brands = [
     {
         pic: Valentino
@@ -119,18 +122,18 @@ const AboutUs = () => {
                         From the outset, we aimed to curate a unique space where creators and fashion aficionados unite.
                         Join us in celebrating the evolution of style as FancyMama continues to make waves in the world of luxury fashion.
                     </p>
-                    <div className="flex item-center mr-20">
+                    <Link className="flex item-center mr-20" to={"/About"}>
                         <Button className="bg-[#733709bc] p-2 text-white font-sans w-16 mb-20 ml-14 justify-center">More</Button>
-                    </div >
+                    </Link >
                 </div>
                 <div style={{ width: 374, height: 447, right: 0, marginTop: 10, position: 'relative' }}>
                     <img style={{ width: 324, height: 397, left: 0, top: 0, position: 'absolute', boxShadow: '0px 0px 25px rgba(0, 0, 0, 0.35)', borderRadius: 10 }} src="https://i.pinimg.com/564x/80/ae/0b/80ae0bc8e4d4d06648199a932ce8707d.jpg" />
                 </div>
             </div>
+
         </div>
     )
 }
-
 
 const AllCollectionTitle = () => {
     return (
@@ -139,7 +142,7 @@ const AllCollectionTitle = () => {
                 <h1 className="text-[#734532] text-3xl font-bold font-['Poppins'] mb-3"> All Collection</h1>
                 <p className="text-center text-slate-600 text-xl md:text-2xl  font-sans tracking-wide mb-1 w-[800px]"> Elevate your daily style with timeless sophistication</p>
             </div>
-            <div className="flex flex-col lg:flex-row  justify-between items-center mt-20">
+            <div className="flex flex-col lg:flex-row  justify-around items-center mt-20">
                 <div className="flex flex-col justify-center items-center">
                     <GrTransaction className="text-5xl text-[#734532]" />
                     <p className=" text-slate-600 text-xl md:text-xl font-sans tracking-wide mb-1" > Fast And Easy Transactions </p>
@@ -152,11 +155,25 @@ const AllCollectionTitle = () => {
                 </div>
 
                 <div className="flex flex-col justify-center items-center">
-                    
+                    <PiDressDuotone className="text-5xl text-[#734532]" />
+                    <p className=" text-slate-600 text-xl md:text-xl  font-sans tracking-wide mb-1 " > Modern Fashion </p>
                 </div>
             </div>
         </div>
     )
+}
+
+const buttons = () => {
+    return (
+        <div className="flex flex-col lg:flex-row items-center justify-around mt-20 mb-12 ">
+            <button className="w-40 h-8  bg-[#382e29] rounded-lg justify-center items-center text-white text-base font-medium ">All Collection</button>
+            <button className="text-white text-base font-medium w-40 h-8 px-26 bg-[#70565099] rounded-lg justify-center items-center">Verified Brands</button>
+            <button className="w-40 h-8  bg-[#382e29] rounded-lg justify-center items-center text-white text-base font-medium ">Verified Artists</button>
+            <button className="text-white text-base font-medium w-40 h-8 px-26 bg-[#70565099] rounded-lg justify-center items-center">New Drops</button>
+            <button className="text-white text-base font-medium w-40 h-8 px-26 bg-[#382e29] rounded-lg justify-center items-center">Live Shows</button>
+        </div>
+    )
+
 }
 
 
@@ -168,6 +185,7 @@ const Home = () => {
             {BrandsStatic()}
             {AboutUs()}
             {AllCollectionTitle()}
+            {buttons()}
         </div>
 
 

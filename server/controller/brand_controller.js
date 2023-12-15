@@ -29,9 +29,9 @@ exports.getOne = async (req, res) => {
 }
 
 exports.addBrand = async (req, res) => {
-    const { brandName, brandImage, status } = req.body
+    const { brandName, brandImage, bgImage, status } = req.body
     try {
-        let newBrand = await Brand.create({ brandName, brandImage, status })
+        let newBrand = await Brand.create({ brandName, brandImage, bgImage, status })
         res.status(200).json("added successfully")
     } catch (err) {
         res.status(400).json("error happen in add new Brand")
