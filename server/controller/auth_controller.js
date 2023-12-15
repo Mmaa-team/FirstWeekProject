@@ -5,6 +5,7 @@ const jwt = require("jsonwebtoken");
 module.exports = {
   signup: async (req, res) => {
     if (req.params.role === "creator") {
+
       var table = db.Creator
     }
     else table = db.Users
@@ -12,6 +13,8 @@ module.exports = {
       const { fullName, userName, email, password, dateBirth } = req.body
 
 
+
+     
 
       const users = await table.findAndCountAll({ where: { email } });
 
@@ -35,6 +38,7 @@ module.exports = {
   signin: async (req, res) => {
     try {
       if (req.params.role === "creator") {
+
         var table = db.Creator
       }
       else table = db.Users
@@ -42,6 +46,7 @@ module.exports = {
      
       if (!Object.keys(user.dataValues).length) {
         return res.status(409).send("userdoesntexist")
+
       }
       const isPasswordcorrect = bcryptjs.compareSync(
         req.body.password,
@@ -62,6 +67,7 @@ module.exports = {
       res.status(500).send("ereur");
     }
   },
+
   logout: async (req, res) => {
     res.clearCookie("access_token", {
       sameSite: "none",
@@ -96,3 +102,5 @@ module.exports = {
 
   }
 }
+;
+

@@ -91,12 +91,14 @@ function Header() {
                             >
                                 <li className=" w-screen border-b py-2 pl-5 transition-all hover:pl-5 ">
                                     <NavLink to='/statistic' className={`  `}>Statisics</NavLink>
+                                    <NavLink className={`  `}>Page 1</NavLink>
                                 </li>
                                 <li
                                     className=" w-screen border-b py-2 pl-5 transition-all hover:pl-5
                                 "
                                 >
                                     <NavLink className=" "></NavLink>
+                                    <NavLink className=" ">Page 2</NavLink>
                                 </li>
                             </ul>
                         </li>
