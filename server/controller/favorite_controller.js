@@ -27,9 +27,9 @@ exports.addFav = async (req, res) => {
             userId: iduser,
             itemId: idItem
         })
-        res.status(200).json("fav item added")
+        res.status(200).send("fav item added")
     } catch (err) {
-        res.status(400).json("error happen in add fav item", err)
+        res.status(400).send("error happen in add fav item", err)
     }
 }
 

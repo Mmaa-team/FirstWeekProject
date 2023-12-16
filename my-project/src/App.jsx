@@ -24,7 +24,8 @@ const Allproducts = lazy(
 const Productdetails = lazy(
     () => import('./components/pages/LayoutExplore/Productdetails.jsx')
 )
-// const Home = lazy(() => import("./components/pages/Home.jsx"));
+// Home:
+const Home = lazy(() => import('./components/pages/Home.jsx'))
 
 function App() {
     const router = createBrowserRouter(
@@ -32,7 +33,7 @@ function App() {
             <>
                 <Route path="*" element={<NotFound404 />} />
                 <Route path="/" element={<Layout />}>
-                    {/* <Route index element={<Home />} /> */}
+                    <Route index element={<Home />} />
                     <Route path="/About" element={<About />} />
                     <Route path="/statistic" element={<Statistics />} />
                     <Route path="/profile" element={<Profile />} />

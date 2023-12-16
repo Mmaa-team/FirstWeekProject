@@ -28,7 +28,7 @@ function Productdetails() {
 
     return (
         <div>
-            <div className="constainer grid grid-flow-col  items-center gap-5   rounded-lg bg-white  p-10">
+            <div className="constainer lg:grid lg:grid-flow-col flex flex-col  items-center gap-5   rounded-lg bg-white  p-10">
                 <div className="desc flex flex-col gap-8">
                     <NavLink className={'  w-fit'} to="/explore/allProducts">
                         <FaArrowLeftLong className="text-lg transition-all hover:translate-x-[-8px] " />
@@ -54,11 +54,11 @@ function Productdetails() {
                     <img src={data.image} alt="" />
                 </div>
                 <div className="by flex flex-col gap-3">
-                    <button className="flex items-center gap-2 hover:font-semibold bg-VanDyke px-20 py-4 font-medium text-white">
+                    <button className="flex items-center gap-2 bg-VanDyke px-20 py-4 font-medium text-white hover:font-semibold">
                         ADD TO CART
                         <BsBag className="text-xl" />
                     </button>
-                    <button className="flex h-14 items-center hover:font-semibold gap-2 border border-black px-20 font-medium">
+                    <button className="flex h-14 items-center gap-2 border border-black px-20 font-medium hover:font-semibold">
                         BY WITH
                         <img
                             className="w-16 "
