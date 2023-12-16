@@ -3,6 +3,11 @@
 @tailwind utilities;
 
 #root {
-    background: #E9E5DE;
-    background: linear-gradient(90deg, #E9E5DE 0%, #E7CCC1 38%, #705650 100%);
+    background: #e9e5de;
+    background: linear-gradient(90deg, #e9e5de 0%, #e7ccc1 38%, #705650 100%);
 }
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
