@@ -54,7 +54,7 @@ module.exports = {
       );
       console.log(isPasswordcorrect);
       if (!isPasswordcorrect) {
-        return res.status(409).json("password incorrect");
+        return res.status(409).send("password incorrect");
       }
       const { fullName, userName, email, dateBirth , id} = user.dataValues;
 
@@ -72,7 +72,7 @@ module.exports = {
     res.clearCookie("access_token", {
       sameSite: "none",
       secure: true,
-    }).status(200).json('user has been loged out')
+    }).status(200).send('user has been loged out')
   },
   signing: async (req,res) => {
     if (req.params.role === "creator") {

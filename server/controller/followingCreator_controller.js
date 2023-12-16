@@ -14,9 +14,9 @@ exports.getAllUsers = async (req, res) => {
                 }
             ]
         })
-        res.status(200).json(followers)
+        res.status(200).send(followers)
     } catch (err) {
-        res.status(400).json("error happen in get All users followers to Creators")
+        res.status(400).send("error happen in get All users followers to Creators")
     }
 }
 
@@ -31,7 +31,7 @@ exports.newFollower = async (req, res) => {
         })
         res.status(200).send("follow added successfully")
     } catch (err) {
-        res.status(400).json("error happen in new follower to the creator")
+        res.status(400).send("error happen in new follower to the creator")
     }
 }
 
@@ -42,7 +42,7 @@ exports.removeFollow = async (req, res) => {
         const removeFollower = await FollowingCreator.destroy({
             where: { creatorId: idcreator, userId: iduser }
         })
-        res.status(200).json("follow removed")
+        res.status(200).send("follow removed")
     } catch (err) {
         res.status(404).send("error happen in remove follower creator", err)
     }
