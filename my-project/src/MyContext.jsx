@@ -1,63 +1,27 @@
+
 import axios from 'axios'
 import React, { createContext, useEffect, useState } from 'react'
 
 export const MyContext = createContext()
+
 export const ContextProvider = ({ children }) => {
-    const [currentUser, setCurrentUser] = useState({})
     const [sortedItems, setSortedItems] = useState([])
     const [handleFilter, setHandleFilter] = useState('All')
     const [brands, setBrands] = useState([])
     const [filterBrands, setFilterBrands] = useState('')
     const [collections, setCollections] = useState([])
-    const [categorys, setCategorys] = useState([])
-    const [url, setUrl] = useState('')
-
-    const login = async (input, role) => {
-        console.log(role, input)
-        axios
-            .post(`http://127.0.0.1:8080/auth/signin/${role}`, input)
-            .then((res) => {
-                console.log('done')
-                setCurrentUser(res.data)
-            })
-            .catch((err) => console.log(err))
-    }
-
-    const logout = async (input) => {
-        await axios.post('http://127.0.0.1:8080/auth/logout')
-        setCurrentUser({})
-    }
-    const signing = async (input, role) => {
-        try {
-            const res = await axios.post(
-                `http://127.0.0.1:8080/auth/signupgoogle/${role}`,
-                input
-            )
-            setCurrentUser(res.data)
-            console.log(currentUser)
-        } catch (err) {
-            console.log(err)
-        }
-    }
-
-    // JSON.parse(localStorage.getItem("user")||null)
-    //    useEffect(()=>{
-    //     localStorage.setItem("user",JSON.stringify(currentUser))
-    //     },[currentUser])
+    const [category, setCategory] = useState([])
+    const [filterCategory, setFilterCategory] = useState(null)
 
     useEffect(() => {
         Filter_W_Status(setSortedItems, handleFilter)
-        fetchCollection(setCollections)
+        fetchCollection(setCollections, setSortedItems)
         fetchBrand(setBrands, filterBrands, setSortedItems)
-        fetchCategory(setCategorys)
-    }, [handleFilter, filterBrands])
-
+        fetchCategory(setCategory, filterCategory, setSortedItems)
+    }, [handleFilter, filterBrands, filterCategory])
     return (
         <MyContext.Provider
             value={{
-                login,
-                logout,
-                currentUser,
                 setHandleFilter,
                 sortedItems,
                 setBrands,
@@ -65,8 +29,10 @@ export const ContextProvider = ({ children }) => {
                 collections,
                 setFilterBrands,
                 filterBrands,
-                categorys,
-                signing
+                setCategory,
+                category,
+                filterCategory,
+                setFilterCategory,
             }}
         >
             {children}
@@ -81,7 +47,7 @@ const Filter_W_Status = async (setSortedItems, handleFilter) => {
             setSortedItems(result.data)
         } else {
             const result = await axios.get(
-                `http://localhost:8080/items/item/${handleFilter}`
+                `http://localhost:8080/items/item/status/${handleFilter}`
             )
             setSortedItems(result.data)
         }
@@ -90,13 +56,12 @@ const Filter_W_Status = async (setSortedItems, handleFilter) => {
     }
 }
 
-const fetchCollection = async (setCollections) => {
+const fetchCollection = async (setCollections, setSortedItems) => {
     try {
         const result = await axios.get(`http://localhost:8080/collections`)
         const uniqueCollection = new Set()
-
-        result.data.forEach((category) => {
-            uniqueCollection.add(category.name)
+        result.data.forEach((collection) => {
+            uniqueCollection.add(collection.name)
         })
 
         const uniqueCollectionArray = Array.from(uniqueCollection)
@@ -107,30 +72,38 @@ const fetchCollection = async (setCollections) => {
 }
 
 const fetchBrand = async (setBrands, filterBrands, setSortedItems) => {
-    if (filterBrands) {
-        try {
+    try {
+        const result = await axios.get(`http://localhost:8080/brands`)
+        setBrands(result.data)
+
+        if (filterBrands) {
             const result = await axios.get(
                 `http://localhost:8080/collections/item/${filterBrands}`
             )
             setSortedItems(result.data[0].items)
-        } catch (err) {
-            console.log(err)
         }
-    } else {
-        try {
-            const result = await axios.get(`http://localhost:8080/brands`)
-            setBrands(result.data)
-        } catch (err) {
-            console.log(err)
-        }
-    }
-}
-
-const fetchCategory = async (setCollections) => {
-    try {
-        const result = await axios.get('http://localhost:8080/items')
-        setCollections(result.data)
     } catch (err) {
         console.log(err)
     }
 }
+
+const fetchCategory = async (setCategory, filterCategory, setSortedItems) => {
+    try {
+        const result = await axios.get('http://localhost:8080/items')
+        const uniqueCategories = new Set()
+        result.data.forEach((item) => {
+            uniqueCategories.add(item.category)
+        })
+        const uniqueCategoriesArray = Array.from(uniqueCategories)
+        setCategory(uniqueCategoriesArray)
+        if (filterCategory) {
+            const result = await axios.get(
+                `http://localhost:8080/items/brands/${filterCategory}`
+            )
+            setSortedItems(result.data)
+        }
+    } catch (err) {
+        console.log(err)
+    }
+}
+
