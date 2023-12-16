@@ -64,7 +64,7 @@ exports.getOneItem = async (req, res) => {
     if (!!Object.keys(result).length) {
       res.status(200).send(result);
     } else {
-      res.status(230).send("Item Not found");
+      res.status(230).send([]);
     }
   } catch (err) {
     res.status(400).send(err);

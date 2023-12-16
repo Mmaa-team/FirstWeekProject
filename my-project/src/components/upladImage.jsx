@@ -41,12 +41,14 @@ const UploadImage = ({ change, setUploaded, uploaded }) => {
         })
     }
  const handleChange=(kind,chang,e)=>{
+    var obj={}
+   obj[kind]=chang
     e.preventDefault();
     console.log(kind,chang)
-    // axios
-    //         .put(`http://localhost:8080/creators/${kind}/1`, {kind:change})
-    //         .then((response) => console.log(response))
-    //         .catch((error) => console.error(error))
+    axios
+            .put(`http://localhost:8080/creators/${kind}/1`,obj)
+            .then((response) => console.log(response))
+            .catch((error) => console.error(error))
 
  }
     // const changebio = (bio) => {

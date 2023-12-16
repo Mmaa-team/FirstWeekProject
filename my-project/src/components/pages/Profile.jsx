@@ -3,24 +3,26 @@ import { FaPen } from 'react-icons/fa'
 import { FaCamera } from 'react-icons/fa'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
-import UploadImage from '../upladImage.jsx'
 import { useContext } from 'react'
 import { MyContext } from '../../MyContext.jsx'
+import UploadImage from '../upladImage.jsx'
+import PostsImages from '../PostsImages.jsx'
+import Posts from '../Posts.jsx'
 
 const Profile = () => {
     const [creator, setCreator] = useState({})
     const  [view,setView]= useState(false)
     const [change,setChange]=useState("")
-    const [fn, setFn] = useState(null)
     const [uploaded, setUploaded] = useState(false)
-    const { url } = useContext(MyContext)
     const edit = useRef()
+    const [posts,setPosts] = useState([])
 
     // const id = useParams(id)
     console.log(creator)
 
     useEffect(() => {
         getCreator(1)
+        getAllPosts(1)
     }, [uploaded])
 
     /////////////////////////////////////////getCreator/////////////////////////////////////////////////////////////////
@@ -33,6 +35,12 @@ const Profile = () => {
             .catch((error) => {
                 console.error(error)
             })
+    }
+
+    const getAllPosts = (id)=> {
+        axios.get(`http://localhost:8080/posts/${id}`)
+        .then(response => {setPosts(response.data)})
+        .catch(error => console.error(error))
     }
  
     return (
@@ -82,7 +90,9 @@ const Profile = () => {
                     <div ref={edit}
                             data-profile="profile"
                             onClick={() => {
+                                setView(!view)
                                 setChange("profile")
+                                console.log(change)
                             }}  className=" absolute bottom-0 flex h-[45px] w-[164px] items-center justify-center gap-2.5 rounded-[150px] bg-VanDyke p-2.5 md:bottom-[90px] md:right-[230px]">
                         <span className="font-['SF Pro Display'] absolute text-base font-semibold text-white">
                             Edit Profile
@@ -98,12 +108,17 @@ const Profile = () => {
                   
                 </div>
 
-                {/* <div className="flex justify-between items-center">
-                <div className="h-[371px] w-[345px] rounded-[5px] bg-white bg-opacity-10"></div>
-
-                
-                </div> */}
+         <div className='flex flex-col md:flex-row'>
+         <div className="w-[345px] h-[371px] bg-white bg-opacity-10 rounded-[5px] ">
+                <PostsImages posts={posts} creator={creator}/>
             </div>
+            <div>
+                <Posts posts={posts} creator={creator}/>
+            </div>
+         </div>
+            
+            </div>
+            
         </>
     )
 }
