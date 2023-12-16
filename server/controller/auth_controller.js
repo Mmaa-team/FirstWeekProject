@@ -56,13 +56,13 @@ module.exports = {
       if (!isPasswordcorrect) {
         return res.status(409).json("password incorrect");
       }
-      const { fullName, userName, email, dateBirth } = user.dataValues;
+      const { fullName, userName, email, dateBirth , id} = user.dataValues;
 
       const token = jwt.sign({ id: user.dataValues.id }, "jwtkey");
       res
         .cookie("access_token", token, { httpOnly: true })
         .status(200)
-        .send({ fullName, userName, email, dateBirth });
+        .send({ fullName, userName, email, dateBirth ,id});
     } catch (err) {
       res.status(500).send("ereur");
     }
