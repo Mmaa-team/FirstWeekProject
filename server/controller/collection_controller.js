@@ -13,7 +13,7 @@ exports.getAll = async (req, res) => {
     if (result.length) {
       res.status(200).send(result);
     } else {
-      res.status(230).send("this Collection not found");
+      res.status(230).send([]);
     }
   } catch (err) {
     res.status(400).send(err);
@@ -39,7 +39,7 @@ exports.getBrandCollections = async (req, res) => {
     if (result.length) {
       res.status(200).send(result);
     } else {
-      res.status(230).send("Collections not found");
+      res.status(230).send([]);
     }
   } catch (err) {
     res.status(400).send(err);
@@ -59,7 +59,7 @@ exports.getAllBrandsCollections = async (req, res) => {
     if (result.length) {
       res.status(200).send(result);
     } else {
-      res.status(230).send("this Collection not found");
+      res.status(230).send([]);
     }
   } catch (err) {
     res.status(400).send(err);
@@ -89,20 +89,20 @@ exports.getOneBrandsWithCreaterCollection = async (req, res) => {
           },
         },
       ],
-    
     });
 
     if (Object.keys(result).length) {
       res.status(200).send(result);
     } else {
-      res.status(230).send("this Collection not found");
+      res.status(230).send([]);
     }
   } catch (err) {
     res.status(400).send(err);
   }
 };
+
 exports.getOneBrandsCollection = async (req, res) => {
-  const {   brand } = req.params;
+  const { brand } = req.params;
   try {
     const result = await Collection.findAll({
       where: {
@@ -111,7 +111,6 @@ exports.getOneBrandsCollection = async (req, res) => {
       include: [
         {
           model: Items,
-         
         },
 
         {
@@ -121,14 +120,13 @@ exports.getOneBrandsCollection = async (req, res) => {
           },
         },
       ],
-    
     });
 
+    if (Object.keys(result).length) {
       res.status(200).send(result);
-    // if (Object.keys(result).length) {
-    // } else {
-    //   res.status(230).send("this Collection not found");
-    // }
+    } else {
+      res.status(230).send([]);
+    }
   } catch (err) {
     res.status(400).send(err);
   }
