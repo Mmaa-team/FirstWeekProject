@@ -16,7 +16,9 @@ function Header() {
 
     return (
         <header
+
             className="max-w-screen relative z-30 w-full  bg-[#97928f4d] "
+
             onMouseLeave={() => {
                 setShowExploreNav(false), setShowMoreNav(false)
             }}
@@ -103,11 +105,13 @@ function Header() {
                                     <NavLink to={'/statistic'}>
                                         Statistics
                                     </NavLink>
+
                                 </li>
                                 <li
                                     className=" w-screen border-b py-2 pl-5 transition-all hover:pl-5
                                 "
                                 >
+
                                     <NavLink className=" ">Page 2</NavLink>
                                 </li>
                             </ul>

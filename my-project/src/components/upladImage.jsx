@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { storage } from '../firebase/firebaseImg'
+import { storage } from '../firebase/firebase.jsx'
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage'
 import { v4 } from 'uuid'
 import axios from 'axios'
@@ -42,11 +42,14 @@ const UploadImage = ({ change, setUploaded, uploaded }) => {
     }
  const handleChange=(kind,chang,e)=>{
     e.preventDefault();
+    var obj={}
+    obj[kind]=chang
+    console.log(obj)
     console.log(kind,chang)
-    // axios
-    //         .put(`http://localhost:8080/creators/${kind}/1`, {kind:change})
-    //         .then((response) => console.log(response))
-    //         .catch((error) => console.error(error))
+    axios
+            .put(`http://localhost:8080/creators/${kind}/1`, obj)
+            .then((response) => console.log(response))
+            .catch((error) => console.error(error))
 
  }
     // const changebio = (bio) => {

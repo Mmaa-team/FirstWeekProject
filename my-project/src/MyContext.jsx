@@ -59,26 +59,26 @@ const Filter_W_Status = async (setSortedItems, handleFilter) => {
     }
 }
 
-    // const fetchCollection = async (
-    //     setFilterCollections,
-    //     itemCollections,
-    //     setSortedItems
-    // ) => {
-    //     try {
-    //         const result = await axios.get(`http://localhost:8080/collections`)
-        
-    //         setFilterCollections(result.data)
+// const fetchCollection = async (
+//     setFilterCollections,
+//     itemCollections,
+//     setSortedItems
+// ) => {
+//     try {
+//         const result = await axios.get(`http://localhost:8080/collections`)
 
-    //         if (itemCollections) {
-    //             const result = await axios.get(
-    //                 `http://localhost:8080/item/collections/${itemCollections}`
-    //             )
-    //             setSortedItems(result.data)
-    //         }
-    //     } catch (err) {
-    //         console.log(err)
-    //     }
-    // }
+//         setFilterCollections(result.data)
+
+//         if (itemCollections) {
+//             const result = await axios.get(
+//                 `http://localhost:8080/item/collections/${itemCollections}`
+//             )
+//             setSortedItems(result.data)
+//         }
+//     } catch (err) {
+//         console.log(err)
+//     }
+// }
 
 const fetchBrand = async (setBrands, filterBrands, setSortedItems) => {
     try {

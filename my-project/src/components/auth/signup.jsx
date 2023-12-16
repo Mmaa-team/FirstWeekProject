@@ -3,7 +3,6 @@ import React, { useContext, useRef, useState } from 'react'
 import { Input } from "@material-tailwind/react";
 import signin from "../../assets/signin.png"
 import { useNavigate } from 'react-router-dom';
-import { MyContext } from '../../MyContext';
 import axios from "axios"
 
 const Signup = () => {
@@ -15,7 +14,7 @@ const Signup = () => {
     const dateBirth = useRef()
     const navigate = useNavigate()
     const [role,setRole]=useState('user')
-    const { login } = useContext(MyContext)
+    
     function submit() {
   const  obj={fullName:fullName.current.value,
         userName: userName.current.value,
@@ -24,7 +23,7 @@ const Signup = () => {
         dateBirth:dateBirth.current.value
     }
     console.log(obj)
-    axios.post(`http://127.0.0.1:8080/auth/signup/${role}`,obj).then(()=>{console.log('done')})
+    axios.post(`http://127.0.0.1:8080/auth/signup/${role}`,obj).then(()=>{console.log('done')},navigate('/signin'))
     .catch((err)=>{console.log(err)})
     }
 
