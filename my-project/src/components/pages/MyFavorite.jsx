@@ -10,10 +10,10 @@ const MyFavorite = () => {
     useEffect(()=>{
         axios.get(`http://localhost:8080/favoriteItem/${id}`).then((res)=>{setData(res.data)})
         .catch((err)=>console.log(err))
-    },[desplay])
+    },[ ])
     console.log(data)
     const deleteItem=(iditem)=>{
-        axios.delete(`http://localhost:8080/favoriteItem/${iditem}/${id}`).then(()=>{setDesplay(!desplay)})
+        axios.delete(`http://localhost:8080/favoriteItem/${iditem}/${id}`).then(()=>{console.log("done")})
         .catch((err)=>console.log(err))
     }
   return (
