@@ -23,15 +23,15 @@ exports.getAllUsers = async (req, res) => {
 
 exports.newFollower = async (req, res) => {
     const { idcreator, iduser } = req.params
-    // console.log(idcreator,iduser);
+    console.log(idcreator,iduser);
     try {
         let newFollow = await FollowingCreator.create({
-            creatorId: idcreator,
-            userId: iduser
+            userId: +iduser,
+            creatorId: +idcreator
         })
         res.status(200).send("follow added successfully")
     } catch (err) {
-        res.status(400).json("error happen in new follower to the creator")
+        res.status(400).json(err)
     }
 }
 

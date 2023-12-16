@@ -15,7 +15,9 @@ function Header() {
 
     return (
         <header
+
             className="max-w-screen relative z-30 w-full  bg-[#97928f4d] "
+
             onMouseLeave={() => {
                 setShowExploreNav(false), setShowMoreNav(false)
             }}
@@ -27,11 +29,10 @@ function Header() {
                     </div>
 
                     <ul
-                        className={`links transition-max-height items-start overflow-hidden duration-300 ${
-                            showNav
-                                ? 'opacity- mt-8 max-h-screen '
-                                : 'm-0 max-h-0 opacity-0'
-                        } flex flex-col items-start justify-center gap-4 sm:w-full md:w-full lg:mt-0 lg:flex lg:w-full lg:flex-row
+                        className={`links transition-max-height items-start overflow-hidden duration-300 ${showNav
+                            ? 'opacity- mt-8 max-h-screen '
+                            : 'm-0 max-h-0 opacity-0'
+                            } flex flex-col items-start justify-center gap-4 sm:w-full md:w-full lg:mt-0 lg:flex lg:w-full lg:flex-row
   lg:items-center lg:justify-center lg:justify-self-end`}
                     >
                         <li className="relative  hidden items-center text-white lg:flex ">
@@ -57,11 +58,10 @@ function Header() {
                                 Explore <IoIosArrowDown />
                             </NavLink>
                             <ul
-                                className={`lg:bg-main_color3 relative flex h-max w-1/2  flex-col gap-3 overflow-hidden text-white  lg:absolute lg:w-[200px] lg:translate-y-[20px] ${
-                                    showExploreNav
-                                        ? 'opacity-1 max-h-screen'
-                                        : 'max-h-0 opacity-0'
-                                } transition-all`}
+                                className={`lg:bg-main_color3 relative flex h-max w-1/2  flex-col gap-3 overflow-hidden text-white  lg:absolute lg:w-[200px] lg:translate-y-[20px] ${showExploreNav
+                                    ? 'opacity-1 max-h-screen'
+                                    : 'max-h-0 opacity-0'
+                                    } transition-all`}
                             >
                                 <li className="w-screen border-b py-2 pl-5 transition-all hover:pl-5">
                                     <NavLink to="explore/allProducts">
@@ -92,21 +92,23 @@ function Header() {
                                 More <IoIosArrowDown />
                             </NavLink>
                             <ul
-                                className={`lg:bg-main_color3 relative flex h-max w-1/2  flex-col gap-3 overflow-hidden text-white  lg:absolute lg:w-[200px] lg:translate-y-[20px] ${
-                                    showMoreNav
-                                        ? 'opacity-1 max-h-screen'
-                                        : 'max-h-0 opacity-0'
-                                } transition-all`}
+                                className={`lg:bg-main_color3 relative flex h-max w-1/2  flex-col gap-3 overflow-hidden text-white  lg:absolute lg:w-[200px] lg:translate-y-[20px] ${showMoreNav
+                                    ? 'opacity-1 max-h-screen'
+                                    : 'max-h-0 opacity-0'
+                                    } transition-all`}
                             >
                                 <li className=" w-screen border-b py-2 pl-5 transition-all hover:pl-5 ">
+
                                     <NavLink to={'/statistic'}>
                                         Statistics
                                     </NavLink>
+
                                 </li>
                                 <li
                                     className=" w-screen border-b py-2 pl-5 transition-all hover:pl-5
                                 "
                                 >
+
                                     <NavLink className=" ">Page 2</NavLink>
                                 </li>
                             </ul>
