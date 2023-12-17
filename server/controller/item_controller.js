@@ -37,7 +37,7 @@ exports.getBrandItems = async (req, res) => {
 
 exports.getItemStatus = async (req, res) => {
   const { status } = req.params;
-console.log(status);
+  console.log(status);
   try {
     const result = await Items.findAll({
       where: { status: status },
@@ -64,7 +64,7 @@ exports.getOneItem = async (req, res) => {
     if (!!Object.keys(result).length) {
       res.status(200).send(result);
     } else {
-      res.status(230).send("Item Not found");
+      res.status(230).send([]);
     }
   } catch (err) {
     res.status(400).send(err);

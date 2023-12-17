@@ -83,6 +83,7 @@ const Profile = () => {
                             data-profile="profile"
                             onClick={() => {
                                 setChange("profile")
+                                setView(!view)
                             }}  className=" absolute bottom-0 flex h-[45px] w-[164px] items-center justify-center gap-2.5 rounded-[150px] bg-VanDyke p-2.5 md:bottom-[90px] md:right-[230px]">
                         <span className="font-['SF Pro Display'] absolute text-base font-semibold text-white">
                             Edit Profile

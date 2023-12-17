@@ -1,6 +1,11 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAuth } from 'firebase/auth'
+
+import { getAnalytics } from "firebase/analytics";
+import { getStorage} from "firebase/storage"
+
+
 let apiKey = import.meta.env.VITE_apiKey
 let authDomain = import.meta.env.VITE_authDomain
 let projectId = import.meta.env.VITE_projectId
@@ -24,4 +29,6 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app)
+const analytics = getAnalytics(app);
+export const storage = getStorage(app)
 export default app

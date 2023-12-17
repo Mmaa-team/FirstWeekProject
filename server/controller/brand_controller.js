@@ -10,7 +10,7 @@ exports.getAll = async (req, res) => {
             res.status(200).send(brand)
         }
         else {
-            res.status(230).send("Empty Brand")
+            res.status(230).send([])
         }
     } catch (err) {
         res.status(400).json("error happen in getAll Brands", err)
