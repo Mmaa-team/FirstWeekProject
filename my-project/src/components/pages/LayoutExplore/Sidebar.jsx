@@ -26,10 +26,10 @@ function Sidebar() {
     // const uniqueCollection = new Set()
     // filterCollections.forEach((collection) => {
     //     uniqueCollection.add(collection)
-        // uniqueCollection.add(collection.id)
+    // uniqueCollection.add(collection.id)
     // })
     // const uniqueCollectionArray = Array.from(uniqueCollection)
-// console.log(uniqueCollectionArray);
+    // console.log(uniqueCollectionArray);
 
     const tabs = [
         {
@@ -60,28 +60,32 @@ function Sidebar() {
         // {
         //     icon: <MdCollectionsBookmark className={`text-2xl lg:hidden`} />,
         //     name: 'Collections',
-            // list: uniqueCollectionArray.map((collection) => ({
-              
-            //     text: collection.name,
-            // })),
+        // list: uniqueCollectionArray.map((collection) => ({
+
+        //     text: collection.name,
+        // })),
         // },
 
         {
             icon: <FaStar className={`text-2xl lg:hidden`} />,
             name: 'Brands',
-            list: brands.map((brand) => ({
-                text: brand.brandName,
-                brandId: brand.id,
-            })),
+            list: brands.length
+                ? brands.map((brand) => ({
+                      text: brand.brandName,
+                      brandId: brand.id,
+                  }))
+                : [],
         },
 
         {
             icon: <SiAntdesign className={`text-2xl lg:hidden`} />,
             name: 'Category',
-            list: category.map((category) => ({
-                text: category,
-                category: category,
-            })),
+            list: category.length
+                ? category.map((categoryItem) => ({
+                      text: categoryItem,
+                      category: categoryItem,
+                  }))
+                : [],
         },
     ]
 
