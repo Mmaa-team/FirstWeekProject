@@ -17,7 +17,7 @@ const Profile = () => {
     const [posts,setPosts] = useState([])
 
     // const id = useParams(id)
-    console.log(creator)
+    // console.log(creator)
 
     useEffect(() => {
         getCreator(1)
@@ -41,6 +41,8 @@ const Profile = () => {
         .then(response => {setPosts(response.data)})
         .catch(error => console.error(error))
     }
+
+    console.log(posts)
  
     return (
         <>

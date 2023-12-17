@@ -82,15 +82,14 @@ function AllProducts() {
         const sortBy = e.target.value
         let toFilter
         if (sortBy === 'Available') {
-            toFilter = 'available'
+            toFilter = 'Available'
         } else if (sortBy === 'Incoming') {
             toFilter = 'Incoming'
         } else if (sortBy === 'OnSale') {
             toFilter = 'On Sale'
-        } else {
+        } else if (sortBy === 'All') {
             toFilter = 'All'
         }
-
         setHandleFilter(toFilter)
     }
 
@@ -98,9 +97,7 @@ function AllProducts() {
         <animated.div style={slideIn} className="all-products w-full px-6">
             <div className="container">
                 <div className="header flex items-center justify-between">
-                    <p>
-                        {loading ? 'Loading...' : `${sortedItems.length} Items`}
-                    </p>
+                    <p>{`${sortedItems.length} `}Items</p>
                     <select
                         className="sort-select w-40 rounded-md border bg-transparent px-4 py-2 text-white outline-none transition-all focus:outline-none"
                         onChange={handleSortChange}
@@ -117,6 +114,7 @@ function AllProducts() {
                         <option
                             className="sort-option bg-[#d3a48974] py-2"
                             value="All"
+                            selected
                         >
                             All
                         </option>

@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import logo from "../../assets/logo/log.png"
 import { GoogleAuthProvider ,signInWithPopup} from 'firebase/auth'
 import { auth} from '../../firebase/firebase.jsx'
-import { MyContext } from '../../MyContext.jsx'
+import {userContext} from '../../Usercontext.jsx'
 const Signin = () => {
     const navigate=useNavigate()
     const emails = useRef()
@@ -15,7 +15,7 @@ const Signin = () => {
     const [fullName,setFullName]=useState('')
     const [email,setEmail]=useState('')
     const [role,setRole]=useState('user')
-   const{login,signing}=useContext(MyContext)
+   const{login,signing}=useContext(userContext)
    console.log(signing)
     const submit = () => {
       

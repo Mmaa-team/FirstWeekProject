@@ -18,11 +18,10 @@ exports.getAllItems = async (req, res) => {
 };
 
 exports.getBrandItems = async (req, res) => {
-  const { collectionId } = req.params;
-
+  const { itemCategory } = req.params;
   try {
     const result = await Items.findAll({
-      where: { collectionId: collectionId },
+      where: { category: itemCategory },
     });
 
     if (!!result.length) {
@@ -41,6 +40,22 @@ console.log(status);
   try {
     const result = await Items.findAll({
       where: { status: status },
+    });
+
+    if (!!result.length) {
+      res.status(200).send(result);
+    } else {
+      res.status(230).send([]);
+    }
+  } catch (err) {
+    res.status(400).send(err);
+  }
+};
+exports.getItemsCollection = async (req, res) => {
+  const { collectionId } = req.params;
+  try {
+    const result = await Items.findAll({
+      where: { collectionId: collectionId },
     });
 
     if (!!result.length) {

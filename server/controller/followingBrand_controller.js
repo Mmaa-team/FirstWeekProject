@@ -17,7 +17,7 @@ exports.getUsers = async (req, res) => {
         })
         res.status(200).send(followers)
     } catch (err) {
-        res.status(400).json(err)
+        res.status(400).send(err)
     }
 }
 
@@ -29,9 +29,9 @@ exports.newFollower = async (req, res) => {
             userId: idUser,
             brandId: idbrand
         })
-        res.status(200).json("Follow added")
+        res.status(200).send("Follow added")
     } catch (err) {
-        res.status(400).json("error happen from the newFollower controller", err)
+        res.status(400).send("error happen from the newFollower controller", err)
     }
 }
 
@@ -42,7 +42,7 @@ exports.removeFollow = async (req, res) => {
         const removeFollower = await FollowingBrand.destroy({
             where: { brandId: idbrand, userId: iduser }
         })
-        res.status(200).json("follow removed")
+        res.status(200).send("follow removed")
     } catch (err) {
         res.status(404).send('la')
     }

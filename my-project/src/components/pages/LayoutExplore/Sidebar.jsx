@@ -13,16 +13,23 @@ function Sidebar() {
     const [openTab, setOpenTab] = useState(null)
     const [selectedPriceRange, setSelectedPriceRange] = useState([0, Infinity])
     const [sidebar, setSidebar] = useState(false)
-    const { setHandleFilter, collections, brands, setFilterBrands, categorys } =
-        useContext(MyContext)
+    const {
+        setHandleFilter,
+        filterCollections,
+        brands,
+        setFilterBrands,
+        category,
+        setFilterCategory,
+        setItemCollections,
+    } = useContext(MyContext)
 
-    const uniqueCategories = new Set()
-
-    categorys.forEach((category) => {
-        uniqueCategories.add(category.category)
-    })
-
-    const uniqueCategoriesArray = Array.from(uniqueCategories)
+    // const uniqueCollection = new Set()
+    // filterCollections.forEach((collection) => {
+    //     uniqueCollection.add(collection)
+        // uniqueCollection.add(collection.id)
+    // })
+    // const uniqueCollectionArray = Array.from(uniqueCollection)
+// console.log(uniqueCollectionArray);
 
     const tabs = [
         {
@@ -35,6 +42,7 @@ function Sidebar() {
                 { text: 'On Sale', path: 'On Sale' },
             ],
         },
+
         {
             icon: <MdAttachMoney className={`text-2xl lg:hidden`} />,
             name: 'Price',
@@ -48,25 +56,29 @@ function Sidebar() {
                 { text: 'Over $200', range: [200, Infinity] },
             ],
         },
-        {
-            icon: <MdCollectionsBookmark className={`text-2xl lg:hidden`} />,
-            name: 'Collections',
-            list: collections.map((collection) => ({
-                text: collection.name,
-                path: `collection/${collection.id}`,
-            })),
-        },
+
+        // {
+        //     icon: <MdCollectionsBookmark className={`text-2xl lg:hidden`} />,
+        //     name: 'Collections',
+            // list: uniqueCollectionArray.map((collection) => ({
+              
+            //     text: collection.name,
+            // })),
+        // },
+
         {
             icon: <FaStar className={`text-2xl lg:hidden`} />,
             name: 'Brands',
             list: brands.map((brand) => ({
                 text: brand.brandName,
+                brandId: brand.id,
             })),
         },
+
         {
             icon: <SiAntdesign className={`text-2xl lg:hidden`} />,
-            name: 'Categories',
-            list: uniqueCategoriesArray.map((category) => ({
+            name: 'Category',
+            list: category.map((category) => ({
                 text: category,
                 category: category,
             })),
@@ -144,50 +156,65 @@ function Sidebar() {
                             >
                                 {tab.list.map(
                                     (
-                                        { path, text, range, id, name },
+                                        {
+                                            path,
+                                            text,
+                                            range,
+                                            brandId,
+                                            category,
+                                        },
                                         listItemIndex
-                                    ) => (
-                                        <li
-                                            key={listItemIndex}
-                                            className="transition-all hover:pl-2"
-                                        >
-                                            {tab.name === 'Price' ? (
-                                                <div className="flex items-center">
-                                                    <input
-                                                        type="checkbox"
-                                                        id={`range${listItemIndex}`}
-                                                        className="h-6 w-4 rounded"
-                                                        checked={
-                                                            selectedPriceRange[0] ===
-                                                                range[0] &&
-                                                            selectedPriceRange[1] ===
-                                                                range[1]
-                                                        }
-                                                        onChange={() =>
-                                                            setSelectedPriceRange(
-                                                                range
+                                    ) => {
+                                        return (
+                                            <li
+                                                key={listItemIndex}
+                                                className="transition-all hover:pl-2"
+                                            >
+                                                {tab.name === 'Price' ? (
+                                                    <div className="flex items-center">
+                                                        <input
+                                                            type="checkbox"
+                                                            id={`range${listItemIndex}`}
+                                                            className="h-6 w-4 rounded"
+                                                            checked={
+                                                                selectedPriceRange[0] ===
+                                                                    range[0] &&
+                                                                selectedPriceRange[1] ===
+                                                                    range[1]
+                                                            }
+                                                            onChange={() =>
+                                                                setSelectedPriceRange(
+                                                                    range
+                                                                )
+                                                            }
+                                                        />
+                                                        <label
+                                                            htmlFor={`range${listItemIndex}`}
+                                                            className="ml-2"
+                                                        >
+                                                            {text}
+                                                        </label>
+                                                    </div>
+                                                ) : (
+                                                    <button
+                                                        onClick={() => {
+                                                            setHandleFilter(
+                                                                path
                                                             )
-                                                        }
-                                                    />
-                                                    <label
-                                                        htmlFor={`range${listItemIndex}`}
-                                                        className="ml-2"
+                                                            setFilterBrands(
+                                                                brandId
+                                                            )
+                                                            setFilterCategory(
+                                                                category
+                                                            )
+                                                        }}
                                                     >
                                                         {text}
-                                                    </label>
-                                                </div>
-                                            ) : (
-                                                <button
-                                                    onClick={() => {
-                                                        setHandleFilter(path)
-                                                        setFilterBrands(id)
-                                                    }}
-                                                >
-                                                    {text}
-                                                </button>
-                                            )}
-                                        </li>
-                                    )
+                                                    </button>
+                                                )}
+                                            </li>
+                                        )
+                                    }
                                 )}
                             </ul>
                         </li>
