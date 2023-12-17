@@ -5,7 +5,7 @@ import {
 } from 'react-router-dom'
 import { RouterProvider } from 'react-router'
 import { lazy, Suspense } from 'react'
-
+import Load from './components/Load.jsx'
 import Layout from './components/Layout/Layout.jsx'
 import NotFound404 from './Components/NotFound404.jsx'
 const Signup = lazy(() => import('./components/auth/signup.jsx'))
@@ -60,7 +60,7 @@ function App() {
 
   return (
     <div className="App ">
-      <Suspense fallback={'load'}>
+      <Suspense fallback={<Load/>}>
         <RouterProvider router={router}></RouterProvider>
       </Suspense>
     </div>
