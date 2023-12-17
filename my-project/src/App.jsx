@@ -5,7 +5,7 @@ import {
 } from 'react-router-dom'
 import { RouterProvider } from 'react-router'
 import { lazy, Suspense } from 'react'
-import Load from './components/Load.jsx'
+import Load from './Load.jsx'
 import Layout from './components/Layout/Layout.jsx'
 import NotFound404 from './Components/NotFound404.jsx'
 const Signup = lazy(() => import('./components/auth/signup.jsx'))
