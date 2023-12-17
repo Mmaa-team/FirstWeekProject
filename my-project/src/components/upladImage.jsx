@@ -27,7 +27,7 @@ const UploadImage = ({ change, setUploaded, uploaded }) => {
             })
     }
 
-    const addPost = async (status) => {
+    const addPost = async (status,e) => {
         e.preventDefault()
         console.log('a')
         const imageRef = ref(storage, `img/${imageUpload.name + v4()}`)
@@ -318,7 +318,7 @@ const UploadImage = ({ change, setUploaded, uploaded }) => {
                             <button
                                 onClick={async (e) => {
                                     console.log('testing add post')
-                                    addPost(post)
+                                    addPost(post,e)
                                 }}
                                 className="hover:shadow-form w-full rounded-md bg-VanDyke px-8 py-3 text-center text-base font-semibold text-white outline-none"
                             >
