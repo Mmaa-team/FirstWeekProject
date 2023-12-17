@@ -1,29 +1,29 @@
-import axios from 'axios';
-import React, { createContext, useEffect, useState } from 'react';
+import axios from 'axios'
+import React, { createContext, useEffect, useState } from 'react'
 
-export const MyContext = createContext();
+export const MyContext = createContext()
 
 export const ContextProvider = ({ children }) => {
-    const [sortedItems, setSortedItems] = useState([]);
-    const [handleFilter, setHandleFilter] = useState('All');
-    const [brands, setBrands] = useState([]);
-    const [filterBrands, setFilterBrands] = useState('');
-    const [category, setCategory] = useState([]);
-    const [filterCategory, setFilterCategory] = useState(null);
-    const [inputFilter, setInputFilter] = useState('');
+    const [sortedItems, setSortedItems] = useState([])
+    const [handleFilter, setHandleFilter] = useState('All')
+    const [brands, setBrands] = useState([])
+    const [filterBrands, setFilterBrands] = useState('')
+    const [category, setCategory] = useState([])
+    const [filterCategory, setFilterCategory] = useState(null)
+    const [inputFilter, setInputFilter] = useState('')
     // const [filterCollections, setFilterCollections] = useState([]);
     // const [itemCollections, setItemCollections] = useState('');
     useEffect(() => {
-        filterWithStatus();
-    }, [handleFilter, inputFilter]);
+        filterWithStatus()
+    }, [handleFilter, inputFilter])
 
     useEffect(() => {
-        fetchBrandItems();
-    }, [filterBrands]);
+        fetchBrandItems()
+    }, [filterBrands])
 
     useEffect(() => {
-        fetchCategoryItems();
-    }, [filterCategory]);
+        fetchCategoryItems()
+    }, [filterCategory])
 
     // useEffect(() => {
     //     fetchCollectionItems();
@@ -31,60 +31,68 @@ export const ContextProvider = ({ children }) => {
 
     const filterWithStatus = async () => {
         try {
-            setSortedItems([]);
+            setSortedItems([])
             if (handleFilter === 'All') {
-                const result = await axios.get('http://localhost:8080/items');
-                const filteredData = applyInputFilter(result.data);
-                setSortedItems(filteredData);
+                const result = await axios.get('http://localhost:8080/items')
+                const filteredData = applyInputFilter(result.data)
+                setSortedItems(filteredData)
             } else {
-                const result = await axios.get(`http://localhost:8080/items/item/status/${handleFilter}`);
-                const filteredData = applyInputFilter(result.data);
-                setSortedItems(filteredData);
+                const result = await axios.get(
+                    `http://localhost:8080/items/item/status/${handleFilter}`
+                )
+                const filteredData = applyInputFilter(result.data)
+                setSortedItems(filteredData)
             }
         } catch (error) {
-            console.error(error);
+            console.error(error)
         }
-    };
+    }
 
     const applyInputFilter = (data) => {
         if (inputFilter) {
-            return data.filter(item =>
+            return data.filter((item) =>
                 item.name.toLowerCase().includes(inputFilter.toLowerCase())
-            );
+            )
         }
-        return data;
-    };
+        return data
+    }
 
     const fetchBrandItems = async () => {
         try {
-            setSortedItems([]);
-            const result = await axios.get(`http://localhost:8080/brands`);
-            setBrands(result.data);
+            setSortedItems([])
+            const result = await axios.get(`http://localhost:8080/brands`)
+            setBrands(result.data)
 
             if (filterBrands) {
-                const brandResult = await axios.get(`http://localhost:8080/collections/item/${filterBrands}`);
-                setSortedItems(brandResult.data[0]?.items || []);
+                const brandResult = await axios.get(
+                    `http://localhost:8080/collections/item/${filterBrands}`
+                )
+                setSortedItems(brandResult.data[0]?.items || [])
             }
         } catch (error) {
-            console.error(error);
+            console.error(error)
         }
-    };
+    }
 
     const fetchCategoryItems = async () => {
         try {
-            setSortedItems([]);
-            const result = await axios.get('http://localhost:8080/items');
-            const uniqueCategories = Array.from(new Set(result.data.map(item => item.category)));
-            setCategory(uniqueCategories);
+            setSortedItems([])
+            const result = await axios.get('http://localhost:8080/items')
+            const uniqueCategories = Array.from(
+                new Set(result.data.map((item) => item.category))
+            )
+            setCategory(uniqueCategories)
 
             if (filterCategory) {
-                const categoryResult = await axios.get(`http://localhost:8080/items/brands/${filterCategory}`);
-                setSortedItems(categoryResult.data);
+                const categoryResult = await axios.get(
+                    `http://localhost:8080/items/brands/${filterCategory}`
+                )
+                setSortedItems(categoryResult.data)
             }
         } catch (error) {
-            console.error(error);
+            console.error(error)
         }
-    };
+    }
 
     // const fetchCollectionItems = async () => {
     //     try {
@@ -125,7 +133,7 @@ export const ContextProvider = ({ children }) => {
         >
             {children}
         </MyContext.Provider>
-    );
-};
+    )
+}
 
-export default ContextProvider;
+export default ContextProvider

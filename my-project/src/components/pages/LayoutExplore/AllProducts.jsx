@@ -45,11 +45,10 @@ const Item = ({ collectionId, status, gender, name, price, image }) => {
             </Link>
 
             <FaHeart
-                className={`heart-icon ${like ? 'text-red-500 ' : ''} ${
-                    likeAnimation
-                        ? 'absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 scale-150 transform transition-all'
-                        : 'relative self-end'
-                } cursor-pointer text-3xl`}
+                className={`heart-icon ${like ? 'text-red-500 ' : ''} ${likeAnimation
+                    ? 'absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 scale-150 transform transition-all'
+                    : 'relative self-end'
+                    } cursor-pointer text-3xl`}
                 onClick={() => {
                     setLike(!like)
                     setLikeAnimation(!likeAnimation)
