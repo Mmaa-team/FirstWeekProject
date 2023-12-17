@@ -14,7 +14,8 @@ exports.getFavItem = async (req, res) => {
                 }
             ]
         })
-        res.status(200).send(fav)
+        console.log(fav[0].items)
+        res.status(200).send(fav[0].items)
     } catch (err) {
         res.status(400).send(err)
     }
