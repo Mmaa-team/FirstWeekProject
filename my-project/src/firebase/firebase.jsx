@@ -1,13 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAuth } from 'firebase/auth'
-let apiKey = import.meta.env.VITE_apiKey
-let authDomain = import.meta.env.VITE_authDomain
-let projectId = import.meta.env.VITE_projectId
-let storageBucket = import.meta.env.VITE_storageBucket
-let messagingSenderId = import.meta.env.VITE_messagingSenderId
-let appId = import.meta.env.VITE_appId
-
 import { getAnalytics } from "firebase/analytics";
 import { getStorage} from "firebase/storage"
 
