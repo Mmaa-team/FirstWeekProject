@@ -5,7 +5,7 @@ import Sidebar from "./Sidebar.jsx";
 function ExploreLayout() {
   return (
     <>
-      <div className="layoutExplore  flex pb-10">
+      <div className="layoutExplore  flex ">
       <Sidebar />
         <Outlet />
       </div>

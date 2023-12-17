@@ -5,7 +5,7 @@ import {
 } from 'react-router-dom'
 import { RouterProvider } from 'react-router'
 import { lazy, Suspense } from 'react'
-
+import Load from './Load.jsx'
 import Layout from './components/Layout/Layout.jsx'
 import NotFound404 from './Components/NotFound404.jsx'
 const Signup = lazy(() => import('./components/auth/signup.jsx'))
@@ -25,6 +25,8 @@ const Allproducts = lazy(
 const Productdetails = lazy(
   () => import('./components/pages/LayoutExplore/Productdetails.jsx')
 )
+//favorite
+const MyFavorite=lazy(()=> import ('./components/pages/MyFavorite.jsx'))
 // Home:
 const Home = lazy(() => import("./components/pages/Home.jsx"));
 
@@ -38,7 +40,8 @@ function App() {
           <Route path="/About" element={<About />} />
          
           <Route path="/statistic" element={<Statistics />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/myfavorite/:id" element={<MyFavorite />}/>
+          <Route path="/profile/:id" element={<Profile />} />
           <Route path="explore" element={<ExploreLayout />}>
             <Route
               path="allProducts"
@@ -62,7 +65,7 @@ function App() {
 
   return (
     <div className="App ">
-      <Suspense fallback={'load'}>
+      <Suspense fallback={<Load/>}>
         <RouterProvider router={router}></RouterProvider>
       </Suspense>
     </div>

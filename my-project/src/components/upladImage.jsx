@@ -3,14 +3,14 @@ import { storage } from '../firebase/firebase.jsx'
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage'
 import { v4 } from 'uuid'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
 
-const UploadImage = ({ change, setUploaded, uploaded }) => {
+const UploadImage = ({ change, setUploaded, uploaded, id }) => {
     const [imageUpload, setImageUpload] = useState(null)
     const [chang, setChang] = useState(null)
     const [kind, setKind] = useState('')
     const [post, setPost] = useState('')
 
+    //////////////:///////////change bg image//////////////////////////////////
     const changeBgImage = async (e) => {
         e.preventDefault()
 
@@ -19,15 +19,15 @@ const UploadImage = ({ change, setUploaded, uploaded }) => {
 
         const downloadurl = await getDownloadURL(imageRef)
         await axios
-            .put(`http://localhost:8080/creators/bgimage/1`, {
+            .put(`http://localhost:8080/creators/bgimage/${id}`, {
                 bgImage: downloadurl,
             })
             .then(() => {
                 setUploaded(!uploaded)
             })
     }
-
-    const addPost = async (status,e) => {
+    //////////////////////add post///////////////////////////////////////////
+    const addPost = async (status, e) => {
         e.preventDefault()
         console.log('a')
         const imageRef = ref(storage, `img/${imageUpload.name + v4()}`)
@@ -35,7 +35,7 @@ const UploadImage = ({ change, setUploaded, uploaded }) => {
 
         const downloadurl = await getDownloadURL(imageRef)
         await axios
-            .post(`http://localhost:8080/posts/1`, {
+            .post(`http://localhost:8080/posts/${id}`, {
                 image: downloadurl,
                 status: status,
             })
@@ -48,6 +48,7 @@ const UploadImage = ({ change, setUploaded, uploaded }) => {
             })
     }
 
+    //////////////////////:change pf image//////////////////////////////////////
     const changePfImage = async (e) => {
         e.preventDefault()
         const imageRef = ref(storage, `img/${imageUpload.name + v4()}`)
@@ -55,13 +56,15 @@ const UploadImage = ({ change, setUploaded, uploaded }) => {
 
         const downloadurl = await getDownloadURL(imageRef)
         await axios
-            .put(`http://localhost:8080/creators/pfimage/1`, {
+            .put(`http://localhost:8080/creators/pfimage/${id}`, {
                 pfImage: downloadurl,
             })
             .then(() => {
                 setUploaded(!uploaded)
             })
     }
+
+    ////////////////////////////:edit profile details//////////////////////////////::
     const handleChange = (kind, chang, e) => {
         e.preventDefault()
         var obj = {}
@@ -69,11 +72,12 @@ const UploadImage = ({ change, setUploaded, uploaded }) => {
         console.log(obj)
         console.log(kind, chang)
         axios
-            .put(`http://localhost:8080/creators/${kind}/1`, obj)
+            .put(`http://localhost:8080/creators/${kind}/${id}`, obj)
             .then((response) => console.log(response))
             .catch((error) => console.error(error))
     }
 
+    ////////////////////////////////render forms////////////////////////////////////
     if (change === 'bgimage')
         return (
             <div className="flex items-center justify-center p-12 backdrop-blur-lg">
@@ -318,7 +322,7 @@ const UploadImage = ({ change, setUploaded, uploaded }) => {
                             <button
                                 onClick={async (e) => {
                                     console.log('testing add post')
-                                    addPost(post,e)
+                                    addPost(post, e)
                                 }}
                                 className="hover:shadow-form w-full rounded-md bg-VanDyke px-8 py-3 text-center text-base font-semibold text-white outline-none"
                             >

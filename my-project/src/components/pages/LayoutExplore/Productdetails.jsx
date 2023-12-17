@@ -1,12 +1,16 @@
 import axios from 'axios'
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { NavLink, useParams } from 'react-router-dom'
 import { BsBag } from 'react-icons/bs'
 import { FaArrowLeftLong } from 'react-icons/fa6'
-
+import { toast, ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import { userContext } from '../../../Usercontext.jsx'
+import LikeAlsoDetails from './LikeAlsoDetails'
 function Productdetails() {
     const { collectionId, name } = useParams()
-    const [data, setData] = useState('')
+    const [data, setData] = useState([])
+    const { currentUser } = useContext(userContext)
 
     useEffect(() => {
         const fetchData = async () => {
@@ -27,8 +31,8 @@ function Productdetails() {
     }, [collectionId, name])
 
     return (
-        <div>
-            <div className="constainer lg:grid lg:grid-flow-col flex flex-col  items-center gap-5   rounded-lg bg-white  p-10">
+        <div className="py-10">
+            <div className="constainer   flex  h-full flex-col items-center gap-5 rounded-lg bg-white   p-10 lg:grid  lg:grid-flow-col">
                 <div className="desc flex flex-col gap-8">
                     <NavLink className={'  w-fit'} to="/explore/allProducts">
                         <FaArrowLeftLong className="text-lg transition-all hover:translate-x-[-8px] " />
@@ -68,6 +72,8 @@ function Productdetails() {
                     </button>
                 </div>
             </div>
+            <LikeAlsoDetails data={data} />
+            <ToastContainer />
         </div>
     )
 }

@@ -1,26 +1,26 @@
-import React from "react";
+import React from 'react'
 
-
-const PostsImages = ({posts,creator})=> {
+const PostsImages = ({ posts, creator }) => {
     return (
         <div>
-        <div className="mt-5 mb-5 ml-5">
-        <span className="mr-32 font-['SF Pro Display']">Photos</span>
-        <button className="font-['SF Pro Display']">See all photos </button>
-
+            <div className="mb-5 ml-5 mt-5">
+                <span className="font-['SF Pro Display'] mr-32">Photos</span>
+                <button className="font-['SF Pro Display']">
+                    See all photos{' '}
+                </button>
+            </div>
+            <div className="ml-5 mr-5 flex-row">
+                {posts.map((post) => {
+                    return (
+                        <img
+                            className="mb-2 mr-2 h-[91px] w-[95px] rounded"
+                            src={post.image}
+                        />
+                    )
+                })}
+            </div>
         </div>
-        <div className="ml-5 mr-5 flex-row">
-
-        {
-            posts.map((post)=>{
-                return <img className="w-[95px] h-[91px] mr-2 mb-2 rounded" src={post.image}/>
-            })
-            
-        }
-        </div>
-        </div>
-        )
+    )
 }
-
 
 export default PostsImages
