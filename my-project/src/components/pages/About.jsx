@@ -105,7 +105,7 @@ function firstDesc() {
 
 
 
-            <div className="relative mt-8 md:mt-20">
+            <div className="relative mt-8 md:mt-20 pb-12">
                 <div className="text-center text-white text-4xl md:text-6xl font-extrabold font-sans leading-10 md:leading-14 tracking-wide">Our Makers</div>
                 <div className="text-center text-slate-900 text-opacity-50 text-lg md:text-xl font-medium font-sans leading-7 md:leading-9 mt-8">Our community at <strong> FancyMama</strong>{" "} is a diverse tapestry of trendsetters and fashion enthusiasts. Whether you're a creator shaping the scene or a discerning shopper, our members form the core of a shared love for style and luxury. Join us in the celebration of individuality and expression at FancyMama, where every member contributes to the vibrant world of fashion.</div>
 
@@ -113,9 +113,9 @@ function firstDesc() {
                     {teamMembers.map((member, index) => (
                         <div key={index} className="relative w-[320px] flex flex-wrap flex-col items-center">
                             <img className="h-72 md:h-96 rounded mb-2 w-[300px]" src={member.image} alt={member.name} />
-                            <div className="text-center text-slate-600 text-xl md:text-2xl font-semibold font-sans tracking-wide mb-1">{member.name}</div>
-                            <div className="w-32 h-9 p-2.5 bg-white bg-opacity-20 rounded-full justify-center items-center gap-2.5 inline-flex">
-                                <div className=" text-slate-600 text-base md:text-lg font-medium font-sans tracking-tight">{member.role}</div>
+                            <div className="text-center text-slate-600 text-xl md:text-2xl font-semibold font-sans tracking-wide mb-1 italic">{member.name}</div>
+                            <div className="w-32 h-9 p-2.5 bg-[#73370996] bg-opacity-20 rounded-full justify-center items-center gap-2.5 inline-flex">
+                                <div className=" text-[#fffafadf] text-base md:text-lg font-meduim font-serif tracking-tight">{member.role}</div>
                             </div>
                         </div>
                     ))}
