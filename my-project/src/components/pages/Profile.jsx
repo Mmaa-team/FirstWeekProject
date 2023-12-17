@@ -1,10 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { FaPen } from 'react-icons/fa'
 import { FaCamera } from 'react-icons/fa'
+import { IoIosAddCircleOutline } from "react-icons/io"
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
-import { useContext } from 'react'
-import { MyContext } from '../../MyContext.jsx'
 import UploadImage from '../upladImage.jsx'
 import PostsImages from '../PostsImages.jsx'
 import Posts from '../Posts.jsx'
@@ -45,16 +44,15 @@ const Profile = () => {
  
     return (
         <>
-            <div className="h-screen min-h-full w-full  ">
+            <div className="h-fit min-h-full w-full px-12 py-7">
                 <div className=" relative flex w-full flex-col items-center justify-center p-10">
                     <div className="relative">
                         <img
-                            className="bg-container  h-[355px] w-[1040px] rounded-[5px] bg-black bg-opacity-50 brightness-50"
+                            className="bg-container  md: h-[355px] md: w-[1040px] rounded-[5px] bg-Liver bg-opacity-10 brightness-50"
                             src={creator.bgImage}
                         />
                         <div
                             ref={edit}
-                            data-bgImage="bgimage"
                             onClick={() => {
                                 setChange("bgimage")
                                 setView(!view)
@@ -83,7 +81,7 @@ const Profile = () => {
                             <FaCamera className="text-md    bg-Liver text-white " />
                         </div>
                     </div>
-                    <p className=" font-['SF Pro Display'] bottom-[50px] w-fit text-[28px] font-semibold text-VanDyke md:absolute md:bottom-[67px]">
+                    <p className=" font-['SF Pro Display'] bottom-[50px] text-center w-fit text-[28px] font-semibold text-VanDyke md:absolute md:bottom-[67px]">
                         {creator.fullName}
                     </p>
 
@@ -93,23 +91,25 @@ const Profile = () => {
                                 setView(!view)
                                 setChange("profile")
                                 console.log(change)
-                            }}  className=" absolute bottom-0 flex h-[45px] w-[164px] items-center justify-center gap-2.5 rounded-[150px] bg-VanDyke p-2.5 md:bottom-[90px] md:right-[230px]">
+                            }}  className=" absolute   flex h-[45px] w-[164px] items-center justify-center gap-2.5 rounded-[150px] bg-VanDyke p-2.5 md:bottom-[90px] md:right-[00px]">
                         <span className="font-['SF Pro Display'] absolute text-base font-semibold text-white">
                             Edit Profile
                         </span>
                     </div>
+                   
 
-                    <div className="font-['SF Pro Display'] w-fit text-center text-base font-normal leading-[25px] text-VanDyke text-opacity-80 md:absolute md:bottom-[-4px] md:w-[896px]">
+                    <span className="font-['SF Pro Display']  w-fit text-center text-base font-normal leading-[25px] text-VanDyke text-opacity-80 md:absolute md:bottom-[-4px] md:w-[896px]">
                         {creator.bio}
-                    </div>
+                    </span>
                 </div>
                 <div>
                     {view && <UploadImage uploaded={uploaded} setUploaded={setUploaded} change={change} />}
                   
                 </div>
-
+                <IoIosAddCircleOutline onClick={()=>{setChange("post")
+            setView(!view)}} className='bg-Liver rounded-[150px] text-white mb-5' size={30}/>
          <div className='flex flex-col md:flex-row'>
-         <div className="w-[345px] h-[371px] bg-white bg-opacity-10 rounded-[5px] ">
+         <div className="w-[345px] h-[371px] bg-white bg-opacity-10 rounded-[5px] mr-24 ">
                 <PostsImages posts={posts} creator={creator}/>
             </div>
             <div>
