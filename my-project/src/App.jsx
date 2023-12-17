@@ -24,6 +24,8 @@ const Allproducts = lazy(
 const Productdetails = lazy(
   () => import('./components/pages/LayoutExplore/Productdetails.jsx')
 )
+//favorite
+const MyFavorite=lazy(()=> import ('./components/pages/MyFavorite.jsx'))
 // Home:
 const Home = lazy(() => import("./components/pages/Home.jsx"));
 
@@ -36,6 +38,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="/About" element={<About />} />
           <Route path="/statistic" element={<Statistics />} />
+          <Route path="/myfavorite/:id" element={<MyFavorite />}/>
           <Route path="/profile" element={<Profile />} />
           <Route path="explore" element={<ExploreLayout />}>
             <Route
