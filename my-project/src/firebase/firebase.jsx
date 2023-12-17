@@ -10,7 +10,6 @@ let projectId = import.meta.env.VITE_projectId
 let storageBucket = import.meta.env.VITE_storageBucket
 let messagingSenderId = import.meta.env.VITE_messagingSenderId
 let appId = import.meta.env.VITE_appId
-
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 

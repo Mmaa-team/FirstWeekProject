@@ -57,18 +57,8 @@ const Item = ({ collectionId, status, gender, name, price, image }) => {
         </animated.div>
     )
 }
-
 function AllProducts() {
     const { setHandleFilter, sortedItems } = useContext(MyContext)
-    const [loading, setLoading] = useState(true)
-
-    useEffect(() => {
-        const timeoutId = setTimeout(() => {
-            setLoading(false)
-        }, 1500)
-
-        return () => clearTimeout(timeoutId)
-    }, [])
 
     const slideIn = useSpring({
         opacity: 1,
@@ -138,14 +128,10 @@ function AllProducts() {
                     </select>
                 </div>
                 <div className="grid grid-cols-1 gap-2 pt-16 md:grid-cols-2 xl:grid-cols-3">
-                    {loading ? (
-                        <p>Loading...</p>
-                    ) : (
-                        sortedItems.length > 0 &&
+                    {sortedItems.length > 0 &&
                         sortedItems.map((item) => (
                             <Item key={item.collectionId} {...item} />
-                        ))
-                    )}
+                        ))}
                 </div>
             </div>
         </animated.div>
