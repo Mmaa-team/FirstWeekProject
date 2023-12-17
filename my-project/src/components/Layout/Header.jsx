@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { IoIosArrowDown } from 'react-icons/io'
 import { FaCartArrowDown } from 'react-icons/fa'
 
@@ -12,6 +12,7 @@ function Header() {
     const [showNav, setShowNav] = useState(false)
     const [showExploreNav, setShowExploreNav] = useState(false)
     const [showMoreNav, setShowMoreNav] = useState(false)
+    const [showProfile, setShowProfile] = useState(false)
 
     return (
         <header
@@ -25,7 +26,7 @@ function Header() {
             <div className="min-h-20 container relative flex h-full w-full min-w-full items-start gap-3 px-8 py-3 lg:items-center ">
                 <div className="div flex w-11/12 flex-col  lg:w-full lg:flex-row lg:items-center lg:gap-14 ">
                     <div className="logo  text-2xl font-bold ">
-                        <h1>Hello</h1>
+                        <Link to={'/'}>Hello</Link>
                     </div>
 
                     <ul
@@ -48,23 +49,23 @@ function Header() {
                             <NavLink>Home</NavLink>
                         </li>
                         <li>
-                            <NavLink
-                                className="flex items-center"
+                            <div
+                                className="flex items-center "
                                 onClick={() => {
                                     setShowExploreNav(!showExploreNav)
                                     setShowMoreNav(false)
                                 }}
                             >
                                 Explore <IoIosArrowDown />
-                            </NavLink>
+                            </div>
                             <ul
                                 className={`lg:bg-main_color3 relative flex h-max w-1/2  flex-col gap-3 overflow-hidden text-white  lg:absolute lg:w-[200px] lg:translate-y-[20px] ${showExploreNav
                                     ? 'opacity-1 max-h-screen'
                                     : 'max-h-0 opacity-0'
                                     } transition-all`}
                             >
-                                <li className="w-screen border-b py-2 pl-5 transition-all hover:pl-5">
-                                    <NavLink to="explore/allProducts">
+                                <li className="w-screen border-b bg-[#97928f4d] py-2 pl-5 transition-all hover:pl-5 lg:mt-1">
+                                    <NavLink to="explore/allProducts ">
                                         All Products
                                     </NavLink>
                                 </li>
@@ -97,8 +98,7 @@ function Header() {
                                     : 'max-h-0 opacity-0'
                                     } transition-all`}
                             >
-                                <li className=" w-screen border-b py-2 pl-5 transition-all hover:pl-5 ">
-
+                                <li className=" mt-1 w-screen border-b bg-[#97928f4d] py-2 pl-5 transition-all hover:pl-5">
                                     <NavLink to={'/statistic'}>
                                         Statistics
                                     </NavLink>
@@ -116,7 +116,7 @@ function Header() {
                     </ul>
                 </div>
 
-                <div className="flex items-center gap-14">
+                <div className="relative flex items-center gap-14">
                     <div
                         className="wallet hidden     items-center  gap-3 text-white
                     lg:flex"
@@ -126,15 +126,56 @@ function Header() {
                         <NavLink className="cursor-pointer rounded-lg border px-5 py-1">
                             Wallet
                         </NavLink>
-                        <span className="flex cursor-pointer items-center gap-3">
+                        <span
+                            className="flex cursor-pointer items-center gap-3"
+                            onClick={() => setShowProfile(!showProfile)}
+                        >
                             <IoIosArrowDown />
                             <img
                                 src=""
                                 className="h-9 w-9 rounded-full border-none bg-black"
                                 alt=""
                             />
+                            {/* {showProfile && ( */}
+                            <div
+                                className={` ${!showProfile
+                                        ? 'invisible opacity-0'
+                                        : 'visible opacity-100'
+                                    }  absolute flex flex-col   transition-all lg:bottom-[-101px] lg:left-36`}
+                                onMouseLeave={() => setShowProfile(false)}
+                            >
+                                <NavLink
+                                    to={'/profile'}
+                                    className="mb-1 bg-[#97928f4d] px-10 py-2"
+                                >
+                                    Profile
+                                </NavLink>
+
+                                <Link className="bg-[#97928f4d] px-10 py-2">
+                                    Logout
+                                </Link>
+                            </div>
+                            {/* )} */}
                         </span>
                     </div>
+
+                    {/* <div
+                        className="profile hidden     items-center  gap-3 text-white
+                    lg:flex"
+                    >
+                        <NavLink
+                            to={'/signup'}
+                            className="cursor-pointer rounded-lg border px-5 py-1"
+                        >
+                            Login
+                        </NavLink>
+                        <NavLink
+                            to={'signin'}
+                            className="cursor-pointer rounded-lg border px-5 py-1"
+                        >
+                            SignIn
+                        </NavLink>
+                    </div> */}
 
                     <HiMiniBars3BottomRight
                         onClick={() => setShowNav(!showNav)}

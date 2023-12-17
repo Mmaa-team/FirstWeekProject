@@ -565,7 +565,11 @@ const Quetions = () => {
         },
         {
             oneLabel: "Your Thoughts Matter"
-        },
+        }
+    ]
+
+    const SecondLabel = [
+
         {
             oneLabel: "Let Us Know Your Insights"
         },
@@ -575,7 +579,10 @@ const Quetions = () => {
         {
             oneLabel: "Detail Your Feedback"
         }
+
     ]
+
+
     return (
 
         <div className="flex flex-col lg-flex-row justify-center items-center">
@@ -583,13 +590,25 @@ const Quetions = () => {
             <p className="text-[#3b3b3b] m-6 text-center w-[600px]">
                 Get the answers you need quickly and effortlessly with our Frequently Asked Questions—your key to a smooth and informed <strong>FancyMama</strong> experience.
             </p>
-            <div className="flex items-center  justify-around flex-col lg:flex-row gap-6 p-6 pt-8 mb-6 bg-[#6e574058]">
+            <div className="flex items-center  justify-around flex-col gap-6 p-6 pt-8 mb-6 bg-[#6e574058]">
                 <p className="text-[#734532] font-bold" >Wanna Ask Something?</p>
-                <div className="flex flex-col gap-4 w-96  ">
-                    {allLabels.map((holder, i) => {
-                        return <InputQuetions key={i} {...holder} />
-                    })}
+
+                <div className="flex gap-4 flex-col lg:flex-row">
+                    <div className="flex flex-col w-96  ">
+                        {allLabels.map((holder, i) => {
+                            return <InputQuetions key={i} {...holder} />
+                        })}
+
+                    </div>
+                    <div className="flex flex-col  w-96  ">
+                        {SecondLabel.map((holder, i) => {
+                            return <InputQuetions key={i} {...holder} />
+                        })}
+
+                    </div>
                 </div>
+
+
 
             </div>
         </div>
@@ -598,6 +617,7 @@ const Quetions = () => {
 const InputQuetions = ({ oneLabel }) => {
     const [label, setLabel] = useState(false)
     // console.log(oneLabel);  
+
     return (
 
         <div className="flex flex-col">
