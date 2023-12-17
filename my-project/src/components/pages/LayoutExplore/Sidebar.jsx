@@ -57,13 +57,6 @@ function Sidebar() {
             ],
         },
 
-        {
-            icon: <MdCollectionsBookmark className={`text-2xl lg:hidden`} />,
-            name: 'Collections',
-            list: filterCollections.map((collection) => ({
-                text: collection,
-            })),
-        },
         // {
         //     icon: <MdCollectionsBookmark className={`text-2xl lg:hidden`} />,
         //     name: 'Collections',
@@ -76,19 +69,23 @@ function Sidebar() {
         {
             icon: <FaStar className={`text-2xl lg:hidden`} />,
             name: 'Brands',
-            list: brands.map((brand) => ({
-                text: brand.brandName,
-                brandId: brand.id,
-            })),
+            list: brands.length
+                ? brands.map((brand) => ({
+                      text: brand.brandName,
+                      brandId: brand.id,
+                  }))
+                : [],
         },
 
         {
             icon: <SiAntdesign className={`text-2xl lg:hidden`} />,
             name: 'Category',
-            list: category.map((category) => ({
-                text: category,
-                category: category,
-            })),
+            list: category.length
+                ? category.map((categoryItem) => ({
+                      text: categoryItem,
+                      category: categoryItem,
+                  }))
+                : [],
         },
     ]
 
@@ -109,8 +106,9 @@ function Sidebar() {
             }}
         >
             <div
-                className={`  ${sidebar ? 'w-[200px]' : ''
-                    } container sticky top-0 flex h-full w-20 flex-col   gap-4 rounded-lg p-2 text-VanDyke shadow-md transition-all    lg:w-[200px]  `}
+                className={`  ${
+                    sidebar ? 'w-[200px]' : ''
+                } container sticky top-0 flex h-full w-20 flex-col   gap-4 rounded-lg p-2 text-VanDyke shadow-md transition-all    lg:w-[200px]  `}
             >
                 <div className="log flex items-center gap-2 text-white ">
                     <HiBars3BottomLeft
@@ -118,8 +116,9 @@ function Sidebar() {
                         className="text-2xl"
                     />
                     <h3
-                        className={`text-xl ${sidebar ? 'block' : 'hidden'
-                            }  md:block`}
+                        className={`text-xl ${
+                            sidebar ? 'block' : 'hidden'
+                        }  md:block`}
                     >
                         Filter
                     </h3>
@@ -139,22 +138,25 @@ function Sidebar() {
                             >
                                 {tab.icon}
                                 <span
-                                    className={`${sidebar ? 'block' : 'hidden'
-                                        }  lg:block`}
+                                    className={`${
+                                        sidebar ? 'block' : 'hidden'
+                                    }  lg:block`}
                                 >
                                     {tab.name}
                                 </span>
                                 <IoIosArrowDown
-                                    className={` transition-all ${openTab === index ? 'rotate-180' : ''
-                                        }  `}
+                                    className={` transition-all ${
+                                        openTab === index ? 'rotate-180' : ''
+                                    }  `}
                                 />
                             </div>
 
                             <ul
-                                className={` ${openTab === index
-                                    ? 'opacity  visible ml-4 max-h-screen '
-                                    : 'invisible m-0 max-h-0 opacity-0'
-                                    }  mt-2    flex-col gap-3 transition-all`}
+                                className={` ${
+                                    openTab === index
+                                        ? 'opacity  visible ml-4 max-h-screen '
+                                        : 'invisible m-0 max-h-0 opacity-0'
+                                }  mt-2    flex-col gap-3 transition-all`}
                             >
                                 {tab.list.map(
                                     (
@@ -180,9 +182,9 @@ function Sidebar() {
                                                             className="h-6 w-4 rounded"
                                                             checked={
                                                                 selectedPriceRange[0] ===
-                                                                range[0] &&
+                                                                    range[0] &&
                                                                 selectedPriceRange[1] ===
-                                                                range[1]
+                                                                    range[1]
                                                             }
                                                             onChange={() =>
                                                                 setSelectedPriceRange(
