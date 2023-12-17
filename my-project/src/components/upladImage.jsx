@@ -192,7 +192,7 @@ const UploadImage = ({ change, setUploaded, uploaded }) => {
   <div className="w-full max-w-md bg-white rounded-lg shadow-md p-6">
     <div>
     <h2 className="text-2xl font-bold text-gray-800 mb-4">Edit Profil </h2>
-    <div class="flex items-center ps-4 border border-gray-200 rounded dark:border-gray-700">
+    <div className="flex items-center ps-4 border border-gray-200 rounded dark:border-gray-700">
     <input id="bordered-radio-1" type="radio" value="status" name="bordered-radio" className="w-4 h-4 text-Liver bg-gray-100 border-gray-300 focus:ring-Liver dark:focus:ring-Liver dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" onClick={(e)=> setKind('status')}/>
     <label for="bordered-radio-1" className="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"  >Status</label>
 </div>

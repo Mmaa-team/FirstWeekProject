@@ -12,9 +12,10 @@ const Signin = () => {
     const password = useRef()
     const [desplayp, setDesplayp] = useState(true)
     const [sign,setSign]=useState(null)
-    const [fullName,setFullName]=useState('')
-    const [email,setEmail]=useState('')
+    // const [fullName,setFullName]=useState('')
+    // const [email,setEmail]=useState('')
     const [role,setRole]=useState('user')
+    const [obj,setObj]=useState({})
    const{login,signing}=useContext(userContext)
    console.log(signing)
     const submit = () => {
@@ -27,15 +28,20 @@ const Signin = () => {
     const provider= await new GoogleAuthProvider()
      signInWithPopup(auth, provider).then((res)=>
      {
-      setEmail(res.user.email)
-      setFullName(res.user.displayName)
-      console.log(email,fullName)
+      // setEmail(res.user.email)
+      // // setFullName(res.user.displayName)
+      // const email=res.user.email
+      // const fullName=res.user.displayName
+      // console.log(email.fullName)
+      setObj({email:res.user.email,fullName:res.user.displayName})
+
   
-     }).then(()=>{signing({email,fullName},role)})
+     }).then(()=>{ console.log(obj);signing(obj,role)})
      .then(()=>navigate('/'))
      .catch((err)=>console.log(err))
 
    }
+   
     return (
         <div className=' flex justify-center flex-col lg:flex-row items-center h-screen  '>
             <div>

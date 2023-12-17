@@ -5,7 +5,7 @@ import {
 } from 'react-router-dom'
 import { RouterProvider } from 'react-router'
 import { lazy, Suspense } from 'react'
-
+import Load from './components/Load.jsx'
 import Layout from './components/Layout/Layout.jsx'
 import NotFound404 from './Components/NotFound404.jsx'
 const Signup = lazy(() => import('./components/auth/signup.jsx'))
@@ -33,6 +33,7 @@ function App() {
       <>
         <Route path="*" element={<NotFound404 />} />
         <Route path="/" element={<Layout />}>
+
           <Route index element={<Home />} />
           <Route path="/About" element={<About />} />
           <Route path="/statistic" element={<Statistics />} />
@@ -60,7 +61,7 @@ function App() {
 
   return (
     <div className="App ">
-      <Suspense fallback={'load'}>
+      <Suspense fallback={<Load/>}>
         <RouterProvider router={router}></RouterProvider>
       </Suspense>
     </div>
