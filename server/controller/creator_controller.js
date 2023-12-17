@@ -9,8 +9,8 @@ try {
   })
   res.send(creator)
 }
-catch {
-  res.send("error")
+catch (error) {
+  res.send(error)
 }
 }
 const getAllCreators = async(req,res)=> {
@@ -18,8 +18,8 @@ const getAllCreators = async(req,res)=> {
     const creators = await Creator.findAll()
     res.send(creators)
   }
-  catch {
-    res.status(404).send("error")
+  catch(error) {
+    res.status(404).send(error)
   }
 }
 const updatePfImage=async(req,res)=>{
@@ -61,8 +61,8 @@ const updateAdress=async(req,res)=>{
           })
         res.status(200).send("successful")
     }
-    catch {
-        res.status(404).send("error")
+    catch(error) {
+        res.status(404).send(error)
     }
 }
 const updateBio=async(req,res)=>{
@@ -75,8 +75,8 @@ const updateBio=async(req,res)=>{
           })
         res.status(200).send("successful")
     }
-    catch {
-        res.status(404).send("error")
+    catch (error){
+        res.status(404).send(error)
     }
 }
 const updateStatus=async(req,res)=>{
@@ -89,8 +89,8 @@ const updateStatus=async(req,res)=>{
           })
         res.status(200).send("successful")
     }
-    catch {
-        res.status(404).send("error")
+    catch(error) {
+        res.status(404).send(error)
     }
 }
 module.exports = {updatePfImage,updateBgImage,updateAdress,updateBio,updateStatus,getAllCreators,getOneCreator}
