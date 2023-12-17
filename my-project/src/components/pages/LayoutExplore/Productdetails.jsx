@@ -5,7 +5,7 @@ import { BsBag } from 'react-icons/bs'
 import { FaArrowLeftLong } from 'react-icons/fa6'
 import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import { userContext } from '../../../Usercontext'
+import { userContext } from '../../../Usercontext.jsx'
 import LikeAlsoDetails from './LikeAlsoDetails'
 function Productdetails() {
     const { collectionId, name } = useParams()
