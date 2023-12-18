@@ -41,7 +41,7 @@ const brands = [
 const firstButtons = () => {
     return (
         <div className="flex flex-col lg:flex-row items-center justify-around mt-20 ">
-            <Link to={"/explore"}>
+            <Link to={"/explore/allProducts"}>
                 <button className="w-60 h-12  bg-[#382e29] rounded-lg justify-center items-center text-white text-xl font-medium ">Main Collection</button>
             </Link>
             <button className="text-white text-xl font-medium w-60 h-12 px-26 bg-[#70565099] rounded-lg justify-center items-center">Creators Market</button>
@@ -60,7 +60,7 @@ const firtDiv = () => {
                 </div>
                 <div className="flex justify-center items-center gap-5 mt-3">
                     <button className=" w-40 h-12 bg-gradient-to-bl bg-[#382e29] rounded-lg justify-center items-center gap-2.3 inline-flex text-white text-xl font-medium font-['Poppins']">Explore Now</button>
-                    <Link to={"/explore"}>
+                    <Link to={"/explore/allProducts"}>
                         <button className="text-white text-xl font-medium font-['Poppins'] w-28 h-12 px-5 py-2.5 left-[181px] top-0  bg-[#70565099] rounded-lg justify-center items-center gap-2.5 inline-flex">Products</button>
                     </Link>
                 </div>

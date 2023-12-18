@@ -23,7 +23,7 @@ const UploadImage = ({ change, setUploaded, uploaded, id }) => {
                 bgImage: downloadurl,
             })
             .then(() => {
-                setUploaded(!uploaded)
+                setUploaded(false)
             })
     }
     //////////////////////add post///////////////////////////////////////////
@@ -40,8 +40,8 @@ const UploadImage = ({ change, setUploaded, uploaded, id }) => {
                 status: status,
             })
             .then((response) => {
-                console.log('b')
-                setUploaded(!uploaded)
+                setUploaded(false)
+                window.location.reload()
             })
             .catch((error) => {
                 console.log(error)
@@ -60,7 +60,7 @@ const UploadImage = ({ change, setUploaded, uploaded, id }) => {
                 pfImage: downloadurl,
             })
             .then(() => {
-                setUploaded(!uploaded)
+                setUploaded(false)
             })
     }
 
@@ -80,9 +80,9 @@ const UploadImage = ({ change, setUploaded, uploaded, id }) => {
     ////////////////////////////////render forms////////////////////////////////////
     if (change === 'bgimage')
         return (
-            <div className="flex items-center justify-center p-12 backdrop-blur-lg">
-                <div className="mx-auto w-full max-w-[550px] bg-white">
-                    <form className="px-9 py-6">
+            <div className="flex items-center justify-center lg:p-12 backdrop-blur-lg w-[500px]">
+                <div className="mx-auto w-full  bg-white">
+                    <form className="px-9 py-6 ">
                         <div className="mb-6 pt-4">
                             <label className="mb-5 block text-xl font-semibold text-VanDyke">
                                 Upload File
@@ -100,7 +100,7 @@ const UploadImage = ({ change, setUploaded, uploaded, id }) => {
                                 />
                                 <label
                                     for="file"
-                                    className="relative flex min-h-[200px] items-center justify-center rounded-md border border-dashed border-[#e0e0e0] p-12 text-center"
+                                    className="relative flex min-h-[200px] items-center justify-center rounded-md border border-dashed border-[#e0e0e0] lg:p-12 text-center"
                                 >
                                     <div>
                                         <span className="mb-2 block text-xl font-semibold text-VanDyke">
@@ -123,7 +123,7 @@ const UploadImage = ({ change, setUploaded, uploaded, id }) => {
                                     console.log('test')
                                     changeBgImage(e)
                                 }}
-                                className="hover:shadow-form w-full rounded-md bg-VanDyke px-8 py-3 text-center text-base font-semibold text-white outline-none"
+                                className="hover:shadow-form cursor-pointer w-full rounded-md bg-VanDyke px-8 py-3 text-center text-base font-semibold text-white outline-none"
                             >
                                 Send File
                             </button>
@@ -134,7 +134,7 @@ const UploadImage = ({ change, setUploaded, uploaded, id }) => {
         )
     else if (change === 'pfimage')
         return (
-            <div className="flex items-center justify-center p-12 backdrop-blur-lg">
+            <div className="flex items-center justify-center lg:p-12 backdrop-blur-lg">
                 <div className="mx-auto w-full max-w-[550px] bg-white">
                     <form className="px-9 py-6">
                         <div className="mb-6 pt-4">
@@ -154,7 +154,7 @@ const UploadImage = ({ change, setUploaded, uploaded, id }) => {
                                 />
                                 <label
                                     for="file"
-                                    className="relative flex min-h-[200px] items-center justify-center rounded-md border border-dashed border-[#e0e0e0] p-12 text-center"
+                                    className="relative flex min-h-[200px] items-center justify-center rounded-md border border-dashed border-[#e0e0e0] lg:p-12 text-center"
                                 >
                                     <div>
                                         <span className="mb-2 block text-xl font-semibold text-VanDyke">
@@ -176,7 +176,7 @@ const UploadImage = ({ change, setUploaded, uploaded, id }) => {
                                 onClick={async (e) => {
                                     changePfImage(e)
                                 }}
-                                className="hover:shadow-form w-full rounded-md bg-VanDyke px-8 py-3 text-center text-base font-semibold text-white outline-none"
+                                className="hover:shadow-form  cursor-pointer w-full rounded-md bg-VanDyke px-8 py-3 text-center text-base font-semibold text-white outline-none"
                             >
                                 Send File
                             </button>
@@ -187,7 +187,7 @@ const UploadImage = ({ change, setUploaded, uploaded, id }) => {
         )
     else if (change === 'profile')
         return (
-            <div className="flex items-center justify-center p-12 backdrop-blur-lg">
+            <div className="flex items-center justify-center lg:p-12 backdrop-blur-lg">
                 <div className="mx-auto w-full max-w-[550px] bg-white">
                     <div className="light flex h-screen flex-col items-center justify-center">
                         <div className="w-full max-w-md rounded-lg bg-white p-6 shadow-md">
@@ -257,7 +257,7 @@ const UploadImage = ({ change, setUploaded, uploaded, id }) => {
                                 />
 
                                 <button
-                                    className="mt-4 rounded-md bg-VanDyke bg-gradient-to-r to-blue-500 px-4 py-2 font-bold text-white transition duration-150 ease-in-out hover:bg-Liver hover:to-PaleDogwood"
+                                    className="mt-4 rounded-md  cursor-pointer bg-VanDyke bg-gradient-to-r to-blue-500 px-4 py-2 font-bold text-white transition duration-150 ease-in-out hover:bg-Liver hover:to-PaleDogwood"
                                     onClick={(e) => {
                                         handleChange(kind, chang, e)
                                     }}
@@ -273,9 +273,9 @@ const UploadImage = ({ change, setUploaded, uploaded, id }) => {
         )
     else if (change === 'post')
         return (
-            <div className="flex items-center justify-center p-12 backdrop-blur-lg">
-                <div className="mx-auto w-full max-w-[550px] bg-white">
-                    <form className="px-9 py-6">
+            <div className="flex items-center justify-center lg:p-12 backdrop-blur-lg">
+                <div className="mx-auto w-full  bg-white">
+                    <form className="px-9 py-6 ">
                         <div className="mb-6 pt-4">
                             <label className="mb-5 block text-xl font-semibold text-[#07074D]">
                                 Upload File
@@ -293,7 +293,7 @@ const UploadImage = ({ change, setUploaded, uploaded, id }) => {
                                 />
                                 <label
                                     for="file"
-                                    className="relative flex min-h-[200px] items-center justify-center rounded-md border border-dashed border-[#e0e0e0] p-12 text-center"
+                                    className="relative flex min-h-[200px] items-center justify-center rounded-md border border-dashed border-[#e0e0e0] lg:p-12 text-center"
                                 >
                                     <div>
                                         <span className="mb-2 block text-xl font-semibold text-[#07074D]">
@@ -324,7 +324,7 @@ const UploadImage = ({ change, setUploaded, uploaded, id }) => {
                                     console.log('testing add post')
                                     addPost(post, e)
                                 }}
-                                className="hover:shadow-form w-full rounded-md bg-VanDyke px-8 py-3 text-center text-base font-semibold text-white outline-none"
+                                className="hover:shadow-form cursor-pointer w-full rounded-md bg-VanDyke px-8 py-3 text-center text-base font-semibold text-white outline-none"
                             >
                                 Send Post
                             </button>

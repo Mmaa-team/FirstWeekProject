@@ -52,5 +52,11 @@
         "brandImage": "https://logowik.com/content/uploads/images/acne-studios9649.logowik.com.webp",
         "bgImage": "https://i.pinimg.com/564x/3c/45/d6/3c45d6e07e2b2e525991dcfb46a4a5e7.jpg",
         "status": 1
+    },
+    {
+        "brandName":"Valentino",
+        "brandImage":"https://www.1min30.com/wp-content/uploads/2019/11/Valentino-logo.jpg",
+        "bgImage":"https://i.pinimg.com/736x/58/f4/2d/58f42d1aba6272fce2bf885c0e3a2c72.jpg",
+        "status":1
     }
 ]

@@ -3,7 +3,6 @@ import { useContext, useEffect, useState } from 'react'
 import { NavLink, useParams } from 'react-router-dom'
 import { BsBag } from 'react-icons/bs'
 import { FaArrowLeftLong } from 'react-icons/fa6'
-import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { userContext } from '../../../Usercontext.jsx'
 import LikeAlsoDetails from './LikeAlsoDetails'
@@ -11,7 +10,6 @@ function Productdetails() {
     const { collectionId, name } = useParams()
     const [data, setData] = useState([])
     const { currentUser } = useContext(userContext)
-
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -55,7 +53,11 @@ function Productdetails() {
                     </div>
                 </div>
                 <div className="image">
-                    <img src={data.image} alt="" />
+                    <img
+                        className=" cursor-crosshair hover:scale-150 transition-all"
+                        src={data.image}
+                        alt=""
+                    />
                 </div>
                 <div className="by flex flex-col gap-3">
                     <button className="flex items-center gap-2 bg-VanDyke px-20 py-4 font-medium text-white hover:font-semibold">
@@ -73,7 +75,6 @@ function Productdetails() {
                 </div>
             </div>
             <LikeAlsoDetails data={data} />
-            <ToastContainer />
         </div>
     )
 }

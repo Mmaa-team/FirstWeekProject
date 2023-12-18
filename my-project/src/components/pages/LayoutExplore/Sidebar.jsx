@@ -69,12 +69,10 @@ function Sidebar() {
         {
             icon: <FaStar className={`text-2xl lg:hidden`} />,
             name: 'Brands',
-            list: brands.length
-                ? brands.map((brand) => ({
-                      text: brand.brandName,
-                      brandId: brand.id,
-                  }))
-                : [],
+            list:brands.length? brands.map((brand) => ({
+                text: brand.brandName,
+                brandId: brand.id,
+            })):[]
         },
 
         {
@@ -82,11 +80,12 @@ function Sidebar() {
             name: 'Category',
             list: category.length
                 ? category.map((categoryItem) => ({
-                      text: categoryItem,
-                      category: categoryItem,
-                  }))
-                : [],
-        },
+                    text: categoryItem,
+                    category: categoryItem,
+                }))
+                : []
+        }
+        
     ]
 
     const handleTabClick = (index) => {

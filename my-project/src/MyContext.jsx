@@ -11,6 +11,7 @@ export const ContextProvider = ({ children }) => {
     const [category, setCategory] = useState([])
     const [filterCategory, setFilterCategory] = useState(null)
     const [inputFilter, setInputFilter] = useState('')
+    const [imgDetails, setImgDetails] = useState('')
     // const [filterCollections, setFilterCollections] = useState([]);
     // const [itemCollections, setItemCollections] = useState('');
     useEffect(() => {
@@ -28,6 +29,7 @@ export const ContextProvider = ({ children }) => {
     // useEffect(() => {
     //     fetchCollectionItems();
     // }, [filterCollections, itemCollections]);
+
 
     const filterWithStatus = async () => {
         try {
@@ -67,6 +69,7 @@ export const ContextProvider = ({ children }) => {
                 const brandResult = await axios.get(
                     `http://localhost:8080/collections/item/${filterBrands}`
                 )
+                console.log(brandResult);
                 setSortedItems(brandResult.data[0]?.items || [])
             }
         } catch (error) {
@@ -129,6 +132,8 @@ export const ContextProvider = ({ children }) => {
                 // setItemCollections,
                 // filterCollections,
                 // setFilterCollections,
+                setImgDetails,
+                imgDetails
             }}
         >
             {children}

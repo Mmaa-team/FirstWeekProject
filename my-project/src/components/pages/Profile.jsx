@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import { FaPen } from 'react-icons/fa'
 import { FaCamera } from 'react-icons/fa'
 import { IoIosAddCircleOutline } from 'react-icons/io'
@@ -7,6 +7,7 @@ import axios from 'axios'
 import UploadImage from '../upladImage.jsx'
 import PostsImages from '../PostsImages.jsx'
 import Posts from '../Posts.jsx'
+import { userContext } from '../../Usercontext.jsx'
 
 const Profile = () => {
     const [creator, setCreator] = useState({})
@@ -15,9 +16,9 @@ const Profile = () => {
     const [uploaded, setUploaded] = useState(false)
     const edit = useRef()
     const [posts, setPosts] = useState([])
+    const { currentUser } = useContext(userContext)
 
-    const id = useParams()
-
+    const id = currentUser.id
 
     useEffect(() => {
         getCreator(id)
@@ -27,7 +28,7 @@ const Profile = () => {
     /////////////////////////////////////////getCreator/////////////////////////////////////////////////////////////////
     const getCreator = (id) => {
         axios
-            .get(`http://localhost:8080/creators/${id}`)
+            .get(`http://localhost:8080/creators/${id}}`)
             .then((response) => {
                 setCreator(response.data)
             })
@@ -35,7 +36,8 @@ const Profile = () => {
                 console.error(error)
             })
     }
-    
+    console.log(creator)
+    console.log(currentUser)
     ///////////////////////////////////////:get creator's posts///////////////////////////////////////////:
     const getAllPosts = (id) => {
         axios
@@ -95,9 +97,9 @@ const Profile = () => {
                             setView(!view)
                             setChange('profile')
                         }}
-                        className=" absolute   flex h-[45px] w-[164px] items-center justify-center gap-2.5 rounded-[150px] bg-VanDyke p-2.5 md:bottom-[90px] md:right-[00px]"
+                        className=" md:absolute    flex h-[45px] w-[164px] items-center justify-center gap-2.5 rounded-[150px] bg-VanDyke p-2.5 md:bottom-[90px] md:right-[00px]"
                     >
-                        <span className="font-['SF Pro Display'] absolute text-base font-semibold text-white">
+                        <span className="font-['SF Pro Display'] absolute cursor-pointer text-base font-semibold text-white">
                             Edit Profile
                         </span>
                     </div>
@@ -121,7 +123,7 @@ const Profile = () => {
                         setChange('post')
                         setView(!view)
                     }}
-                    className="mb-5 rounded-[150px] bg-Liver text-white"
+                    className="mb-5 cursor-pointer  rounded-[150px] bg-Liver text-white"
                     size={30}
                 />
                 <div className="flex flex-col md:flex-row">

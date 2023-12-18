@@ -2,7 +2,7 @@ import React, { useContext, useRef, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { IoIosArrowDown } from 'react-icons/io'
 import { FaCartArrowDown } from 'react-icons/fa'
-
+import logo from '../../assets/logo/log.png'
 import { FaRegMessage } from 'react-icons/fa6'
 import { IoIosSearch } from 'react-icons/io'
 import { HiMiniBars3BottomRight } from 'react-icons/hi2'
@@ -25,20 +25,21 @@ function Header() {
                 setShowExploreNav(false), setShowMoreNav(false)
                 setShowNav(false)
             }}
-            onMouseEnter={() => setShowProfile(false)}
         >
             <div className="min-h-20  relative flex h-full w-full items-start justify-center gap-3 px-3 py-3    lg:items-center lg:px-14 ">
                 <div className="div flex max-w-[40%]     flex-col  md:w-full lg:max-w-full lg:flex-row lg:items-center lg:gap-14 ">
                     <div className="logo  text-2xl font-bold ">
-                        <Link to={'/'}>Hello</Link>
+                        <Link to={'/'}>
+                            <img src={logo} className='h-14' />
+                        </Link>
                     </div>
 
                     <ul
                         className={`links transition-max-height items-start overflow-hidden duration-300 ${
                             showNav
-                                ? 'mt-8 max-h-screen opacity-100 '
+                                ? 'mt- max-h-screen opacity-100 '
                                 : 'm-0 max-h-0 opacity-0'
-                        } flex w-full flex-col items-start justify-center gap-4 lg:mt-0  lg:max-h-screen lg:flex-row lg:items-center
+                        } flex w-full flex-col items-start justify-center gap-4 lg:mt-3  lg:max-h-screen lg:flex-row lg:items-center
                         lg:justify-center lg:justify-self-end lg:opacity-100`}
                     >
                         {location.pathname == '/explore/allProducts' && (
@@ -81,12 +82,14 @@ function Header() {
                                     </NavLink>
                                 </li>
                                 <li className="w-screen border-b bg-[#97928f4d] py-2 pl-5 transition-all hover:bg-[#4e4a4744] hover:pl-5">
-                                    <NavLink>All creator</NavLink>
+                                    <NavLink>All creators</NavLink>
                                 </li>
                             </ul>
                         </li>
                         <li className="border-b-2 border-transparent  transition-all lg:py-2  lg:hover:border-black">
-                            <NavLink className="">Personal Collection</NavLink>
+                            <NavLink to={'/myfavorite/:id'}>
+                                Personal Collection
+                            </NavLink>
                         </li>
                         {currentUser && (
                             <li className="border-b-2 border-transparent  transition-all lg:py-2  lg:hover:border-black">
@@ -106,7 +109,7 @@ function Header() {
                                 More <IoIosArrowDown />
                             </div>
                             <ul
-                                className={`lg:bg-main_color3 relative flex h-max w-1/2  flex-col gap-2 overflow-hidden text-white  lg:absolute lg:w-[200px] lg:translate-y-[20px] ${
+                                className={`lg:bg-main_color3 lg:mt-0 relative flex h-max w-1/2  flex-col gap-2 overflow-hidden text-white  lg:absolute lg:w-[200px] lg:translate-y-[20px] ${
                                     showMoreNav
                                         ? 'opacity-1 max-h-screen'
                                         : 'max-h-0 opacity-0'
@@ -121,7 +124,7 @@ function Header() {
                                     className=" w-screen border-b bg-[#97928f4d] py-2 pl-5 transition-all  hover:bg-[#4e4a4744] hover:pl-5
                                 "
                                 >
-                                    <NavLink className=" ">Page 2</NavLink>
+                                    <NavLink to={"/About"} className=" ">About</NavLink>
                                 </li>
                             </ul>
                         </li>
@@ -145,8 +148,8 @@ function Header() {
                             >
                                 <IoIosArrowDown />
                                 <img
-                                    src={currentUser.photoURL}
-                                    className="h-10 w-10 rounded-full border-none bg-black"
+                                    src="https://valentino-cdn.thron.com/delivery/public/image/valentino/ec475334-a0c3-474c-809b-9845876bcc65/ihqstx/std/2000x0/VALENTINO-GARAVANI-NITE-OUT-SATIN-PUMP-110-MM?quality=80&size=35&format=auto"
+                                    className="h-10 w-12 rounded-full  border-none bg-black"
                                     alt=""
                                 />
                                 {showProfile && (
@@ -161,7 +164,7 @@ function Header() {
                                         }
                                     >
                                         <NavLink
-                                            to={'/profile'}
+                                            to={`/profile/${currentUser.id}`}
                                             className="mb-1 rounded-md bg-[#97928f4d] px-10 py-2  transition-colors  hover:bg-[#97928f8a]"
                                         >
                                             Profile

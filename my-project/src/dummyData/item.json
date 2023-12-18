@@ -42,5 +42,93 @@
         "description": "Double-breasted jacket features a contrast shearling neckline with an adjustable strap, with a zipper closure. Crafted from leather and lamb shearling. Detailed with adjustable straps at the neck and hem. Cut to a relaxed fit and a hip length.",
         "stock": 200,
         "collectionId": 3
+    },
+    {
+        "name": "EMBROIDERED CREPE COUTURE SHORT DRESS",
+        "status": "Available",
+        "gender": "Women",
+        "image": "https://res.cloudinary.com/dslzqcetm/image/upload/v1702892463/mkhgolvocmoajwbwk4rg.png",
+        "price": 40200,
+        "category": "Dress",
+        "description": "Short dress in embroidered Crepe Couture Rhinestone strap detail Crepe Couture (65% Virgin Wool, 35% Silk) Habotai lining (100% Silk) Length: 85 cm / 33.5 in. from the shoulders in an Italian size 40 The model is 176 cm / 5'9 tall and wears an Italian size 40 Made in Italy The look of the model is completed by a Valentino Garavani Locò Bag and Valentino Garavani Nite Out Shoes.",
+        "stock": 300,
+        "collectionId": 4
+    },
+    {
+        "name": "CREPE COUTURE SHORT DRESS",
+        "status": "Available",
+        "gender": "Women",
+        "image": "https://res.cloudinary.com/dslzqcetm/image/upload/v1702892431/z89pekhg2pijvvdsfqgj.png",
+        "price": 40200,
+        "category": "Dress",
+        "description": "Crepe Couture short dress Contrasting rose appliqué detail on the shoulders Crepe Couture (65% Virgin Wool, 35% Silk) Georgette Stretch lining (91% Viscose, 9% Elastane) Length: 90 cm / 35.8 in. from the shoulders in an Italian size 40 Sleeve length: 37 cm / 14.5 in. from the center back in an Italian size 40 The model is 176 cm / 5'9 tall and wears an Italian",
+        "stock": 300,
+        "collectionId": 4
+    },
+    {
+        "name": "SMALL CARRY SECRETS EMBROIDERED BUCKET BAG",
+        "status": "On Sale",
+        "gender": "Women",
+        "image": "https://res.cloudinary.com/dslzqcetm/image/upload/v1702892399/xqeu2g7a0thkyq0rreli.png",
+        "price": 43500,
+        "category": "Bag",
+        "description": "Valentino Garavani Carry Secrets small embroidered bucket bag. Metal handles with VLogo Signature element Satin lining. Interior: leather card slots Dimensions: W15xH12xD10 cm / W5.9xH4.7xD3.9 in. Made in Italy",
+        "stock": 120,
+        "collectionId": 4
+    },
+    {
+        "name": "VLOGO SIGNATURE PATENT LEATHER SLINGBACK PUMP 80MM / 3.15 IN.",
+        "status": "Available",
+        "gender": "Women",
+        "image": "https://res.cloudinary.com/dslzqcetm/image/upload/v1702892361/zgsipdsqithncfdqobii.png",
+        "price": 102500,
+        "category": "Shoes",
+        "description": "Valentino Garavani patent leather slingback pump with VLogo Signature embellishment. VLogo Signature detail covered in patent leather using high-frequency welding Heel height 80mm/3.15 Made in Italy",
+        "stock": 290,
+        "collectionId": 4
+    },
+    {
+        "name": "CASHMERE CARDIGAN WITH HORSEBIT",
+        "status": "Available",
+        "gender": "Women",
+        "image": "https://res.cloudinary.com/dslzqcetm/image/upload/v1702891737/fek1crzbg5ixn1vwowuq.png",
+        "price": 23500,
+        "category": "Knitwear",
+        "description": "Classic knitwear designs in sophisticated color schemes are enriched by refined details and emblematic House codes. Crafted from camel soft cashmere, this cardigan features the gold-toned metal Horsebit—a notable Gucci symbol borrowed from the equestrian world—paired with subtle leather details.",
+        "stock": 260,
+        "collectionId": 5
+    },
+    {
+        "name": "COTTON LAMÉ KNIT POLO SHIRT",
+        "status": "Incoming",
+        "gender": "Women",
+        "image": "https://res.cloudinary.com/dslzqcetm/image/upload/v1702892147/jfhjlrknmq1d88qblpw2.png",
+        "price": 13500,
+        "category": "Knitwear",
+        "description": "Distinguished textures and vibrant palettes exude a warm feeling, as one season ends and another one begins. This textured cotton sweater reveals vintage GG enamelled buttons and is further enriched with a gold lamé trim.",
+        "stock": 220,
+        "collectionId": 5
+    },
+    {
+        "name": "WOOL JACKET WITH HORSEBIT",
+        "status": "Incoming",
+        "gender": "Women",
+        "image": "https://res.cloudinary.com/dslzqcetm/image/upload/v1702892269/x6xv5kqqtkmqrl9nuw7d.png",
+        "price": 64400,
+        "category": "Jacket",
+        "description": "The season's sleek silhouette draws inspirations from the 1990s, with slim-fitting tops and slightly low-slung bottoms. The pared-down look has also been reinterpreted in a new palette with neutrals and pops of color. This clean-cut jacket is presented in camel wool and enriched with an Interlocking G and heart embroidery as well as a slim Horsebit detail.",
+        "stock": 230,
+        "collectionId": 5
+    },
+    {
+        "name": "WOMEN'S DOUBLE G RAIN BOOT",
+        "status": "Available",
+        "gender": "Women",
+        "image": "https://res.cloudinary.com/dslzqcetm/image/upload/v1702892309/vfswaea4pbgcjvcdqsdx.png",
+        "price": 8000,
+        "category": "Shoes",
+        "description": "Perfect for a rainy day, this pair of heeled boots is crafted from water-resistant rubber in earthy tones, complemented by a tonal Double G and Gucci lettering across the heel.",
+        "stock": 180,
+        "collectionId": 5
     }
 ]

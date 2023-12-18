@@ -2,11 +2,27 @@ import React, { useContext, useEffect, useState } from 'react'
 import { useSpring, animated, config } from 'react-spring'
 import { FaHeart } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
-import { MyContext } from '../../../MyContext.jsx'
+import { Toaster, toast } from 'sonner'
 
-const Item = ({ collectionId, status, gender, name, price, image }) => {
+import { MyContext } from '../../../MyContext.jsx'
+import { userContext } from '../../../Usercontext.jsx'
+import axios from 'axios'
+
+const addToFavorite = async (idUser, idProduct) => {
+    console.log(idProduct, 'p')
+    console.log(idUser, 'u')
+    try {
+        await axios.post(
+            `http://localhost:8080/favoriteItem/${idProduct}/${idUser}`
+        )
+    } catch (err) {
+        console.error(err)
+    }
+}
+const Item = ({ id, collectionId, status, gender, name, price, image }) => {
     const [like, setLike] = useState(false)
     const [likeAnimation, setLikeAnimation] = useState(false)
+    const { currentUser } = useContext(userContext)
     useEffect(() => {
         const timeoutId = setTimeout(() => {
             setLikeAnimation(false)
@@ -43,15 +59,20 @@ const Item = ({ collectionId, status, gender, name, price, image }) => {
                     <p className="item-price mt-3 text-lg">$ {price}</p>
                 </div>
             </Link>
-
             <FaHeart
-                className={`heart-icon ${like ? 'text-red-500 ' : ''} ${likeAnimation
-                    ? 'absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 scale-150 transform transition-all'
-                    : 'relative self-end'
-                    } cursor-pointer text-3xl`}
+                className={`heart-icon ${like ? 'text-red-500 ' : ''} ${
+                    likeAnimation
+                        ? 'absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 scale-150 transform transition-all'
+                        : 'relative self-end'
+                } cursor-pointer text-3xl`}
                 onClick={() => {
-                    setLike(!like)
-                    setLikeAnimation(!likeAnimation)
+                    if (!currentUser.id) {
+                        toast.error('You Need Login First')
+                    } else {
+                        setLike(!like)
+                        setLikeAnimation(!likeAnimation)
+                        addToFavorite(currentUser.id, id)
+                    }
                 }}
             />
         </animated.div>
@@ -83,7 +104,7 @@ function AllProducts() {
     }
 
     return (
-        <animated.div style={slideIn} className="all-products w-full px-6">
+        <animated.div style={slideIn} className="all-products w-full  p-6">
             <div className="container">
                 <div className="header flex items-center justify-between">
                     <p>{`${sortedItems.length} `}Items</p>
@@ -134,6 +155,7 @@ function AllProducts() {
                         ))}
                 </div>
             </div>
+            <Toaster richColors />
         </animated.div>
     )
 }
