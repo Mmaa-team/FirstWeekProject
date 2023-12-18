@@ -19,8 +19,6 @@ const getAllPosts=async (req,res)=> {
 }
 
 const addPost = async (req, res) => {
-  console.log(req.params.creatorId);
-  console.log(req.body.status);
   try {
     const post = await Post.create({
       creatorId: req.params.creatorId,
@@ -29,8 +27,8 @@ const addPost = async (req, res) => {
       image: req.body.image,
     });
     res.status(201).send("successful");
-  } catch {
-    res.status(404).send("error");
+  } catch (error) {
+    res.status(404).send(error);
   }
 };
 
@@ -46,8 +44,8 @@ const updatePostStatus = async (req, res) => {
       }
     );
     res.status(200).send(status);
-  } catch {
-    res.status(404).send("error");
+  } catch (error) {
+    res.status(404).send(error);
   }
 };
 
@@ -59,8 +57,8 @@ const deletePost = async (req, res) => {
       },
     });
     res.send("post deleted");
-  } catch {
-    res.status(404).send("error");
+  } catch (error) {
+    res.status(404).send(error);
   }
 };
 

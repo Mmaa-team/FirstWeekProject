@@ -36,7 +36,7 @@ exports.getBrandItems = async (req, res) => {
 
 exports.getItemStatus = async (req, res) => {
   const { status } = req.params;
-console.log(status);
+  console.log(status);
   try {
     const result = await Items.findAll({
       where: { status: status },

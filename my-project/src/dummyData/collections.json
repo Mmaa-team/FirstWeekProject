@@ -13,5 +13,15 @@
         "name": "Winter 2024",
         "creatorId": 5,
         "brandId": 9
+    },
+    {
+        "name": "Party collection 2023",
+        "creatorId": 4,
+        "brandId": 10
+    },
+    {
+        "name": "Cozy Winter 2024",
+        "creatorId": 1,
+        "brandId": 5
     }
 ]
